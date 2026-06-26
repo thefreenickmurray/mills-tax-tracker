@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A complete record of every tax and fee increase enacted under Governor Mills since 2019. 32 increases. No spin.">
+<title>32 Times: Maine Tax Tracker | Lead Maine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #FFFFFF;
+  --bg2:       #F7F7F5;
+  --bg3:       #EEECEA;
+  --text:      #1A1A1A;
+  --muted:     #6B7280;
+  --border:    #E2E0DC;
+  --red:       #C8281F;
+  --gold:      #9A6F1A;
+  --cat-consumer: #B45309;
+  --cat-income:   #B91C1C;
+  --cat-payroll:  #7C3AED;
+  --cat-business: #1D4ED8;
+  --cat-healthcare:#0F766E;
+  --cat-fee:      #4F46E5;
+  --cat-fiscal:   #374151;
+  --radius:    5px;
+  --mono: 'IBM Plex Mono', monospace;
+  --serif: 'Lora', Georgia, serif;
+  --cond: 'Barlow Condensed', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.6;
+}
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== MASTHEAD ===== */
+.masthead {
+  background: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--red);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.masthead-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  height: 56px;
+}
+.masthead-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+.masthead-count {
+  font-family: var(--cond);
+  font-weight: 900;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--red);
+  letter-spacing: -0.02em;
+}
+.masthead-title {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.2;
+}
+.masthead-title span { color: var(--muted); display: block; font-weight: 400; }
+.masthead-stats {
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+.mstat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px solid var(--border);
+  padding: 0 1.25rem;
+}
+.mstat-val {
+  font-family: var(--cond);
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--red);
+}
+.mstat-label {
+  font-family: var(--cond);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.masthead-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--cond);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.masthead-nav a { color: var(--muted); transition: color 0.2s; }
+.masthead-nav a:hover { color: var(--text); text-decoration: none; }
+
+/* ===== SWATCH BAR ===== */
+.swatch-bar { height: 4px; display: flex; gap: 2px; }
+.swatch { flex: 1; }
+
+/* ===== FILTER BAR ===== */
+.filter-bar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 60px;
+  z-index: 50;
+}
+.filter-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.55rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cat-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.cat-chip {
+  font-family: var(--cond);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.12s;
+  user-select: none;
+  line-height: 1.4;
+}
+.cat-chip.active { color: #fff; }
+.cat-chip:not(.active) { background: #fff; color: var(--muted); border-color: var(--border); }
+.cat-chip:not(.active):hover { color: var(--text); border-color: #aaa; }
+.cat-chip[data-cat="all"].active      { background: var(--red); border-color: var(--red); }
+.cat-chip[data-cat="consumer"].active  { background: var(--cat-consumer); border-color: var(--cat-consumer); }
+.cat-chip[data-cat="income"].active    { background: var(--cat-income); border-color: var(--cat-income); }
+.cat-chip[data-cat="payroll"].active   { background: var(--cat-payroll); border-color: var(--cat-payroll); }
+.cat-chip[data-cat="business"].active  { background: var(--cat-business); border-color: var(--cat-business); }
+.cat-chip[data-cat="healthcare"].active{ background: var(--cat-healthcare); border-color: var(--cat-healthcare); }
+.cat-chip[data-cat="fee"].active       { background: var(--cat-fee); border-color: var(--cat-fee); }
+.cat-chip[data-cat="fiscal"].active    { background: var(--cat-fiscal); border-color: var(--cat-fiscal); }
+.filter-count {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.filter-count span { color: var(--text); font-weight: 500; }
+
+/* ===== TABLE ===== */
+.table-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+thead th {
+  font-family: var(--cond);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 93px;
+  z-index: 10;
+  white-space: nowrap;
+}
+thead th:first-child { width: 44px; }
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+tbody tr:hover { background: var(--bg2); }
+tbody tr.is-open { background: #FEF9F0; }
+td { padding: 0.7rem 0.75rem; vertical-align: top; }
+td:first-child {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-top: 0.85rem;
+}
+.item-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 0.15rem;
+}
+.item-preview {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.cat-badge {
+  display: inline-block;
+  font-family: var(--cond);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.5rem;
+  border-radius: 3px;
+  color: #fff;
+  white-space: nowrap;
+}
+.change-val { font-family: var(--mono); font-size: 0.75rem; color: var(--text); line-height: 1.45; }
+.effective-val { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); white-space: nowrap; }
+.revenue-val { font-family: var(--mono); font-size: 0.74rem; color: var(--gold); }
+.revenue-na { color: var(--muted); }
+.source-val { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); line-height: 1.5; }
+.expand-row { display: none; }
+.expand-row td {
+  background: #FFFDF7;
+  padding: 0.9rem 0.9rem 0.9rem 3rem;
+  border-bottom: 2px solid var(--border);
+}
+.expand-row p {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  color: #4B5563;
+  line-height: 1.75;
+  max-width: 720px;
+}
+.expand-row p strong { color: var(--text); }
+.expand-icon {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  transition: transform 0.15s;
+  display: inline-block;
+  margin-right: 4px;
+}
+.is-open .expand-icon { transform: rotate(90deg); color: var(--red); }
+.no-results {
+  text-align: center; padding: 3rem;
+  font-family: var(--serif); font-style: italic; color: var(--muted); display: none;
+}
+
+/* ===== LOWER ===== */
+.lower-sections {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.design-prompt-box {
+  background: #FFFDF3;
+  border: 1px dashed #C9A84C;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+}
+.design-prompt-box h3 {
+  font-family: var(--cond);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.design-prompt-box h3::before {
+  content: '';
+  display: inline-block;
+  width: 5px; height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.design-prompt-box p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.85rem; }
+.prompt-code {
+  background: #1A1A1A;
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: #C9B67E;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.sources-box {
+  padding: 1.25rem 1.5rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.sources-box h3 {
+  font-family: var(--cond);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.sources-box p { font-size: 0.8rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.6rem; }
+
+/* ===== FOOTER ===== */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--cond);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .masthead-stats { display: none; }
+  .lower-sections { grid-template-columns: 1fr; }
+  .col-revenue { display: none; }
+}
+@media (max-width: 680px) {
+  .col-effective { display: none; }
+  .masthead-inner { grid-template-columns: auto 1fr; }
+  .masthead-nav { display: none; }
+}
+@media (max-width: 480px) { .col-change { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-brand">
+      <div class="masthead-count">32</div>
+      <div class="masthead-title">Times Augusta Raised Taxes<span>or Fees Since 2019</span></div>
+    </div>
+    <div class="masthead-stats">
+      <div class="mstat"><div class="mstat-val">#5</div><div class="mstat-label">Most Taxed State</div></div>
+      <div class="mstat"><div class="mstat-val">65%</div><div class="mstat-label">Spending Growth Since 2018</div></div>
+      <div class="mstat"><div class="mstat-val">$292M</div><div class="mstat-label">Rainy Day Fund Drained</div></div>
+      <div class="swatch-bar" id="swatchBar" aria-hidden="true"></div>
+</header>
+
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <div class="cat-chips" role="group" aria-label="Filter by category">
+      <button class="cat-chip active" data-cat="all">All (32)</button>
+      <button class="cat-chip" data-cat="consumer">Consumer / Sales</button>
+      <button class="cat-chip" data-cat="income">Income Tax</button>
+      <button class="cat-chip" data-cat="payroll">Payroll</button>
+      <button class="cat-chip" data-cat="business">Business</button>
+      <button class="cat-chip" data-cat="healthcare">Healthcare</button>
+      <button class="cat-chip" data-cat="fee">Fees &amp; Licenses</button>
+      <button class="cat-chip" data-cat="fiscal">Fiscal Policy</button>
+    </div>
+    <div class="filter-count">Showing <span id="visibleCount">32</span> of 32</div>
+  </div>
+</div>
+
+<main>
+<div class="table-wrap">
+  <table id="trackerTable" aria-label="Tax and fee increases under Governor Mills since 2019">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Increase</th>
+        <th>Category</th>
+        <th class="col-change">Change</th>
+        <th class="col-effective">Effective</th>
+        <th class="col-revenue">Revenue Impact</th>
+        <th>Legislative Source</th>
+      </tr>
+    </thead>
+    <tbody id="trackerBody"></tbody>
+  </table>
+  <p class="no-results" id="noResults">No increases match this filter.</p>
+</div>
+
+<script>
+const CAT_COLORS = {
+  consumer:   '#B45309',
+  income:     '#B91C1C',
+  payroll:    '#7C3AED',
+  business:   '#1D4ED8',
+  healthcare: '#0F766E',
+  fee:        '#4F46E5',
+  fiscal:     '#374151'
+};
+const CAT_LABELS = {
+  consumer:   'Consumer',
+  income:     'Income Tax',
+  payroll:    'Payroll',
+  business:   'Business',
+  healthcare: 'Healthcare',
+  fee:        'Fee / License',
+  fiscal:     'Fiscal Policy'
+};
+
+const items = [
+  { id:1,  cat:'consumer',   name:'Cigarette / Tobacco Tax',                    preview:'First increase in 20 years. Party-line Democratic vote.',                                        change:'$2.00 &#8594; $3.50/pack (+75%)',                  effective:'Jan 5, 2026',        revenue:'~$55.5M/yr',    source:'PL 2025, c. 388, Part E',           details:'First tobacco tax increase in 20 years. Per-cigarette rate: 10 cents to 17.5 cents. Smokeless tobacco: $2.02/oz to $3.54/oz. Vapes, pouches, other nicotine products: 43% to 75% of wholesale price. Passed on a party-line Democratic vote. The final rate exceeded Governor Mills\' original $1.00/pack proposal. Nearly 30% of adults earning under $25,000/yr smoke, vs. 7.4% of those earning $50,000+.' },
+  { id:2,  cat:'consumer',   name:'Streaming Services Tax (New, 5.5%)',          preview:'Netflix, Hulu, Spotify, podcasts. Previously untaxed.',                                          change:'0% &#8594; 5.5% (new)',                            effective:'Jan 1, 2026',        revenue:'Not disclosed', source:'PL 2025, c. 388, Part G',           details:'Digital audiovisual and digital audio services, including Netflix, Hulu, Spotify, and podcasts, are now subject to Maine\'s 5.5% sales tax. Previously untaxed. Governor Mills proposed this tax multiple times before it passed in the FY2026-27 biennial budget.' },
+  { id:3,  cat:'consumer',   name:'Canned Software / Electronic Products',       preview:'Software subscriptions, app downloads, electronic transfers. Previously untaxed.',                change:'0% &#8594; 5.5% (newly taxable)',                  effective:'Jan 1, 2025',        revenue:'Not disclosed', source:'HP 891 / PL 2021, c. 245',           details:'Sale, lease, rental, or license of canned computer software or electronically transferred products is now treated as a taxable sale of tangible personal property. Affects individuals and businesses purchasing software subscriptions and electronically delivered products.' },
+  { id:4,  cat:'consumer',   name:'Cannabis Sales Tax',                          preview:'Adult-use sales tax raised 40%.',                                                                  change:'10% &#8594; 14% (+40%)',                           effective:'Jan 1, 2026',        revenue:'~$7.7M/yr',     source:'PL 2025, c. 388, Part F',           details:'The adult-use cannabis sales tax rate increased from 10% to 14%, a 40% rate increase. Cannabis excise taxes on specific products were separately reduced, but the overall sales tax rate on adult-use purchases increased. Projected revenue: roughly $15.4M over the biennium.' },
+  { id:5,  cat:'consumer',   name:'Real Estate Transfer Tax (sales over $1M)',   preview:'Rate nearly tripled on the portion of sales above $1 million.',                                  change:'$2.20 &#8594; $6.00 per $500 (+173%)',             effective:'Nov 1, 2025',        revenue:'Not disclosed', source:'PL 2025, c. 388, Part V',            details:'The transfer tax rate on property value exceeding $1 million increased from $2.20 per $500 to $6.00 per $500. Thirty percent of new revenue routed to the Maine State Housing Authority. More than 1,000 Maine homes sold for $1 million or more in 2024.' },
+  { id:6,  cat:'consumer',   name:'Service Provider Tax Base Expanded',          preview:'Cable, telecom, fabrication services folded into standard sales tax; new digital services captured.',change:'6% SPT repealed; base expanded into 5.5% sales tax',effective:'Jan 1, 2026',      revenue:'Not disclosed', source:'PL 2025, c. 388',                    details:'The 6% Service Provider Tax on cable/satellite, telecom, fabrication, and rental-purchase agreements was repealed and folded into the 5.5% standard sales and use tax. Net effect: the rate dropped 0.5% on services already taxed, but the base expanded to capture streaming and other digital services not previously covered.' },
+  { id:7,  cat:'consumer',   name:'Lease-Stream Taxation Timing Changed',        preview:'Sales tax on leased property now applies to each periodic payment rather than upfront.',          change:'Taxation: upfront &#8594; periodic payments',      effective:'See source',         revenue:'Not disclosed', source:'PL 2025, c. 388',                    details:'Sales tax on leased or rented tangible personal property now applies to each periodic payment rather than to the upfront purchase price. This changes when and how the tax is collected on lease and rental transactions.' },
+  { id:8,  cat:'consumer',   name:'Tobacco Products Definition Expanded',        preview:'Synthetic nicotine products captured before the 2026 rate hike.',                                 change:'Definition expanded to include synthetic nicotine', effective:'Aug 9, 2024',        revenue:'Not disclosed', source:'PL 2023, c. 613',                    details:'The definition of "tobacco products" was amended to include products containing nicotine whether natural or artificial. This captured synthetic nicotine products under Maine\'s tobacco tax before the 2026 rate increase took effect.' },
+  { id:9,  cat:'income',     name:'2% Income Tax Surcharge on Income Over $1M',  preview:'New top marginal rate 9.15%. Retroactive to Jan 1, 2026. PTET carve-out for business owners.',   change:'7.15% &#8594; 9.15% (on income over $1M)',        effective:'Jan 1, 2026 (retro)', revenue:'~$74M/yr',      source:'LD 2212 (signed Apr 10, 2026)',      details:'A new 2% surcharge on income above $1 million, taking Maine\'s top marginal rate from 7.15% to 9.15%, retroactive to January 1, 2026. About 2,600 filers affected. Pass-through business owners (S-corps, partnerships) can elect Maine\'s Pass-Through Entity Tax (PTET) at 7.15%, avoiding the 2% surcharge personally. The surcharge falls hardest on W-2 wage earners without access to the PTET election.' },
+  { id:10, cat:'payroll',    name:'Paid Family and Medical Leave: New 1% Payroll Tax', preview:'Broadest new tax on working Mainers. Benefits available May 1, 2026, after 16 months of paying in.', change:'New 1% payroll tax (0.5% employer / 0.5% employee)', effective:'Jan 1, 2025', revenue:'Not disclosed', source:'Maine PFML Act',              details:'Maine\'s PFML program imposes a 1% payroll tax on wages up to the Social Security wage base ($176,100 in 2025). For employers with 15+ employees: 0.5% each. For employers with fewer than 15: only the employee\'s 0.5% is required. Tax began collecting January 1, 2025; benefits did not become available until May 1, 2026, a 16-month gap.' },
+  { id:11, cat:'business',   name:'BETR Eliminated for Retail Property',          preview:'Business Equipment Tax Reimbursement sunsetted for retail.',                                      change:'100% &#8594; 50% (CY2027), then 0% (CY2028+)',    effective:'CY2027',             revenue:'Not disclosed', source:'LD 2212',                             details:'The 2026 supplemental budget sunsets the Business Equipment Tax Reimbursement (BETR) program for retail property. Reimbursement drops to 50% for taxes paid on retail property in CY2027, and falls to zero for taxes paid in CY2028 and after.' },
+  { id:12, cat:'business',   name:'Federal Tax Conformity Delayed',               preview:'Maine phases in federal OBBBA relief over multiple years, not immediately.',                      change:'Immediate federal relief &#8594; phased over years', effective:'2026',              revenue:'Not disclosed', source:'LD 2212',                             details:'The supplemental budget phases in conformity with the federal One Big Beautiful Bill Act (OBBBA) over multiple years. Affected provisions include the higher OBBBA standard deduction, the charitable deduction for non-itemizers, and bonus depreciation.' },
+  { id:13, cat:'business',   name:'Decoupled from Federal Immediate Expensing / OZ', preview:'Maine opts out of federal immediate expensing and Opportunity Zone capital gains deferral.', change:'Decoupled from OBBBA expensing and OZ provisions',  effective:'2026',              revenue:'Not disclosed', source:'LD 2212',                             details:'Maine decouples from OBBBA provisions allowing immediate expensing of "qualified production property," and from the federal Opportunity Zone capital gains deferral. Businesses cannot take immediate federal expensing deductions on Maine returns.' },
+  { id:14, cat:'business',   name:'Employer Credit for FMLA Repealed',            preview:'Employer credit eliminated for tax years beginning Jan 1, 2026.',                                change:'Credit eliminated',                                effective:'Jan 1, 2026',        revenue:'Not disclosed', source:'LD 2212',                             details:'Maine\'s employer credit for family and medical leave was repealed for tax years beginning on or after January 1, 2026, as part of the 2026 supplemental budget.' },
+  { id:15, cat:'business',   name:'Business Tax Change #15',                      preview:'One of six additional business tax changes in the FY2026-27 biennial budget. Details under research.', change:'Under research',                               effective:'Under research',     revenue:'Under research', source:'PL 2025, c. 388',                    details:'One of six additional business tax changes (items 15-20) documented in the FY2026-27 biennial budget. Full legislative detail for these items is under research for this tracker. See PL 2025, c. 388 for the complete text.' },
+  { id:16, cat:'business',   name:'Business Tax Change #16',                      preview:'One of six additional business tax changes in the FY2026-27 biennial budget. Details under research.', change:'Under research',                               effective:'Under research',     revenue:'Under research', source:'PL 2025, c. 388',                    details:'One of six additional business tax changes (items 15-20) documented in the FY2026-27 biennial budget. Full legislative detail for these items is under research for this tracker. See PL 2025, c. 388 for the complete text.' },
+  { id:17, cat:'business',   name:'Business Tax Change #17',                      preview:'One of six additional business tax changes in the FY2026-27 biennial budget. Details under research.', change:'Under research',                               effective:'Under research',     revenue:'Under research', source:'PL 2025, c. 388',                    details:'One of six additional business tax changes (items 15-20) documented in the FY2026-27 biennial budget. Full legislative detail for these items is under research for this tracker. See PL 2025, c. 388 for the complete text.' },
+  { id:18, cat:'business',   name:'Business Tax Change #18',                      preview:'One of six additional business tax changes in the FY2026-27 biennial budget. Details under research.', change:'Under research',                               effective:'Under research',     revenue:'Under research', source:'PL 2025, c. 388',                    details:'One of six additional business tax changes (items 15-20) documented in the FY2026-27 biennial budget. Full legislative detail for these items is under research for this tracker. See PL 2025, c. 388 for the complete text.' },
+  { id:19, cat:'business',   name:'Business Tax Change #19',                      preview:'One of six additional business tax changes in the FY2026-27 biennial budget. Details under research.', change:'Under research',                               effective:'Under research',     revenue:'Under research', source:'PL 2025, c. 388',                    details:'One of six additional business tax changes (items 15-20) documented in the FY2026-27 biennial budget. Full legislative detail for these items is under research for this tracker. See PL 2025, c. 388 for the complete text.' },
+  { id:20, cat:'business',   name:'Business Tax Change #20',                      preview:'One of six additional business tax changes in the FY2026-27 biennial budget. Details under research.', change:'Under research',                               effective:'Under research',     revenue:'Under research', source:'PL 2025, c. 388',                    details:'One of six additional business tax changes (items 15-20) documented in the FY2026-27 biennial budget. Full legislative detail for these items is under research for this tracker. See PL 2025, c. 388 for the complete text.' },
+  { id:21, cat:'healthcare', name:'Hospital Service Provider Tax Rate Increased 46%', preview:'Rate rose from 2.23% to 3.25% of net operating revenue.',                              change:'2.23% &#8594; 3.25% (+46%)',                       effective:'Jan 1, 2025',        revenue:'~$29.5M/yr',    source:'PL 2025, c. 388',                    details:'The hospital service provider tax rate increased from 2.23% to 3.25% of net operating revenue, a 46% rate increase. Additional annual collections: roughly $29.5 million per year.' },
+  { id:22, cat:'healthcare', name:'Hospital Tax Base Year Updated (Repeated)',    preview:'Base year updated in every biennial budget under Mills, each time capturing higher revenues.',  change:'Base year updated each budget cycle',             effective:'Each biennium',      revenue:'Not disclosed', source:'LD 2212 and prior budgets',           details:'The base year used to calculate the hospital service provider tax has been updated in every biennial budget under Governor Mills, each time capturing higher hospital revenues. Each update is a de facto tax increase on hospitals without changing the nominal rate.' },
+  { id:23, cat:'business',   name:'PTDZ, ETIF, and MCIC Programs Sunset',         preview:'Major business incentive programs replaced by less generous Dirigo Business Incentive.',     change:'PTDZ/ETIF/MCIC &#8594; Dirigo Business Incentive', effective:'See source',         revenue:'Not disclosed', source:'FY2026-27 biennial budget',            details:'The Pine Tree Development Zone (PTDZ), Employment Tax Increment Financing (ETIF), and Maine Capital Investment Credit (MCIC) programs were sunset and replaced by the Dirigo Business Incentive, which is less generous than the programs it replaced.' },
+  { id:24, cat:'income',     name:'Pension Exemption Phase-Out Added',             preview:'Phase-out of pension income exemption added for higher-income filers.',                        change:'Phase-out added for higher earners',               effective:'See source',         revenue:'Not disclosed', source:'FY2026-27 biennial budget',            details:'A phase-out of Maine\'s pension income exemption was added for higher-income filers. This reduces the tax benefit available to higher-earning retirees, effectively increasing their Maine income tax liability.' },
+  { id:25, cat:'fee',        name:'Senior Property Tax Freeze: Enacted then Repealed', preview:'Program created one year, repealed the next. 100% of Democrats voted to repeal it.',  change:'Enacted, then repealed within one year',           effective:'2023-2024',          revenue:'Not applicable', source:'FY2023-24 biennial budget',            details:'The senior property tax freeze program was enacted and then repealed within one year in the FY2023-24 biennial budget. One hundred percent of Democrats in the Legislature voted to repeal it. The repeal was packaged in a 380+ page budget bill. Lead Maine has committed to restoring this program.' },
+  { id:26, cat:'fee',        name:'Paint Stewardship Fee Tripled',                 preview:'Lead Poisoning Prevention Fund fee. Cost passed through to consumers at retail.',           change:'$0.25 &#8594; $0.75/gallon (+200%)',               effective:'See source',         revenue:'Not disclosed', source:'PL 2025, c. 388, Part RR',            details:'The paint stewardship fee, which funds the Lead Poisoning Prevention Fund, tripled from $0.25 to $0.75 per gallon. The cost is passed through to consumers purchasing paint.' },
+  { id:27, cat:'fee',        name:'Hunting and Fishing License Fees',              preview:'Raised $5 to $19 across all license types.',                                                   change:'+$5 to +$19 per license type',                     effective:'See source',         revenue:'Not disclosed', source:'PL 2025, c. 388, Part NNN',           details:'License fees raised across the board: resident combination hunting/fishing: $43 to $48; resident fishing: $25 to $30; nonresident combination: $150 to $169. Other license types saw similar increases of $5 to $19 each.' },
+  { id:28, cat:'fee',        name:'Concealed Carry Permit Fees Raised 43%',        preview:'New application and renewal fees both increased.',                                               change:'New: $35&#8594;$50. Renewal: $20&#8594;$35 (+43%)', effective:'See source',        revenue:'Not disclosed', source:'PL 2025, c. 388, Part VVV',           details:'Concealed carry permit fees raised 43%: new application fees from $35 to $50, renewal fees from $20 to $35.' },
+  { id:29, cat:'fee',        name:'Arborist License Fee More Than Doubled',        preview:'Fee increased 140%.',                                                                             change:'$75 &#8594; $180 (+140%)',                         effective:'See source',         revenue:'Not disclosed', source:'PL 2025, c. 388, Part T',             details:'The arborist license fee more than doubled, from $75 to $180, a 140% increase.' },
+  { id:30, cat:'fee',        name:'Manufactured Housing Transfer Fee (New)',       preview:'New $10,000/lot assessment when a manufactured housing community changes hands.',              change:'New $10,000 per lot on community transfers',       effective:'2026',               revenue:'Not disclosed', source:'LD 2212',                             details:'Creates a transfer assessment of $10,000 per lot when a manufactured housing community changes hands, with exemptions for the Maine State Housing Authority and certain housing entities. For a 100-lot park, this represents a $1 million transaction cost.' },
+  { id:31, cat:'fee',        name:'PaintCare Stewardship Fee Increased',           preview:'Stewardship fee on architectural paint increased.',                                               change:'Fee increased',                                    effective:'See source',         revenue:'Not disclosed', source:'FY2026-27 biennial budget',            details:'The PaintCare stewardship fee on architectural paint was increased as part of the FY2026-27 biennial budget. Separate item from the Lead Poisoning Prevention Fund paint fee increase listed as item 26.' },
+  { id:32, cat:'fiscal',     name:'Budget Stabilization Fund Drained: $292 Million', preview:'Includes $155.2M for fourth round of one-time $300 checks to 500,000+ Mainers.',          change:'$292M removed from statutory reserve',             effective:'2026',               revenue:'$292M one-time', source:'LD 2212 (signed Apr 10, 2026)',       details:'The 2026 supplemental budget pulls roughly $292 million from the Budget Stabilization Fund (rainy day fund). Of that, $155.2 million funds a fourth round of one-time $300 checks to more than 500,000 Mainers (single filers under $50K, heads of household under $75K, joint filers under $100K). Mills had previously declined to draw down the rainy day fund.' }
+];
+
+function buildSwatches() {
+  const bar = document.getElementById('swatchBar');
+  items.forEach(item => {
+    const s = document.createElement('div');
+    s.className = 'swatch';
+    s.style.background = CAT_COLORS[item.cat];
+    bar.appendChild(s);
+  });
+}
+function badge(cat) {
+  return `<span class="cat-badge" style="background:${CAT_COLORS[cat]}">${CAT_LABELS[cat]}</span>`;
+}
+function renderTable(filter) {
+  const tbody = document.getElementById('trackerBody');
+  tbody.innerHTML = '';
+  const visible = filter === 'all' ? items : items.filter(i => i.cat === filter);
+  document.getElementById('visibleCount').textContent = visible.length;
+  document.getElementById('noResults').style.display = visible.length === 0 ? 'block' : 'none';
+  visible.forEach(item => {
+    const isNA = ['Not disclosed','Under research','Not applicable'].includes(item.revenue);
+    const tr = document.createElement('tr');
+    tr.dataset.id = item.id;
+    tr.innerHTML = `
+      <td><span class="expand-icon">&#9654;</span>${String(item.id).padStart(2,'0')}</td>
+      <td><div class="item-name">${item.name}</div><div class="item-preview">${item.preview}</div></td>
+      <td>${badge(item.cat)}</td>
+      <td class="col-change"><span class="change-val">${item.change}</span></td>
+      <td class="col-effective"><span class="effective-val">${item.effective}</span></td>
+      <td class="col-revenue"><span class="revenue-val${isNA?' revenue-na':''}">${item.revenue}</span></td>
+      <td><span class="source-val">${item.source}</span></td>
+    `;
+    const expandTr = document.createElement('tr');
+    expandTr.className = 'expand-row';
+    expandTr.innerHTML = `<td colspan="7"><p>${item.details}</p></td>`;
+    tr.addEventListener('click', () => {
+      const open = tr.classList.contains('is-open');
+      tr.classList.toggle('is-open', !open);
+      expandTr.style.display = open ? 'none' : 'table-row';
+    });
+    tbody.appendChild(tr);
+    tbody.appendChild(expandTr);
+  });
+}
+document.querySelectorAll('.cat-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    renderTable(chip.dataset.cat);
+  });
+});
+buildSwatches();
+renderTable('all');
+</script>
+</body>
+</html>
