@@ -32,6 +32,7 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+#tracker, #sources { scroll-margin-top: calc(var(--thead-top, 104px) + 1rem); }
 body {
   background: var(--bg);
   color: var(--text);
@@ -88,6 +89,7 @@ a:hover { text-decoration: underline; }
   display: flex;
   gap: 0;
   align-items: center;
+  justify-self: end;
 }
 .mstat {
   display: flex;
@@ -132,7 +134,7 @@ a:hover { text-decoration: underline; }
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
   position: sticky;
-  top: 60px;
+  top: var(--masthead-h, 62px);
   z-index: 50;
 }
 .filter-bar-inner {
@@ -198,7 +200,7 @@ thead th {
   border-bottom: 1px solid var(--border);
   background: var(--bg);
   position: sticky;
-  top: 93px;
+  top: var(--thead-top, 104px);
   z-index: 10;
   white-space: nowrap;
 }
@@ -209,6 +211,7 @@ tbody tr {
   transition: background 0.1s;
 }
 tbody tr:hover { background: var(--bg2); }
+tbody tr:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
 tbody tr.is-open { background: #FEF9F0; }
 td { padding: 0.7rem 0.75rem; vertical-align: top; }
 td:first-child {
@@ -288,43 +291,6 @@ td:first-child {
   gap: 2rem;
   align-items: start;
 }
-.design-prompt-box {
-  background: #FFFDF3;
-  border: 1px dashed #C9A84C;
-  border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
-}
-.design-prompt-box h3 {
-  font-family: var(--cond);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.design-prompt-box h3::before {
-  content: '';
-  display: inline-block;
-  width: 5px; height: 5px;
-  background: var(--gold);
-  border-radius: 50%;
-}
-.design-prompt-box p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.85rem; }
-.prompt-code {
-  background: #1A1A1A;
-  border-radius: 4px;
-  padding: 0.85rem 1rem;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: #C9B67E;
-  line-height: 1.7;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
 .sources-box {
   padding: 1.25rem 1.5rem;
   background: var(--bg2);
@@ -341,6 +307,7 @@ td:first-child {
   margin-bottom: 0.75rem;
 }
 .sources-box p { font-size: 0.8rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.6rem; }
+.sources-box p:last-child { margin-bottom: 0; }
 
 /* ===== FOOTER ===== */
 footer {
@@ -367,8 +334,22 @@ footer {
   .col-effective { display: none; }
   .masthead-inner { grid-template-columns: auto 1fr; }
   .masthead-nav { display: none; }
+  td, thead th { padding: 0.55rem 0.5rem; }
+  thead th { white-space: normal; }
+  thead th:first-child { width: 30px; }
+  td:first-child { padding-top: 0.7rem; }
+  .expand-row td { padding: 0.8rem 0.75rem 0.8rem 1.5rem; }
+  .change-val, .source-val { overflow-wrap: anywhere; }
 }
-@media (max-width: 480px) { .col-change { display: none; } }
+@media (max-width: 480px) {
+  .col-change { display: none; }
+  .table-wrap { padding: 0 0.75rem 2rem; }
+  .filter-bar-inner { padding: 0.55rem 0.75rem; }
+  .masthead-inner { padding: 0 0.75rem; }
+  .cat-badge { white-space: normal; }
+  .lower-sections { padding: 2rem 0.75rem 3rem; }
+  footer { padding: 1.25rem 0.75rem; flex-direction: column; gap: 0.25rem; }
+}
 </style>
 </head>
 <body>
@@ -383,7 +364,13 @@ footer {
       <div class="mstat"><div class="mstat-val">#5</div><div class="mstat-label">Most Taxed State</div></div>
       <div class="mstat"><div class="mstat-val">65%</div><div class="mstat-label">Spending Growth Since 2018</div></div>
       <div class="mstat"><div class="mstat-val">$292M</div><div class="mstat-label">Rainy Day Fund Drained</div></div>
-      <div class="swatch-bar" id="swatchBar" aria-hidden="true"></div>
+    </div>
+    <nav class="masthead-nav" aria-label="Page sections">
+      <a href="#tracker">Tracker</a>
+      <a href="#sources">Sources</a>
+    </nav>
+  </div>
+  <div class="swatch-bar" id="swatchBar" aria-hidden="true"></div>
 </header>
 
 <div class="filter-bar">
@@ -398,12 +385,12 @@ footer {
       <button class="cat-chip" data-cat="fee">Fees &amp; Licenses</button>
       <button class="cat-chip" data-cat="fiscal">Fiscal Policy</button>
     </div>
-    <div class="filter-count">Showing <span id="visibleCount">32</span> of 32</div>
+    <div class="filter-count">Showing <span id="visibleCount">32</span> of <span id="totalCount">32</span></div>
   </div>
 </div>
 
 <main>
-<div class="table-wrap">
+<div class="table-wrap" id="tracker">
   <table id="trackerTable" aria-label="Tax and fee increases under Governor Mills since 2019">
     <thead>
       <tr>
@@ -420,6 +407,26 @@ footer {
   </table>
   <p class="no-results" id="noResults">No increases match this filter.</p>
 </div>
+
+<div class="lower-sections" id="sources">
+  <div class="sources-box">
+    <h3>Sources &amp; Methodology</h3>
+    <p>Entries are compiled from enacted Maine public laws and budget documents: the FY2024&ndash;25 biennial budget (PL 2023, c. 412), the 2024 supplemental budget (PL 2023, c. 643), the FY2026&ndash;27 biennial budget (PL 2025, c. 388), and the 2026 supplemental budget (LD 2212, signed April 10, 2026).</p>
+    <p>Revenue figures come from Maine Revenue Services and the Department of Administrative and Financial Services where available, supplemented by estimates from the Maine Policy Institute (MPI) and the Maine Center for Economic Policy (MECEP), and reporting from the Maine Morning Star, Portland Press Herald, Maine Public, The Maine Monitor, and The Maine Wire. The &ldquo;#5 most taxed state&rdquo; figure is WalletHub&rsquo;s 2026 tax-burden ranking.</p>
+    <p>Where no official standalone estimate exists, entries are marked &ldquo;Not separately scored.&rdquo;</p>
+  </div>
+  <div class="sources-box">
+    <h3>What Counts as an Increase</h3>
+    <p>This tracker counts enacted rate increases, new taxes and fees, and tax-base expansions. It also counts decisions to decline or defer federal tax cuts (items 12, 13, 15, 16, 18), repeal of relief programs and credits (14, 24), and fiscal actions that draw down dedicated or reserve funds (31, 32). Item 30 is a state-mandated stewardship fee collected by a nonprofit, not a state tax.</p>
+    <p>These framing choices are disclosed so readers can judge the count for themselves. Open any row for details and the legislative source.</p>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div>Lead Maine &middot; Maine Tax Tracker</div>
+  <div>Data verified July 2026 &middot; <a href="#">Back to top</a></div>
+</footer>
 
 <script>
 const CAT_COLORS = {
@@ -443,16 +450,16 @@ const CAT_LABELS = {
 
 const items = [
   { id:1,  cat:'consumer',   name:'Cigarette / Tobacco Tax',                    preview:'First increase in 20 years. Party-line Democratic vote.',                                        change:'$2.00 &#8594; $3.50/pack (+75%)',                  effective:'Jan 5, 2026',        revenue:'~$55.5M/yr',    source:'PL 2025, c. 388, Part E',           details:'First tobacco tax increase in 20 years. Per-cigarette rate: 10 cents to 17.5 cents. Smokeless tobacco: $2.02/oz to $3.54/oz. Vapes, pouches, other nicotine products: 43% to 75% of wholesale price. Passed on a party-line Democratic vote. The final rate exceeded Governor Mills\' original $1.00/pack proposal. Revenue: about $111M over the biennium (MPI/State). Nearly 30% of adults earning under $25,000/yr smoke, vs. 7.4% of those earning $50,000+.' },
-  { id:2,  cat:'consumer',   name:'Streaming Services Tax (New, 5.5%)',          preview:'Netflix, Hulu, Spotify, podcasts. Previously untaxed.',                                          change:'0% &#8594; 5.5% (new)',                            effective:'Jan 1, 2026',        revenue:'~$6.5M/yr (est.)', source:'PL 2025, c. 388, Part G',        details:'Digital audiovisual and digital audio services, including Netflix, Hulu, Spotify, and podcasts, are now subject to Maine\'s 5.5% sales tax. Previously untaxed. Estimated to generate about $13M through 2027 (MPI/State), roughly $6.5M/yr. Governor Mills proposed this tax multiple times before it passed.' },
-  { id:3,  cat:'consumer',   name:'Canned Software / Electronic Products',       preview:'Software subscriptions, app downloads, electronic transfers. Previously untaxed.',                change:'0% &#8594; 5.5% (newly taxable)',                  effective:'Jan 1, 2025',        revenue:'Not separately scored', source:'LD 1216 / PL 2021, c. 245',   details:'Sale, lease, rental, or license of canned computer software or electronically transferred products is now treated as a taxable sale of tangible personal property. No standalone revenue estimate was published for this provision.' },
+  { id:2,  cat:'consumer',   name:'Streaming Services Tax (New, 5.5%)',          preview:'Netflix, Hulu, Spotify, podcasts. Previously untaxed.',                                          change:'0% &#8594; 5.5% (new)',                            effective:'Jan 1, 2026',        revenue:'~$12.5M/yr (est.)', source:'PL 2025, c. 388, Part G',        details:'Digital audiovisual and digital audio services, including Netflix, Hulu, Spotify, and podcasts, are now subject to Maine\'s 5.5% sales tax. Previously untaxed. DAFS estimates about $5M in FY2026 (a half year of collections) and $12.5M in FY2027, roughly $17.5M over the biennium. Governor Mills proposed this tax multiple times before it passed.' },
+  { id:3,  cat:'consumer',   name:'Canned Software / Electronic Products',       preview:'Software subscriptions, app downloads, electronic transfers. Previously untaxed.',                change:'0% &#8594; 5.5% (newly taxable)',                  effective:'Jan 1, 2025',        revenue:'Not separately scored', source:'PL 2023, c. 643, Part H',   details:'Sale, lease, rental, or license of canned computer software or electronically transferred products is now treated as a taxable sale of tangible personal property, effective January 1, 2025. Enacted in the 2024 supplemental budget (PL 2023, c. 643, Part H) and in an identical standalone bill (PL 2023, c. 673). No standalone revenue estimate was published for this provision.' },
   { id:4,  cat:'consumer',   name:'Cannabis Sales Tax',                          preview:'Adult-use sales tax raised 40%.',                                                                  change:'10% &#8594; 14% (+40%)',                           effective:'Jan 1, 2026',        revenue:'~$3-8M/yr (est.)', source:'PL 2025, c. 388, Part F',        details:'The adult-use cannabis sales tax rate increased from 10% to 14%, a 40% rate increase. Cannabis excise taxes on specific products were separately reduced. Estimates vary: MPI cites about $6M over the biennium; other budget documents put the figure higher (up to ~$15M/biennium).' },
-  { id:5,  cat:'consumer',   name:'Real Estate Transfer Tax (sales over $1M)',   preview:'Rate nearly tripled on the portion of sales above $1 million.',                                  change:'$2.20 &#8594; $6.00 per $500 (+173%)',             effective:'Nov 1, 2025',        revenue:'~$13M/yr (est.)', source:'PL 2025, c. 388, Part V',         details:'The transfer tax rate on property value exceeding $1 million increased from $2.20 per $500 to $6.00 per $500. Thirty percent of new revenue routed to the Maine State Housing Authority. No standalone figure was published; estimate derived from the state aggregate. More than 1,000 Maine homes sold for $1 million or more in 2024.' },
+  { id:5,  cat:'consumer',   name:'Real Estate Transfer Tax (sales over $1M)',   preview:'Rate nearly tripled on the portion of sales above $1 million.',                                  change:'$2.20 &#8594; $6.00 per $500 (+173%)',             effective:'Nov 1, 2025',        revenue:'~$17M/yr (est.)', source:'PL 2025, c. 388, Part V',         details:'The transfer tax rate on the portion of a sale price exceeding $1 million increased from $2.20 per $500 to $6.00 per $500 (the first $1 million is still taxed at $2.20 per $500). The increase is expected to generate about $17 million for affordable housing in its first year (Maine Monitor / Revenue Forecasting Committee), with new revenue directed to Maine State Housing Authority housing programs. More than 1,000 Maine homes sold for $1 million or more in 2024.' },
   { id:6,  cat:'consumer',   name:'Service Provider Tax Base Expanded',          preview:'Cable, telecom, fabrication services folded into standard sales tax; new digital services captured.',change:'6% SPT repealed; base folded into 5.5% sales tax', effective:'Jan 1, 2026',      revenue:'Not separately scored', source:'PL 2025, c. 388, Part G',    details:'The 6% Service Provider Tax on cable/satellite, telecom, fabrication, and rental-purchase agreements was repealed and folded into the 5.5% standard sales and use tax. Net effect: the rate dropped 0.5% on services already taxed, but the base expanded to capture streaming and other digital services. Not separately scored net of the rate cut.' },
-  { id:7,  cat:'consumer',   name:'Lease-Stream Taxation Timing Changed',        preview:'Sales tax on leased property now applies to each periodic payment rather than upfront.',          change:'Taxation: upfront &#8594; periodic payments',      effective:'Jan 1, 2025',        revenue:'Not separately scored', source:'PL 2023, c. 412',            details:'Sales tax on leased or rented tangible personal property now applies to each periodic payment rather than to the upfront purchase price. A timing change in collection; not separately scored.' },
+  { id:7,  cat:'consumer',   name:'Lease-Stream Taxation Timing Changed',        preview:'Sales tax on leased property now applies to each periodic payment rather than upfront.',          change:'Taxation: upfront &#8594; periodic payments',      effective:'Jan 1, 2025',        revenue:'Not separately scored', source:'PL 2023, c. 643, Part H',            details:'For leases in effect, entered into, or renewed on or after January 1, 2025, sales tax on leased or rented tangible personal property applies to each periodic payment rather than to the lessor\'s upfront purchase. Enacted in the 2024 supplemental budget (PL 2023, c. 643, Part H; identical standalone PL 2023, c. 673). A timing and incidence change in collection; not separately scored.' },
   { id:8,  cat:'consumer',   name:'Tobacco Products Definition Expanded',        preview:'Synthetic nicotine products captured before the 2026 rate hike.',                                 change:'Definition expanded to include synthetic nicotine', effective:'Aug 9, 2024',        revenue:'Bundled in #1',   source:'PL 2023, c. 613',                 details:'The definition of "tobacco products" was amended to include products containing nicotine whether natural or artificial, capturing synthetic nicotine products before the 2026 rate increase. Revenue effect is bundled into the tobacco tax line (#1).' },
-  { id:9,  cat:'income',     name:'2% Income Tax Surcharge on Income Over $1M',  preview:'New top marginal rate 9.15%, retroactive to Jan 1, 2026.',                                       change:'7.15% &#8594; 9.15% (income over $1M)',           effective:'Jan 1, 2026 (retro)', revenue:'~$74M/yr',      source:'LD 2212 (signed Apr 10, 2026)',      details:'A new 2% surcharge taking Maine\'s top marginal rate from 7.15% to 9.15%, retroactive to January 1, 2026. Thresholds: $1,000,000 for single and head-of-household filers, $1,500,000 for married-joint and surviving-spouse filers, and $750,000 for married-filing-separately. About 2,600 filers; roughly $74M/yr ($140M+ over the biennium). Note on the PTET: owners of pass-through businesses can elect the Pass-Through Entity Tax, under which the entity pays at 7.15% and owners receive a 90% credit, but resident owners may still owe the 2% surtax on income above the threshold. The surcharge is not fully avoided.' },
+  { id:9,  cat:'income',     name:'2% Income Tax Surcharge on Income Over $1M',  preview:'New top marginal rate 9.15%, retroactive to Jan 1, 2026.',                                       change:'7.15% &#8594; 9.15% (income over $1M)',           effective:'Jan 1, 2026 (retro)', revenue:'~$74M/yr',      source:'LD 2212 (signed Apr 10, 2026)',      details:'A new 2% surcharge taking Maine\'s top marginal rate from 7.15% to 9.15%, retroactive to January 1, 2026. Thresholds: $1,000,000 for single filers, $1,500,000 for married-joint and head-of-household filers, and $750,000 for married-filing-separately. About 2,600 filers; Maine Revenue Services projects just under $96M in FY2027 and about $74M in each year of the following biennium. Note on the PTET: owners of pass-through businesses can elect the Pass-Through Entity Tax, under which the entity pays at 7.15% and owners receive a 90% credit, but resident owners may still owe the 2% surtax on income above the threshold. The surcharge is not fully avoided.' },
   { id:10, cat:'payroll',    name:'Paid Family and Medical Leave: New 1% Payroll Tax', preview:'Broadest new tax on working Mainers. Benefits began May 1, 2026, after 16 months of paying in.', change:'New 1% payroll tax (0.5% employer / 0.5% employee)', effective:'Jan 1, 2025', revenue:'~$300M+/yr (est.)', source:'Maine PFML Act',          details:'Maine\'s PFML program imposes a 1% payroll tax on wages up to the Social Security wage base ($176,100 in 2025). For employers with 15+ employees: 0.5% each. For employers with fewer than 15: only the employee\'s 0.5% is required. Tax began collecting January 1, 2025; benefits did not become available until May 1, 2026, a 16-month gap. Revenue flows to a dedicated PFML fund; program-wide premiums are estimated in the hundreds of millions per year.' },
-  { id:11, cat:'business',   name:'BETR Eliminated for Retail Property',          preview:'Business Equipment Tax Reimbursement sunsetted for retail.',                                      change:'100% &#8594; 50% (CY2027), then 0% (CY2028+)',    effective:'CY2027',             revenue:'~$1-3M/yr (est.)', source:'LD 2212',                       details:'The 2026 supplemental budget sunsets the Business Equipment Tax Reimbursement (BETR) program for retail property: reimbursement drops to 50% for taxes paid on retail property in CY2027 and falls to zero for CY2028 and after. The overall BETR program had fallen to a forecast $16.8M in FY26 (DAFS); the retail share is small, so state savings are estimated at roughly $1-3M/yr.' },
+  { id:11, cat:'business',   name:'BETR Eliminated for Retail Property',          preview:'Business Equipment Tax Reimbursement sunsetted for retail.',                                      change:'100% &#8594; 50% (CY2027), then 0% (CY2028+)',    effective:'CY2027',             revenue:'~$3.4M/yr (from FY2029)', source:'LD 2212',                       details:'The 2026 supplemental budget sunsets the Business Equipment Tax Reimbursement (BETR) program for retail property: reimbursement drops to 50% for taxes paid on retail property in CY2027 and falls to zero for CY2028 and after. Because BETR claims lag the property tax year, MECEP estimates the change saves the state about $3.4M per year beginning in state fiscal year 2029.' },
   { id:12, cat:'business',   name:'Federal Tax Conformity Phased, Not Immediate',  preview:'Maine phases in OBBBA relief over years instead of granting it at once.',                        change:'Immediate federal relief &#8594; phased to 2027-2030', effective:'TY2025-2030',     revenue:'~$30M+/yr deferred (est.)', source:'LD 2212',                  details:'Maine conformed to some OBBBA items but phased others rather than granting them immediately. The higher standard deduction is partial for TY2026 and full only in TY2027; the charitable deduction for non-itemizers is 50% in TY2027 and full in TY2028; large-business R&E expensing phases in over TY2026-2030. Small-business R&E, the higher Section 179 expensing limits, and the Section 163(j) business interest deduction were conformed. Full standard-deduction conformity alone is worth more than $30M/yr (DAFS); the conformity package cost about $48M this biennium and $132M next (MECEP).' },
   { id:13, cat:'business',   name:'Decoupled from OBBBA Business & Investment Breaks', preview:'Maine opts out of federal 100% depreciation, Opportunity Zones, and small-business-stock gains.', change:'Decoupled from §168(n), §1400Z-2, §1202',      effective:'TY2025+',            revenue:'Part of decoupling package', source:'LD 2212',                 details:'The 2026 supplemental budget decouples Maine from three OBBBA business and investment breaks: the 100% depreciation election for qualified production property (IRC §168(n)) and continued decoupling from bonus depreciation; the Opportunity Zone capital gains deferral, exclusion, and 5-year basis step-up (IRC §1400Z-2, investments after Dec 31, 2026); and the Qualified Small Business Stock gain exclusion (IRC §1202, stock acquired after July 3, 2025). For Maine purposes these federal benefits are added back. Scored only as part of the decoupling package, which the legislature says avoided hundreds of millions per biennium (MECEP).' },
   { id:14, cat:'business',   name:'Employer Credit for FMLA Repealed',            preview:'Employer credit eliminated for tax years beginning Jan 1, 2026.',                                change:'Credit repealed',                                  effective:'Jan 1, 2026',        revenue:'<$1M/yr (est.)',  source:'LD 2212',                         details:'Maine\'s employer credit for family and medical leave was repealed for tax years beginning on or after January 1, 2026, removing a market-based incentive for employers to voluntarily offer leave benefits alongside the state PFML program. Small revenue effect, estimated under $1M/yr.' },
@@ -460,15 +467,15 @@ const items = [
   { id:16, cat:'business',   name:'80% Net Operating Loss Limitation',            preview:'Businesses can no longer use losses to fully offset taxable income.',                           change:'100% &#8594; 80% NOL offset',                      effective:'TY2021',             revenue:'Not separately scored', source:'Maine conformity (TY2021)',   details:'Before Mills, Maine allowed net operating losses to offset 100% of taxable income. Maine now conforms to the federal TCJA 80% NOL limitation beginning tax year 2021, so businesses can no longer fully offset taxable income with prior-year losses. (The CARES Act suspension applied for TY2018-2020.)' },
   { id:17, cat:'business',   name:'Corporate Nexus Standards Expanded',           preview:'Bright-line thresholds pull more out-of-state businesses into Maine\'s corporate income tax.',  change:'Factor-presence nexus thresholds adopted',         effective:'Jan 1, 2022',        revenue:'Not separately scored', source:'HP 891 (PL 2021, c. 245)',    details:'Effective January 1, 2022, Maine adopted bright-line factor-presence nexus thresholds for corporate income tax ($250K property, $250K payroll, $500K sales, or 25% of total property/payroll/sales in Maine) and eliminated the 200-transaction threshold for sales-tax economic nexus (the $100K revenue threshold remains). This pulls more out-of-state businesses into Maine\'s corporate income tax.' },
   { id:18, cat:'business',   name:'Decoupled from CARES Act Business Provisions',  preview:'Maine kept tighter limits when the federal government loosened them in 2020.',                  change:'Kept 30% interest limit; no charitable expansion',  effective:'TY2019-2020',        revenue:'Not separately scored', source:'PL 2021, c. 1 (FY2021 supplemental)', details:'Maine decoupled from two CARES Act business breaks. It retained the 30% business-interest deduction limit (IRC §163(j)) when the federal government raised it to 50% for TY2019-2020 (applied retroactively to TY2019), and it did not conform to the enhanced corporate charitable contribution deduction for TY2019. Businesses that filed under the federal limits had to add back the difference on Maine returns.' },
-  { id:19, cat:'business',   name:'FDII Deduction & Corporate Credit Limits Tightened', preview:'Restricted corporate use of foreign-income and investment tax benefits.',                   change:'FDII deduction and MCIC use restricted',           effective:'See source',         revenue:'Not separately scored', source:'Maine corporate income tax changes', details:'Legislation under Mills limited corporate use of the Foreign Derived Intangible Income (FDII) deduction and tightened the Maine Capital Investment Credit (MCIC) earlier in her tenure, before the MCIC was later sunset entirely (see #22). These restricted corporate use of foreign-income and investment tax benefits.' },
-  { id:20, cat:'healthcare', name:'Hospital Service Provider Tax Rate Increased 46%', preview:'Rate rose from 2.23% to 3.25% of net operating revenue.',                              change:'2.23% &#8594; 3.25% (+46%)',                       effective:'Jan 1, 2025',        revenue:'~$29.5M/yr',    source:'PL 2025, c. 388',                    details:'The hospital service provider tax rate increased from 2.23% to 3.25% of net operating revenue, a 46% rate increase, to finance MaineCare hospital rate reform. Additional collections: roughly $29.5 million per year.' },
+  { id:19, cat:'business',   name:'FDII Deduction & Corporate Credit Limits Tightened', preview:'Restricted corporate use of foreign-income and investment tax benefits.',                   change:'FDII add-back required; MCIC 9% &#8594; 1.2%',           effective:'TY2020',         revenue:'Not separately scored', source:'PL 2019, c. 527 (MCIC); PL 2021, c. 1 (FDII)', details:'Two corporate tax benefits were tightened early in the Mills administration, both applying to tax years beginning on or after January 1, 2020. The Maine Capital Investment Credit (MCIC), the state\'s bonus-depreciation credit, was cut from 9% to 1.2% of the depreciation addition modification for corporations (PL 2019, c. 527, Part A, the 2019 tax conformity act, LD 1671). Maine also expanded its IRC &sect;250 add-back so corporations must add back the federal 37.5% Foreign-Derived Intangible Income (FDII) deduction (PL 2021, c. 1, the FY2021 supplemental / COVID conformity act, LD 220); Maine had always decoupled from the companion GILTI deduction. The MCIC was later sunset entirely (see #22). Not separately scored.' },
+  { id:20, cat:'healthcare', name:'Hospital Service Provider Tax Rate Increased 46%', preview:'Rate rose from 2.23% to 3.25% of net operating revenue.',                              change:'2.23% &#8594; 3.25% (+46%)',                       effective:'Jan 1, 2025',        revenue:'~$29.5M/yr',    source:'PL 2023, c. 643 (FY24-25 supplemental)',                    details:'The service provider tax rate on acute-care and specialty rehabilitation hospitals increased from 2.23% to 3.25% of net operating revenue, a 46% rate increase, to finance MaineCare hospital rate reform; psychiatric hospitals remain at 2.23%, and the tax on critical access hospitals was eliminated. Enacted in the 2024 supplemental budget. Additional collections: roughly $29.5 million in SFY2025.' },
   { id:21, cat:'healthcare', name:'Hospital Tax Base Year Updated (Repeated)',    preview:'Base year updated in every biennial budget under Mills, each time capturing higher revenues.',  change:'Base year updated to FY2024',                     effective:'Each biennium',      revenue:'Not separately scored', source:'LD 2212 and prior budgets',   details:'The base year used to calculate the hospital service provider tax has been updated in every biennial budget under Governor Mills, most recently to FY2024 data, each time capturing higher hospital revenues. A de facto tax increase on hospitals without changing the nominal rate; not separately scored. May conflict with the federal OBBBA provider-tax moratorium (Section 71115).' },
   { id:22, cat:'business',   name:'PTDZ, ETIF, and MCIC Programs Sunset',         preview:'Major business incentive programs replaced by less generous Dirigo Business Incentive.',     change:'PTDZ/ETIF/MCIC &#8594; Dirigo Business Incentive', effective:'Dec 31, 2024',       revenue:'Dirigo ~$45M/yr (MECEP)', source:'PL 2023, c. 412, Part J',     details:'The Pine Tree Development Zone (PTDZ), Employment Tax Increment Financing (ETIF), and Maine Capital Investment Credit (MCIC) programs were sunset December 31, 2024, and replaced by the Dirigo Business Incentive, which is more targeted and less generous. MECEP estimates Dirigo costs about $45M/yr.' },
-  { id:23, cat:'income',     name:'Pension Exemption Phase-Out Added',             preview:'Phase-out of the pension income exemption added for higher earners.',                         change:'Phase-out begins at $100K income',                 effective:'FY2026-27 budget',   revenue:'Not separately scored', source:'PL 2025, c. 388',             details:'After expanding the pension income exemption to $35,000, the FY2026-27 budget added an income-based phase-out beginning at $100,000 for individuals, clawing back the benefit for higher-income retirees. Not separately scored.' },
-  { id:24, cat:'fee',        name:'Senior Property Tax Freeze: Enacted then Repealed', preview:'Program created one year, repealed the next.',                                            change:'Enacted, then repealed within one year',           effective:'2023-2024',          revenue:'Not applicable', source:'PL 2023, c. 412',                     details:'The senior property tax stabilization (freeze) program (LD 290) was enacted in 2022 and repealed within one year as part of the FY2024-25 biennial budget. It applied for only the 2023-2024 tax year. Replacements (a larger Property Tax Fairness Credit and expanded deferral) are income-tested, so many middle-income seniors who relied on the universal freeze lost their protection.' },
+  { id:23, cat:'income',     name:'Pension Exemption Phase-Out Added',             preview:'Phase-out of the pension income deduction added for higher earners.',                         change:'Phase-out begins at $125K FAGI (single)',                 effective:'TY2025',   revenue:'Not separately scored', source:'PL 2025, c. 388',             details:'After the pension income deduction was expanded under Mills (a maximum of $48,216 for 2025, pegged to the maximum Social Security benefit), the FY2026-27 budget added an income-based phase-out for tax years beginning on or after January 1, 2025: it begins at federal adjusted gross income of $125,000 for single and married-filing-separately filers, $187,500 for heads of household, and $250,000 for joint filers, clawing back the benefit for higher-income retirees. Not separately scored.' },
+  { id:24, cat:'fiscal',        name:'Senior Property Tax Freeze: Enacted then Repealed', preview:'Program created one year, repealed the next.',                                            change:'Enacted, then repealed within one year',           effective:'2023-2024',          revenue:'Not applicable', source:'PL 2023, c. 412',                     details:'The senior property tax stabilization (freeze) program (LD 290) was enacted in 2022 and repealed within one year as part of the FY2024-25 biennial budget. It applied for only the 2023-2024 tax year. Replacements (a larger Property Tax Fairness Credit and expanded deferral) are income-tested, so many middle-income seniors who relied on the universal freeze lost their protection.' },
   { id:25, cat:'fee',        name:'Paint Fee Tripled',                             preview:'Lead Poisoning Prevention Fund fee. Cost passed through to consumers at retail.',           change:'$0.25 &#8594; $0.75/gallon (+200%)',               effective:'FY2026-27 budget',   revenue:'Not separately scored', source:'PL 2025, c. 388, Part RR',    details:'The per-gallon paint fee, which funds the Lead Poisoning Prevention Fund, tripled from $0.25 to $0.75 per gallon. The cost is passed through to consumers. Small dedicated-fund revenue; not separately scored.' },
-  { id:26, cat:'fee',        name:'Hunting and Fishing License Fees',              preview:'Raised $5 to $19 across license types.',                                                      change:'+$5 to +$19 per license type',                     effective:'FY2026-27 budget',   revenue:'Not separately scored', source:'PL 2025, c. 388, Part NNN',   details:'License fees raised across the board: resident combination hunting/fishing $43 to $48; resident fishing $25 to $30; nonresident combination $150 to $169. Other license types rose $5 to $19 each. Dedicated to the Department of Inland Fisheries and Wildlife; not separately scored.' },
-  { id:27, cat:'fee',        name:'Concealed Carry Permit Fees Raised 43%',        preview:'New application and renewal fees both increased.',                                               change:'New: $35&#8594;$50. Renewal: $20&#8594;$35 (+43%)', effective:'FY2026-27 budget',  revenue:'Not separately scored', source:'PL 2025, c. 388, Part VVV',   details:'Concealed carry permit fees raised 43%: new application fees from $35 to $50, renewal fees from $20 to $35. Not separately scored.' },
+  { id:26, cat:'fee',        name:'Hunting and Fishing License Fees',              preview:'Raised $5 to $19 across license types.',                                                      change:'+$5 to +$19 per license type',                     effective:'Sep 24, 2025',   revenue:'~$2M/yr (IF&amp;W est.)', source:'PL 2025, c. 388, Part NNN',   details:'License fees raised across the board, the first increase in about 15 years: resident combination hunting/fishing $43 to $48; resident fishing $25 to $30; nonresident combination $150 to $169. Other license types rose $5 to $19 each. Dedicated to the Department of Inland Fisheries and Wildlife, which projects nearly $2 million per year in new revenue.' },
+  { id:27, cat:'fee',        name:'Concealed Carry Permit Fees Raised',        preview:'New application and renewal fees both increased.',                                               change:'New: $35&#8594;$50 (+43%). Renewal: $20&#8594;$35 (+75%)', effective:'Sep 24, 2025',  revenue:'Not separately scored', source:'PL 2025, c. 388, Part VVV',   details:'Concealed carry permit fees raised: new resident application fees from $35 to $50 (+43%), renewal fees from $20 to $35 (+75%); nonresident permits (new and renewal) are now $80. Not separately scored.' },
   { id:28, cat:'fee',        name:'Arborist License Fee More Than Doubled',        preview:'Fee increased 140%.',                                                                             change:'$75 &#8594; $180 (+140%)',                         effective:'FY2026-27 budget',   revenue:'Not separately scored', source:'PL 2025, c. 388, Part T',     details:'The arborist license fee more than doubled, from $75 to $180, a 140% increase. Not separately scored.' },
   { id:29, cat:'fee',        name:'Manufactured Housing Transfer Fee (New)',       preview:'New $10,000/lot assessment when a manufactured housing community changes hands.',              change:'New $10,000 per lot on community transfers',       effective:'2026',               revenue:'Not separately scored', source:'LD 2212',                     details:'Creates a transfer assessment of $10,000 per lot when a manufactured housing community changes hands, with exemptions for the Maine State Housing Authority and certain housing entities. For a 100-lot park, this is a $1 million transaction cost. Revenue depends on transaction volume; not separately scored.' },
   { id:30, cat:'fee',        name:'PaintCare Stewardship Fee Increased',           preview:'Per-container stewardship fee on architectural paint increased.',                                 change:'Per-container fee increased',                      effective:'Oct 1, 2025',        revenue:'Not state revenue', source:'DEP-approved (PaintCare)',         details:'PaintCare, a nonprofit product-stewardship organization, proposed and DEP approved an increase to the per-container stewardship fee, effective October 1, 2025. Separate from the Lead Poisoning Prevention Fund paint fee (#25). A government-mandated fee passed to consumers, but not a state tax, so it raises no state revenue.' },
@@ -509,25 +516,52 @@ function renderTable(filter) {
     `;
     const expandTr = document.createElement('tr');
     expandTr.className = 'expand-row';
+    expandTr.id = `detail-${item.id}`;
     expandTr.innerHTML = `<td colspan="7"><p>${item.details}</p></td>`;
-    tr.addEventListener('click', () => {
+    tr.tabIndex = 0;
+    tr.setAttribute('aria-expanded', 'false');
+    tr.setAttribute('aria-controls', expandTr.id);
+    const toggle = () => {
       const open = tr.classList.contains('is-open');
       tr.classList.toggle('is-open', !open);
+      tr.setAttribute('aria-expanded', String(!open));
       expandTr.style.display = open ? 'none' : 'table-row';
+    };
+    tr.addEventListener('click', toggle);
+    tr.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
     tbody.appendChild(tr);
     tbody.appendChild(expandTr);
   });
 }
+function setStickyOffsets() {
+  const masthead = document.querySelector('.masthead');
+  const filterBar = document.querySelector('.filter-bar');
+  const mh = masthead.offsetHeight;
+  document.documentElement.style.setProperty('--masthead-h', mh + 'px');
+  document.documentElement.style.setProperty('--thead-top', (mh + filterBar.offsetHeight) + 'px');
+}
 document.querySelectorAll('.cat-chip').forEach(chip => {
+  chip.setAttribute('aria-pressed', String(chip.classList.contains('active')));
   chip.addEventListener('click', () => {
-    document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.cat-chip').forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-pressed', 'false');
+    });
     chip.classList.add('active');
+    chip.setAttribute('aria-pressed', 'true');
     renderTable(chip.dataset.cat);
+    setStickyOffsets();
   });
 });
+document.querySelector('.cat-chip[data-cat="all"]').textContent = `All (${items.length})`;
+document.getElementById('totalCount').textContent = items.length;
 buildSwatches();
 renderTable('all');
+setStickyOffsets();
+window.addEventListener('resize', setStickyOffsets);
+window.addEventListener('load', setStickyOffsets);
 </script>
 </body>
 </html>
