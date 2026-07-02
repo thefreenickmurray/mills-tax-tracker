@@ -125,10 +125,6 @@ a:hover { text-decoration: underline; }
 .masthead-nav a { color: var(--muted); transition: color 0.2s; }
 .masthead-nav a:hover { color: var(--text); text-decoration: none; }
 
-/* ===== SWATCH BAR ===== */
-.swatch-bar { height: 4px; display: flex; gap: 2px; }
-.swatch { flex: 1; }
-
 /* ===== FILTER BAR ===== */
 .filter-bar {
   background: var(--bg2);
@@ -366,11 +362,9 @@ footer {
       <div class="mstat"><div class="mstat-val">$292M</div><div class="mstat-label">Rainy Day Fund Drained</div></div>
     </div>
     <nav class="masthead-nav" aria-label="Page sections">
-      <a href="#tracker">Tracker</a>
       <a href="#sources">Sources</a>
     </nav>
   </div>
-  <div class="swatch-bar" id="swatchBar" aria-hidden="true"></div>
 </header>
 
 <div class="filter-bar">
@@ -483,15 +477,6 @@ const items = [
   { id:32, cat:'fiscal',     name:'Budget Stabilization Fund Drained: $292 Million', preview:'Includes $155.2M for a fourth round of one-time $300 checks to 500,000+ Mainers.',          change:'$292M removed from statutory reserve',             effective:'2026',               revenue:'$292M one-time', source:'LD 2212 (signed Apr 10, 2026)',       details:'The 2026 supplemental budget pulls roughly $292 million in one-time spending from the Budget Stabilization Fund (rainy day fund), which Mills had grown to its statutory cap of about $1 billion and previously declined to touch. Of that, $155.2 million funds a fourth round of one-time $300 checks to more than 500,000 Mainers (single filers under $50K, heads of household under $75K, joint filers under $100K). The supplemental added a net of about $227M to the biennial budget, bringing it to roughly $11.9 billion.' }
 ];
 
-function buildSwatches() {
-  const bar = document.getElementById('swatchBar');
-  items.forEach(item => {
-    const s = document.createElement('div');
-    s.className = 'swatch';
-    s.style.background = CAT_COLORS[item.cat];
-    bar.appendChild(s);
-  });
-}
 function badge(cat) {
   return `<span class="cat-badge" style="background:${CAT_COLORS[cat]}">${CAT_LABELS[cat]}</span>`;
 }
@@ -557,7 +542,6 @@ document.querySelectorAll('.cat-chip').forEach(chip => {
 });
 document.querySelector('.cat-chip[data-cat="all"]').textContent = `All (${items.length})`;
 document.getElementById('totalCount').textContent = items.length;
-buildSwatches();
 renderTable('all');
 setStickyOffsets();
 window.addEventListener('resize', setStickyOffsets);
