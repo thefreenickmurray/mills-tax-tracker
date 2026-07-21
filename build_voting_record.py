@@ -150,24 +150,93 @@ def parse_senate_roster() -> list:
     return out
 
 
+_SUFFIXES = {"JR", "SR", "II", "III", "IV", "V"}
+
+
+def norm_surname(s: str) -> str:
+    """Uppercase surname key tolerant of the roster sources' quirks: JS-escaped
+    and doubled apostrophes (O\\'\\'Halloran) and curly quotes all fold to a
+    single straight apostrophe."""
+    s = s.replace("\\", "").replace("’", "'").replace("‘", "'")
+    s = re.sub(r"'{2,}", "'", s)
+    return s.upper().strip()
+
+
+def _drop_suffix(toks: list) -> list:
+    while len(toks) > 1 and toks[-1].upper().strip(".") in _SUFFIXES:
+        toks = toks[:-1]
+    return toks
+
+
+def parse_house_district_roster() -> dict:
+    """House 'List by District' page -> {SURNAME: [{first, district, party}]}.
+    That page lists district number + full name + party (no town), so we key by
+    surname and disambiguate same-surname members by first name below."""
+    if not HOUSE_DISTRICT_ROSTER.exists():
+        return {}
+    raw = HOUSE_DISTRICT_ROSTER.read_text()
+    by_last = {}
+    for m in re.finditer(r">District\s+(\d+)</a></td><td>([^<]+)</td><td>([^<]+)</td>", raw):
+        toks = _drop_suffix(htmllib.unescape(m.group(2)).strip().split())
+        if not toks:
+            continue
+        by_last.setdefault(norm_surname(toks[-1]), []).append(
+            {"first": toks[0].upper(), "district": int(m.group(1)), "party": m.group(3).strip()})
+    return by_last
+
+
+def house_alpha_firstnames() -> dict:
+    """(SURNAME, TOWN_UP) -> first-name token, from the alphabetical roster.
+    Used only to disambiguate same-surname House members across the district
+    roster (which has no town)."""
+    f = ROSTERS / "house-alpha.html"
+    if not f.exists():
+        return {}
+    out = {}
+    for m in re.finditer(
+        r"<br\s*/>\s*([^<,]+),\s*([^<]+?)\s*<br\s*/>\s*State Representative"
+        r"\s*<br\s*/>\s*\([A-Za-z]\s*-\s*([^)]+)\)", f.read_text(), re.S):
+        first = m.group(2).split()
+        out[(norm_surname(m.group(1)),
+             htmllib.unescape(m.group(3)).replace("\xa0", " ").strip().upper())] = \
+            (first[0].upper() if first else "")
+    return out
+
+
 def attach_districts(roster: list) -> None:
     """Add a `district` to each legislator. Senate districts come from the
-    roster page (matched by county + surname). House districts stay None until
-    the House 'List by District' page is supplied — the alphabetical roster the
-    site exports has no district numbers, and we never guess them."""
+    Senate roster (matched by county + surname); House districts from the House
+    'List by District' page (matched by surname, disambiguated by first name via
+    the alphabetical roster). Anything not matched is left None — never guessed."""
     sen = parse_senate_roster()
+    hd = parse_house_district_roster()
+    afn = house_alpha_firstnames()
     n_sen = sum(1 for r in roster if r["chamber"] == "Senate")
-    matched = 0
+    n_house = sum(1 for r in roster if r["chamber"] == "House")
+    sen_m = house_m = 0
+    unmatched = []
     for r in roster:
         r["district"] = None
         if r["chamber"] == "Senate":
             for s in sen:
                 if s["county"].upper() == r["town"].upper() and s["name_upper"].endswith(r["name"].upper()):
-                    r["district"] = s["district"]
-                    matched += 1
-                    break
-    print(f"Districts: Senate {matched}/{n_sen} matched"
-          f" | House 0/{sum(1 for r in roster if r['chamber']=='House')} (pending 'List by District' page)")
+                    r["district"] = s["district"]; sen_m += 1; break
+        else:
+            cands = hd.get(norm_surname(r["name"]), [])
+            if len(cands) == 1:
+                r["district"] = cands[0]["district"]
+            elif len(cands) > 1:
+                fn = afn.get((norm_surname(r["name"]), r["town"].upper()))
+                pick = [c for c in cands if c["first"] == fn]
+                if len(pick) == 1:
+                    r["district"] = pick[0]["district"]
+            if r["district"] is not None:
+                house_m += 1
+            elif hd:
+                unmatched.append(r["name"] + " of " + r["town"])
+    print(f"Districts: Senate {sen_m}/{n_sen} | House {house_m}/{n_house}")
+    if unmatched:
+        print("  House unmatched (left blank, not guessed): " + ", ".join(unmatched))
 
 
 def load_bill(bill: dict) -> dict:

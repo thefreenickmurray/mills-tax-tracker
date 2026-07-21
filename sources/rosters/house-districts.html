@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<base href="//www.zipdatamaps.com/">
+<title>Map of Maine State House of Representatives Districts - July 2026</title>
+<meta name="description" content="Interactive Map of Maine State House of Representatives Districts" />
+<link rel="canonical" href="https://www.zipdatamaps.com/politics/state-level/districts/map-of-maine-state-house-of-representative-districts">
+
+<meta name="twitter:site" value="@zipdatamaps"/>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Map of Maine State House of Representatives Districts - July 2026" />
+<meta name="twitter:description" content="Interactive Map of Maine State House of Representatives Districts" />
+<meta name="twitter:image" content="//www.zipdatamaps.com/images/zipdatamaps.png" />
+
+<meta property="og:description" content="Interactive Map of Maine State House of Representatives Districts"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Zipdatamaps.com"/>
+<meta property="og:image" content="//www.zipdatamaps.com/images/zipdatamaps.png"/>
+<meta property="og:title" content="Map of Maine State House of Representatives Districts - July 2026"/>
+<meta property="og:url" content="//www.zipdatamaps.com/politics/state-level/districts/map-of-maine-state-house-of-representative-districts"/>
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "Map",
+"name":"Map of Maine State House of Representatives Districts",
+"description":"Map of Maine State House of Representatives Districts - July 2026"}
+</script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/bwlit.min.css">
+<link href="css/zdm4_ta.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"/>
+
+<style>
+body {padding-top: 70px;}
+#map-canvas {margin:20px;height: 600px;}
+#leg-table{width:100%;height:100px;font-size:large;}
+.pR{background-color:#FF0000;color:#FFF;}
+.pD{background-color:#0000FF;color:#FFF;}
+.pPPD{background-color:#FF0000;color:#FFF;}
+.pPNP{background-color:#0000FF;color:#FFF;}
+.pPNPPPD{background-color:#f033ff;color:#FFF;}
+.pV{background-color:#ffbf00;color:#FFF;}
+.pI{background-color:#00b386;color:#FFF;}
+.pDR{background-color:#f033ff;color:#FFF;}
+.pDV{background-color:#FF8040;color:#FFF;}
+.pDDR{background-color:#74e1ec;color:#FFF;}
+.pDRR{background-color:#de4713;color:#FFF;}
+.pP{background-color:#7513de;color:#FFF;}
+.pDP{background-color:#13bcde;color:#FFF;}
+.pL{background-color:#13bcde;color:#FFF;}
+.pN{background-color:#13bcde;color:#FFF;}
+.me_rep_001{background-color:#FF0000;}
+#me_rep_001{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_002{background-color:#FF0000;}
+#me_rep_002{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_003{background-color:#FF0000;}
+#me_rep_003{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_004{background-color:#FF0000;}
+#me_rep_004{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_005{background-color:#FF0000;}
+#me_rep_005{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_006{background-color:#FF0000;}
+#me_rep_006{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_007{background-color:#FF0000;}
+#me_rep_007{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_008{background-color:#FF0000;}
+#me_rep_008{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_009{background-color:#FF0000;}
+#me_rep_009{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_010{background-color:#FF0000;}
+#me_rep_010{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_011{background-color:#FF0000;}
+#me_rep_011{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_012{background-color:#FF0000;}
+#me_rep_012{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_013{background-color:#FF0000;}
+#me_rep_013{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_014{background-color:#0000FF;}
+#me_rep_014{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_015{background-color:#0000FF;}
+#me_rep_015{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_016{background-color:#0000FF;}
+#me_rep_016{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_017{background-color:#FF0000;}
+#me_rep_017{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_018{background-color:#FF0000;}
+#me_rep_018{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_019{background-color:#FF0000;}
+#me_rep_019{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_020{background-color:#0000FF;}
+#me_rep_020{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_021{background-color:#0000FF;}
+#me_rep_021{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_022{background-color:#0000FF;}
+#me_rep_022{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_023{background-color:#0000FF;}
+#me_rep_023{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_024{background-color:#0000FF;}
+#me_rep_024{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_025{background-color:#0000FF;}
+#me_rep_025{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_026{background-color:#0000FF;}
+#me_rep_026{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_027{background-color:#FF0000;}
+#me_rep_027{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_028{background-color:#FF0000;}
+#me_rep_028{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_029{background-color:#FF0000;}
+#me_rep_029{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_030{background-color:#FF0000;}
+#me_rep_030{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_031{background-color:#FF0000;}
+#me_rep_031{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_032{background-color:#FF0000;}
+#me_rep_032{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_033{background-color:#FF0000;}
+#me_rep_033{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_034{background-color:#FF0000;}
+#me_rep_034{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_035{background-color:#FF0000;}
+#me_rep_035{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_036{background-color:#FF0000;}
+#me_rep_036{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_037{background-color:#FF0000;}
+#me_rep_037{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_038{background-color:#FF0000;}
+#me_rep_038{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_039{background-color:#0000FF;}
+#me_rep_039{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_040{background-color:#0000FF;}
+#me_rep_040{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_041{background-color:#0000FF;}
+#me_rep_041{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_042{background-color:#0000FF;}
+#me_rep_042{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_043{background-color:#0000FF;}
+#me_rep_043{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_044{background-color:#00b386;}
+#me_rep_044{background-color:#00b386;opacity: 0.7;width:15px;height:15px;}
+.me_rep_045{background-color:#FF0000;}
+#me_rep_045{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_046{background-color:#0000FF;}
+#me_rep_046{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_047{background-color:#0000FF;}
+#me_rep_047{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_048{background-color:#0000FF;}
+#me_rep_048{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_049{background-color:#0000FF;}
+#me_rep_049{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_050{background-color:#0000FF;}
+#me_rep_050{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_051{background-color:#0000FF;}
+#me_rep_051{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_052{background-color:#0000FF;}
+#me_rep_052{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_053{background-color:#FF0000;}
+#me_rep_053{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_054{background-color:#0000FF;}
+#me_rep_054{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_055{background-color:#0000FF;}
+#me_rep_055{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_056{background-color:#FF0000;}
+#me_rep_056{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_057{background-color:#0000FF;}
+#me_rep_057{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_058{background-color:;}
+#me_rep_058{background-color:;opacity: 0.7;width:15px;height:15px;}
+.me_rep_059{background-color:#0000FF;}
+#me_rep_059{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_060{background-color:#0000FF;}
+#me_rep_060{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_061{background-color:#FF0000;}
+#me_rep_061{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_062{background-color:#FF0000;}
+#me_rep_062{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_063{background-color:#FF0000;}
+#me_rep_063{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_064{background-color:#0000FF;}
+#me_rep_064{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_065{background-color:#0000FF;}
+#me_rep_065{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_066{background-color:#FF0000;}
+#me_rep_066{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_067{background-color:#FF0000;}
+#me_rep_067{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_068{background-color:#FF0000;}
+#me_rep_068{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_069{background-color:#FF0000;}
+#me_rep_069{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_070{background-color:#FF0000;}
+#me_rep_070{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_071{background-color:#FF0000;}
+#me_rep_071{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_072{background-color:#FF0000;}
+#me_rep_072{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_073{background-color:#FF0000;}
+#me_rep_073{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_074{background-color:#FF0000;}
+#me_rep_074{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_075{background-color:#0000FF;}
+#me_rep_075{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_076{background-color:#FF0000;}
+#me_rep_076{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_077{background-color:#FF0000;}
+#me_rep_077{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_078{background-color:#FF0000;}
+#me_rep_078{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_079{background-color:#FF0000;}
+#me_rep_079{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_080{background-color:#FF0000;}
+#me_rep_080{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_081{background-color:#FF0000;}
+#me_rep_081{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_082{background-color:#FF0000;}
+#me_rep_082{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_083{background-color:#FF0000;}
+#me_rep_083{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_084{background-color:#FF0000;}
+#me_rep_084{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_085{background-color:#FF0000;}
+#me_rep_085{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_086{background-color:#FF0000;}
+#me_rep_086{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_087{background-color:#FF0000;}
+#me_rep_087{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_088{background-color:#FF0000;}
+#me_rep_088{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_089{background-color:#0000FF;}
+#me_rep_089{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_090{background-color:#FF0000;}
+#me_rep_090{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_091{background-color:#FF0000;}
+#me_rep_091{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_092{background-color:#FF0000;}
+#me_rep_092{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_093{background-color:#0000FF;}
+#me_rep_093{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_094{background-color:#0000FF;}
+#me_rep_094{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_095{background-color:#0000FF;}
+#me_rep_095{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_096{background-color:#0000FF;}
+#me_rep_096{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_097{background-color:#FF0000;}
+#me_rep_097{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_098{background-color:#0000FF;}
+#me_rep_098{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_099{background-color:#0000FF;}
+#me_rep_099{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_100{background-color:#0000FF;}
+#me_rep_100{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_101{background-color:#0000FF;}
+#me_rep_101{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_102{background-color:#0000FF;}
+#me_rep_102{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_103{background-color:#0000FF;}
+#me_rep_103{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_104{background-color:#FF0000;}
+#me_rep_104{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_105{background-color:#0000FF;}
+#me_rep_105{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_106{background-color:#FF0000;}
+#me_rep_106{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_107{background-color:#FF0000;}
+#me_rep_107{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_108{background-color:#0000FF;}
+#me_rep_108{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_109{background-color:#0000FF;}
+#me_rep_109{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_110{background-color:#0000FF;}
+#me_rep_110{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_111{background-color:#0000FF;}
+#me_rep_111{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_112{background-color:#0000FF;}
+#me_rep_112{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_113{background-color:#0000FF;}
+#me_rep_113{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_114{background-color:#0000FF;}
+#me_rep_114{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_115{background-color:#0000FF;}
+#me_rep_115{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_116{background-color:#0000FF;}
+#me_rep_116{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_117{background-color:#0000FF;}
+#me_rep_117{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_118{background-color:#0000FF;}
+#me_rep_118{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_119{background-color:#0000FF;}
+#me_rep_119{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_120{background-color:#0000FF;}
+#me_rep_120{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_121{background-color:#0000FF;}
+#me_rep_121{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_122{background-color:#0000FF;}
+#me_rep_122{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_123{background-color:#0000FF;}
+#me_rep_123{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_124{background-color:#0000FF;}
+#me_rep_124{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_125{background-color:#0000FF;}
+#me_rep_125{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_126{background-color:#0000FF;}
+#me_rep_126{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_127{background-color:#0000FF;}
+#me_rep_127{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_128{background-color:#0000FF;}
+#me_rep_128{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_129{background-color:#0000FF;}
+#me_rep_129{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_130{background-color:#0000FF;}
+#me_rep_130{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_131{background-color:#0000FF;}
+#me_rep_131{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_132{background-color:#0000FF;}
+#me_rep_132{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_133{background-color:#0000FF;}
+#me_rep_133{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_134{background-color:#0000FF;}
+#me_rep_134{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_135{background-color:#0000FF;}
+#me_rep_135{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_136{background-color:#FF0000;}
+#me_rep_136{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_137{background-color:#FF0000;}
+#me_rep_137{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_138{background-color:#FF0000;}
+#me_rep_138{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_139{background-color:#FF0000;}
+#me_rep_139{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_140{background-color:#FF0000;}
+#me_rep_140{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_141{background-color:#FF0000;}
+#me_rep_141{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_142{background-color:#0000FF;}
+#me_rep_142{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_143{background-color:#FF0000;}
+#me_rep_143{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_144{background-color:#FF0000;}
+#me_rep_144{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_145{background-color:#FF0000;}
+#me_rep_145{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_146{background-color:#0000FF;}
+#me_rep_146{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_147{background-color:#0000FF;}
+#me_rep_147{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_148{background-color:#FF0000;}
+#me_rep_148{background-color:#FF0000;opacity: 0.7;width:15px;height:15px;}
+.me_rep_149{background-color:#0000FF;}
+#me_rep_149{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_150{background-color:#0000FF;}
+#me_rep_150{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+.me_rep_151{background-color:#0000FF;}
+#me_rep_151{background-color:#0000FF;opacity: 0.7;width:15px;height:15px;}
+</style>
+
+<script type="text/javascript" >
+function ftz(x,y,zl){map.flyTo(L.latLng(y,x),zl);}
+hz = new Array(151);
+hzA = new Array(151);
+hz[0]="me_rep_001";
+hzA[0]="#FF0000";
+var me_rep_001opts ={'maxWidth': '200','className' : 'me_rep_001'}
+hz[1]="me_rep_002";
+hzA[1]="#FF0000";
+var me_rep_002opts ={'maxWidth': '200','className' : 'me_rep_002'}
+hz[2]="me_rep_003";
+hzA[2]="#FF0000";
+var me_rep_003opts ={'maxWidth': '200','className' : 'me_rep_003'}
+hz[3]="me_rep_004";
+hzA[3]="#FF0000";
+var me_rep_004opts ={'maxWidth': '200','className' : 'me_rep_004'}
+hz[4]="me_rep_005";
+hzA[4]="#FF0000";
+var me_rep_005opts ={'maxWidth': '200','className' : 'me_rep_005'}
+hz[5]="me_rep_006";
+hzA[5]="#FF0000";
+var me_rep_006opts ={'maxWidth': '200','className' : 'me_rep_006'}
+hz[6]="me_rep_007";
+hzA[6]="#FF0000";
+var me_rep_007opts ={'maxWidth': '200','className' : 'me_rep_007'}
+hz[7]="me_rep_008";
+hzA[7]="#FF0000";
+var me_rep_008opts ={'maxWidth': '200','className' : 'me_rep_008'}
+hz[8]="me_rep_009";
+hzA[8]="#FF0000";
+var me_rep_009opts ={'maxWidth': '200','className' : 'me_rep_009'}
+hz[9]="me_rep_010";
+hzA[9]="#FF0000";
+var me_rep_010opts ={'maxWidth': '200','className' : 'me_rep_010'}
+hz[10]="me_rep_011";
+hzA[10]="#FF0000";
+var me_rep_011opts ={'maxWidth': '200','className' : 'me_rep_011'}
+hz[11]="me_rep_012";
+hzA[11]="#FF0000";
+var me_rep_012opts ={'maxWidth': '200','className' : 'me_rep_012'}
+hz[12]="me_rep_013";
+hzA[12]="#FF0000";
+var me_rep_013opts ={'maxWidth': '200','className' : 'me_rep_013'}
+hz[13]="me_rep_014";
+hzA[13]="#0000FF";
+var me_rep_014opts ={'maxWidth': '200','className' : 'me_rep_014'}
+hz[14]="me_rep_015";
+hzA[14]="#0000FF";
+var me_rep_015opts ={'maxWidth': '200','className' : 'me_rep_015'}
+hz[15]="me_rep_016";
+hzA[15]="#0000FF";
+var me_rep_016opts ={'maxWidth': '200','className' : 'me_rep_016'}
+hz[16]="me_rep_017";
+hzA[16]="#FF0000";
+var me_rep_017opts ={'maxWidth': '200','className' : 'me_rep_017'}
+hz[17]="me_rep_018";
+hzA[17]="#FF0000";
+var me_rep_018opts ={'maxWidth': '200','className' : 'me_rep_018'}
+hz[18]="me_rep_019";
+hzA[18]="#FF0000";
+var me_rep_019opts ={'maxWidth': '200','className' : 'me_rep_019'}
+hz[19]="me_rep_020";
+hzA[19]="#0000FF";
+var me_rep_020opts ={'maxWidth': '200','className' : 'me_rep_020'}
+hz[20]="me_rep_021";
+hzA[20]="#0000FF";
+var me_rep_021opts ={'maxWidth': '200','className' : 'me_rep_021'}
+hz[21]="me_rep_022";
+hzA[21]="#0000FF";
+var me_rep_022opts ={'maxWidth': '200','className' : 'me_rep_022'}
+hz[22]="me_rep_023";
+hzA[22]="#0000FF";
+var me_rep_023opts ={'maxWidth': '200','className' : 'me_rep_023'}
+hz[23]="me_rep_024";
+hzA[23]="#0000FF";
+var me_rep_024opts ={'maxWidth': '200','className' : 'me_rep_024'}
+hz[24]="me_rep_025";
+hzA[24]="#0000FF";
+var me_rep_025opts ={'maxWidth': '200','className' : 'me_rep_025'}
+hz[25]="me_rep_026";
+hzA[25]="#0000FF";
+var me_rep_026opts ={'maxWidth': '200','className' : 'me_rep_026'}
+hz[26]="me_rep_027";
+hzA[26]="#FF0000";
+var me_rep_027opts ={'maxWidth': '200','className' : 'me_rep_027'}
+hz[27]="me_rep_028";
+hzA[27]="#FF0000";
+var me_rep_028opts ={'maxWidth': '200','className' : 'me_rep_028'}
+hz[28]="me_rep_029";
+hzA[28]="#FF0000";
+var me_rep_029opts ={'maxWidth': '200','className' : 'me_rep_029'}
+hz[29]="me_rep_030";
+hzA[29]="#FF0000";
+var me_rep_030opts ={'maxWidth': '200','className' : 'me_rep_030'}
+hz[30]="me_rep_031";
+hzA[30]="#FF0000";
+var me_rep_031opts ={'maxWidth': '200','className' : 'me_rep_031'}
+hz[31]="me_rep_032";
+hzA[31]="#FF0000";
+var me_rep_032opts ={'maxWidth': '200','className' : 'me_rep_032'}
+hz[32]="me_rep_033";
+hzA[32]="#FF0000";
+var me_rep_033opts ={'maxWidth': '200','className' : 'me_rep_033'}
+hz[33]="me_rep_034";
+hzA[33]="#FF0000";
+var me_rep_034opts ={'maxWidth': '200','className' : 'me_rep_034'}
+hz[34]="me_rep_035";
+hzA[34]="#FF0000";
+var me_rep_035opts ={'maxWidth': '200','className' : 'me_rep_035'}
+hz[35]="me_rep_036";
+hzA[35]="#FF0000";
+var me_rep_036opts ={'maxWidth': '200','className' : 'me_rep_036'}
+hz[36]="me_rep_037";
+hzA[36]="#FF0000";
+var me_rep_037opts ={'maxWidth': '200','className' : 'me_rep_037'}
+hz[37]="me_rep_038";
+hzA[37]="#FF0000";
+var me_rep_038opts ={'maxWidth': '200','className' : 'me_rep_038'}
+hz[38]="me_rep_039";
+hzA[38]="#0000FF";
+var me_rep_039opts ={'maxWidth': '200','className' : 'me_rep_039'}
+hz[39]="me_rep_040";
+hzA[39]="#0000FF";
+var me_rep_040opts ={'maxWidth': '200','className' : 'me_rep_040'}
+hz[40]="me_rep_041";
+hzA[40]="#0000FF";
+var me_rep_041opts ={'maxWidth': '200','className' : 'me_rep_041'}
+hz[41]="me_rep_042";
+hzA[41]="#0000FF";
+var me_rep_042opts ={'maxWidth': '200','className' : 'me_rep_042'}
+hz[42]="me_rep_043";
+hzA[42]="#0000FF";
+var me_rep_043opts ={'maxWidth': '200','className' : 'me_rep_043'}
+hz[43]="me_rep_044";
+hzA[43]="#00b386";
+var me_rep_044opts ={'maxWidth': '200','className' : 'me_rep_044'}
+hz[44]="me_rep_045";
+hzA[44]="#FF0000";
+var me_rep_045opts ={'maxWidth': '200','className' : 'me_rep_045'}
+hz[45]="me_rep_046";
+hzA[45]="#0000FF";
+var me_rep_046opts ={'maxWidth': '200','className' : 'me_rep_046'}
+hz[46]="me_rep_047";
+hzA[46]="#0000FF";
+var me_rep_047opts ={'maxWidth': '200','className' : 'me_rep_047'}
+hz[47]="me_rep_048";
+hzA[47]="#0000FF";
+var me_rep_048opts ={'maxWidth': '200','className' : 'me_rep_048'}
+hz[48]="me_rep_049";
+hzA[48]="#0000FF";
+var me_rep_049opts ={'maxWidth': '200','className' : 'me_rep_049'}
+hz[49]="me_rep_050";
+hzA[49]="#0000FF";
+var me_rep_050opts ={'maxWidth': '200','className' : 'me_rep_050'}
+hz[50]="me_rep_051";
+hzA[50]="#0000FF";
+var me_rep_051opts ={'maxWidth': '200','className' : 'me_rep_051'}
+hz[51]="me_rep_052";
+hzA[51]="#0000FF";
+var me_rep_052opts ={'maxWidth': '200','className' : 'me_rep_052'}
+hz[52]="me_rep_053";
+hzA[52]="#FF0000";
+var me_rep_053opts ={'maxWidth': '200','className' : 'me_rep_053'}
+hz[53]="me_rep_054";
+hzA[53]="#0000FF";
+var me_rep_054opts ={'maxWidth': '200','className' : 'me_rep_054'}
+hz[54]="me_rep_055";
+hzA[54]="#0000FF";
+var me_rep_055opts ={'maxWidth': '200','className' : 'me_rep_055'}
+hz[55]="me_rep_056";
+hzA[55]="#FF0000";
+var me_rep_056opts ={'maxWidth': '200','className' : 'me_rep_056'}
+hz[56]="me_rep_057";
+hzA[56]="#0000FF";
+var me_rep_057opts ={'maxWidth': '200','className' : 'me_rep_057'}
+hz[57]="me_rep_058";
+hzA[57]="";
+var me_rep_058opts ={'maxWidth': '200','className' : 'me_rep_058'}
+hz[58]="me_rep_059";
+hzA[58]="#0000FF";
+var me_rep_059opts ={'maxWidth': '200','className' : 'me_rep_059'}
+hz[59]="me_rep_060";
+hzA[59]="#0000FF";
+var me_rep_060opts ={'maxWidth': '200','className' : 'me_rep_060'}
+hz[60]="me_rep_061";
+hzA[60]="#FF0000";
+var me_rep_061opts ={'maxWidth': '200','className' : 'me_rep_061'}
+hz[61]="me_rep_062";
+hzA[61]="#FF0000";
+var me_rep_062opts ={'maxWidth': '200','className' : 'me_rep_062'}
+hz[62]="me_rep_063";
+hzA[62]="#FF0000";
+var me_rep_063opts ={'maxWidth': '200','className' : 'me_rep_063'}
+hz[63]="me_rep_064";
+hzA[63]="#0000FF";
+var me_rep_064opts ={'maxWidth': '200','className' : 'me_rep_064'}
+hz[64]="me_rep_065";
+hzA[64]="#0000FF";
+var me_rep_065opts ={'maxWidth': '200','className' : 'me_rep_065'}
+hz[65]="me_rep_066";
+hzA[65]="#FF0000";
+var me_rep_066opts ={'maxWidth': '200','className' : 'me_rep_066'}
+hz[66]="me_rep_067";
+hzA[66]="#FF0000";
+var me_rep_067opts ={'maxWidth': '200','className' : 'me_rep_067'}
+hz[67]="me_rep_068";
+hzA[67]="#FF0000";
+var me_rep_068opts ={'maxWidth': '200','className' : 'me_rep_068'}
+hz[68]="me_rep_069";
+hzA[68]="#FF0000";
+var me_rep_069opts ={'maxWidth': '200','className' : 'me_rep_069'}
+hz[69]="me_rep_070";
+hzA[69]="#FF0000";
+var me_rep_070opts ={'maxWidth': '200','className' : 'me_rep_070'}
+hz[70]="me_rep_071";
+hzA[70]="#FF0000";
+var me_rep_071opts ={'maxWidth': '200','className' : 'me_rep_071'}
+hz[71]="me_rep_072";
+hzA[71]="#FF0000";
+var me_rep_072opts ={'maxWidth': '200','className' : 'me_rep_072'}
+hz[72]="me_rep_073";
+hzA[72]="#FF0000";
+var me_rep_073opts ={'maxWidth': '200','className' : 'me_rep_073'}
+hz[73]="me_rep_074";
+hzA[73]="#FF0000";
+var me_rep_074opts ={'maxWidth': '200','className' : 'me_rep_074'}
+hz[74]="me_rep_075";
+hzA[74]="#0000FF";
+var me_rep_075opts ={'maxWidth': '200','className' : 'me_rep_075'}
+hz[75]="me_rep_076";
+hzA[75]="#FF0000";
+var me_rep_076opts ={'maxWidth': '200','className' : 'me_rep_076'}
+hz[76]="me_rep_077";
+hzA[76]="#FF0000";
+var me_rep_077opts ={'maxWidth': '200','className' : 'me_rep_077'}
+hz[77]="me_rep_078";
+hzA[77]="#FF0000";
+var me_rep_078opts ={'maxWidth': '200','className' : 'me_rep_078'}
+hz[78]="me_rep_079";
+hzA[78]="#FF0000";
+var me_rep_079opts ={'maxWidth': '200','className' : 'me_rep_079'}
+hz[79]="me_rep_080";
+hzA[79]="#FF0000";
+var me_rep_080opts ={'maxWidth': '200','className' : 'me_rep_080'}
+hz[80]="me_rep_081";
+hzA[80]="#FF0000";
+var me_rep_081opts ={'maxWidth': '200','className' : 'me_rep_081'}
+hz[81]="me_rep_082";
+hzA[81]="#FF0000";
+var me_rep_082opts ={'maxWidth': '200','className' : 'me_rep_082'}
+hz[82]="me_rep_083";
+hzA[82]="#FF0000";
+var me_rep_083opts ={'maxWidth': '200','className' : 'me_rep_083'}
+hz[83]="me_rep_084";
+hzA[83]="#FF0000";
+var me_rep_084opts ={'maxWidth': '200','className' : 'me_rep_084'}
+hz[84]="me_rep_085";
+hzA[84]="#FF0000";
+var me_rep_085opts ={'maxWidth': '200','className' : 'me_rep_085'}
+hz[85]="me_rep_086";
+hzA[85]="#FF0000";
+var me_rep_086opts ={'maxWidth': '200','className' : 'me_rep_086'}
+hz[86]="me_rep_087";
+hzA[86]="#FF0000";
+var me_rep_087opts ={'maxWidth': '200','className' : 'me_rep_087'}
+hz[87]="me_rep_088";
+hzA[87]="#FF0000";
+var me_rep_088opts ={'maxWidth': '200','className' : 'me_rep_088'}
+hz[88]="me_rep_089";
+hzA[88]="#0000FF";
+var me_rep_089opts ={'maxWidth': '200','className' : 'me_rep_089'}
+hz[89]="me_rep_090";
+hzA[89]="#FF0000";
+var me_rep_090opts ={'maxWidth': '200','className' : 'me_rep_090'}
+hz[90]="me_rep_091";
+hzA[90]="#FF0000";
+var me_rep_091opts ={'maxWidth': '200','className' : 'me_rep_091'}
+hz[91]="me_rep_092";
+hzA[91]="#FF0000";
+var me_rep_092opts ={'maxWidth': '200','className' : 'me_rep_092'}
+hz[92]="me_rep_093";
+hzA[92]="#0000FF";
+var me_rep_093opts ={'maxWidth': '200','className' : 'me_rep_093'}
+hz[93]="me_rep_094";
+hzA[93]="#0000FF";
+var me_rep_094opts ={'maxWidth': '200','className' : 'me_rep_094'}
+hz[94]="me_rep_095";
+hzA[94]="#0000FF";
+var me_rep_095opts ={'maxWidth': '200','className' : 'me_rep_095'}
+hz[95]="me_rep_096";
+hzA[95]="#0000FF";
+var me_rep_096opts ={'maxWidth': '200','className' : 'me_rep_096'}
+hz[96]="me_rep_097";
+hzA[96]="#FF0000";
+var me_rep_097opts ={'maxWidth': '200','className' : 'me_rep_097'}
+hz[97]="me_rep_098";
+hzA[97]="#0000FF";
+var me_rep_098opts ={'maxWidth': '200','className' : 'me_rep_098'}
+hz[98]="me_rep_099";
+hzA[98]="#0000FF";
+var me_rep_099opts ={'maxWidth': '200','className' : 'me_rep_099'}
+hz[99]="me_rep_100";
+hzA[99]="#0000FF";
+var me_rep_100opts ={'maxWidth': '200','className' : 'me_rep_100'}
+hz[100]="me_rep_101";
+hzA[100]="#0000FF";
+var me_rep_101opts ={'maxWidth': '200','className' : 'me_rep_101'}
+hz[101]="me_rep_102";
+hzA[101]="#0000FF";
+var me_rep_102opts ={'maxWidth': '200','className' : 'me_rep_102'}
+hz[102]="me_rep_103";
+hzA[102]="#0000FF";
+var me_rep_103opts ={'maxWidth': '200','className' : 'me_rep_103'}
+hz[103]="me_rep_104";
+hzA[103]="#FF0000";
+var me_rep_104opts ={'maxWidth': '200','className' : 'me_rep_104'}
+hz[104]="me_rep_105";
+hzA[104]="#0000FF";
+var me_rep_105opts ={'maxWidth': '200','className' : 'me_rep_105'}
+hz[105]="me_rep_106";
+hzA[105]="#FF0000";
+var me_rep_106opts ={'maxWidth': '200','className' : 'me_rep_106'}
+hz[106]="me_rep_107";
+hzA[106]="#FF0000";
+var me_rep_107opts ={'maxWidth': '200','className' : 'me_rep_107'}
+hz[107]="me_rep_108";
+hzA[107]="#0000FF";
+var me_rep_108opts ={'maxWidth': '200','className' : 'me_rep_108'}
+hz[108]="me_rep_109";
+hzA[108]="#0000FF";
+var me_rep_109opts ={'maxWidth': '200','className' : 'me_rep_109'}
+hz[109]="me_rep_110";
+hzA[109]="#0000FF";
+var me_rep_110opts ={'maxWidth': '200','className' : 'me_rep_110'}
+hz[110]="me_rep_111";
+hzA[110]="#0000FF";
+var me_rep_111opts ={'maxWidth': '200','className' : 'me_rep_111'}
+hz[111]="me_rep_112";
+hzA[111]="#0000FF";
+var me_rep_112opts ={'maxWidth': '200','className' : 'me_rep_112'}
+hz[112]="me_rep_113";
+hzA[112]="#0000FF";
+var me_rep_113opts ={'maxWidth': '200','className' : 'me_rep_113'}
+hz[113]="me_rep_114";
+hzA[113]="#0000FF";
+var me_rep_114opts ={'maxWidth': '200','className' : 'me_rep_114'}
+hz[114]="me_rep_115";
+hzA[114]="#0000FF";
+var me_rep_115opts ={'maxWidth': '200','className' : 'me_rep_115'}
+hz[115]="me_rep_116";
+hzA[115]="#0000FF";
+var me_rep_116opts ={'maxWidth': '200','className' : 'me_rep_116'}
+hz[116]="me_rep_117";
+hzA[116]="#0000FF";
+var me_rep_117opts ={'maxWidth': '200','className' : 'me_rep_117'}
+hz[117]="me_rep_118";
+hzA[117]="#0000FF";
+var me_rep_118opts ={'maxWidth': '200','className' : 'me_rep_118'}
+hz[118]="me_rep_119";
+hzA[118]="#0000FF";
+var me_rep_119opts ={'maxWidth': '200','className' : 'me_rep_119'}
+hz[119]="me_rep_120";
+hzA[119]="#0000FF";
+var me_rep_120opts ={'maxWidth': '200','className' : 'me_rep_120'}
+hz[120]="me_rep_121";
+hzA[120]="#0000FF";
+var me_rep_121opts ={'maxWidth': '200','className' : 'me_rep_121'}
+hz[121]="me_rep_122";
+hzA[121]="#0000FF";
+var me_rep_122opts ={'maxWidth': '200','className' : 'me_rep_122'}
+hz[122]="me_rep_123";
+hzA[122]="#0000FF";
+var me_rep_123opts ={'maxWidth': '200','className' : 'me_rep_123'}
+hz[123]="me_rep_124";
+hzA[123]="#0000FF";
+var me_rep_124opts ={'maxWidth': '200','className' : 'me_rep_124'}
+hz[124]="me_rep_125";
+hzA[124]="#0000FF";
+var me_rep_125opts ={'maxWidth': '200','className' : 'me_rep_125'}
+hz[125]="me_rep_126";
+hzA[125]="#0000FF";
+var me_rep_126opts ={'maxWidth': '200','className' : 'me_rep_126'}
+hz[126]="me_rep_127";
+hzA[126]="#0000FF";
+var me_rep_127opts ={'maxWidth': '200','className' : 'me_rep_127'}
+hz[127]="me_rep_128";
+hzA[127]="#0000FF";
+var me_rep_128opts ={'maxWidth': '200','className' : 'me_rep_128'}
+hz[128]="me_rep_129";
+hzA[128]="#0000FF";
+var me_rep_129opts ={'maxWidth': '200','className' : 'me_rep_129'}
+hz[129]="me_rep_130";
+hzA[129]="#0000FF";
+var me_rep_130opts ={'maxWidth': '200','className' : 'me_rep_130'}
+hz[130]="me_rep_131";
+hzA[130]="#0000FF";
+var me_rep_131opts ={'maxWidth': '200','className' : 'me_rep_131'}
+hz[131]="me_rep_132";
+hzA[131]="#0000FF";
+var me_rep_132opts ={'maxWidth': '200','className' : 'me_rep_132'}
+hz[132]="me_rep_133";
+hzA[132]="#0000FF";
+var me_rep_133opts ={'maxWidth': '200','className' : 'me_rep_133'}
+hz[133]="me_rep_134";
+hzA[133]="#0000FF";
+var me_rep_134opts ={'maxWidth': '200','className' : 'me_rep_134'}
+hz[134]="me_rep_135";
+hzA[134]="#0000FF";
+var me_rep_135opts ={'maxWidth': '200','className' : 'me_rep_135'}
+hz[135]="me_rep_136";
+hzA[135]="#FF0000";
+var me_rep_136opts ={'maxWidth': '200','className' : 'me_rep_136'}
+hz[136]="me_rep_137";
+hzA[136]="#FF0000";
+var me_rep_137opts ={'maxWidth': '200','className' : 'me_rep_137'}
+hz[137]="me_rep_138";
+hzA[137]="#FF0000";
+var me_rep_138opts ={'maxWidth': '200','className' : 'me_rep_138'}
+hz[138]="me_rep_139";
+hzA[138]="#FF0000";
+var me_rep_139opts ={'maxWidth': '200','className' : 'me_rep_139'}
+hz[139]="me_rep_140";
+hzA[139]="#FF0000";
+var me_rep_140opts ={'maxWidth': '200','className' : 'me_rep_140'}
+hz[140]="me_rep_141";
+hzA[140]="#FF0000";
+var me_rep_141opts ={'maxWidth': '200','className' : 'me_rep_141'}
+hz[141]="me_rep_142";
+hzA[141]="#0000FF";
+var me_rep_142opts ={'maxWidth': '200','className' : 'me_rep_142'}
+hz[142]="me_rep_143";
+hzA[142]="#FF0000";
+var me_rep_143opts ={'maxWidth': '200','className' : 'me_rep_143'}
+hz[143]="me_rep_144";
+hzA[143]="#FF0000";
+var me_rep_144opts ={'maxWidth': '200','className' : 'me_rep_144'}
+hz[144]="me_rep_145";
+hzA[144]="#FF0000";
+var me_rep_145opts ={'maxWidth': '200','className' : 'me_rep_145'}
+hz[145]="me_rep_146";
+hzA[145]="#0000FF";
+var me_rep_146opts ={'maxWidth': '200','className' : 'me_rep_146'}
+hz[146]="me_rep_147";
+hzA[146]="#0000FF";
+var me_rep_147opts ={'maxWidth': '200','className' : 'me_rep_147'}
+hz[147]="me_rep_148";
+hzA[147]="#FF0000";
+var me_rep_148opts ={'maxWidth': '200','className' : 'me_rep_148'}
+hz[148]="me_rep_149";
+hzA[148]="#0000FF";
+var me_rep_149opts ={'maxWidth': '200','className' : 'me_rep_149'}
+hz[149]="me_rep_150";
+hzA[149]="#0000FF";
+var me_rep_150opts ={'maxWidth': '200','className' : 'me_rep_150'}
+hz[150]="me_rep_151";
+hzA[150]="#0000FF";
+var me_rep_151opts ={'maxWidth': '200','className' : 'me_rep_151'}
+
+
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7288525357235996",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+	<div class="container">
+		<a class="navbar-brand" href="https://www.zipdatamaps.com"><img src="img/zdm.png" alt="zdm">ZIP Data and Maps</a>
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span> </button>
+
+
+		<div class="collapse navbar-collapse text-center justify-content-between" id="navbar2SupportedContent">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link mx-2" href="wp">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link mx-2" href="about.php">About</a>
+				</li>
+				<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data and Maps</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="geography/us-zip-codes">US ZIP Codes</a>
+							<a class="dropdown-item" href="geography/zip-code-tools">ZIP Code Tools</a>
+              <a class="dropdown-item" href="geography/canada-postal-code-lookup">Canada Postal Codes</a>
+							<a class="dropdown-item" href="geography/area-codes">Area Codes</a>
+							<a class="dropdown-item" href="geography/politics">Politics</a>
+							<a class="dropdown-item" href="geography/points-of-interest">POI Data</a>
+							<a class="dropdown-item" href="geography/regional-market-areas">Regional Market Areas</a>
+							<a class="dropdown-item" href="geography/neighborhoods">Neighborhoods</a>
+							<a class="dropdown-item" href="geography/economics">Economics</a>
+							<a class="dropdown-item" href="geography/us-counties">Counties</a>
+							<a class="dropdown-item" href="geography/us-places">Places</a>
+							<a class="dropdown-item" href="geography/school-attendance-areas">Schools</a>
+							<a class="dropdown-item" href="geography/time-zones-maps-and-data">Time Zones</a>
+
+
+            </div>
+          </li>
+			</ul>
+
+		</div>
+
+	</div>
+</nav>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+  <li class="breadcrumb-item"><a href="atlas/politics/political-atlas-of-maine">Atlas of Maine Politics</a></li><li class="breadcrumb-item active"  aria-current="page">Maine State House of Representatives Districts Map</li></ol>
+</nav>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+      <form>
+        <div class="form-row">
+          <div class="col-12 col-md-9 mb-2 mb-md-0 mx-auto">
+
+            <div class="input-group">
+                <input type="text" class="form-control form-control-lg typeahead" placeholder="Search ZIP Data Maps...">
+                <!--
+                <div class="input-group-append">
+                  <span class="input-group-text blue" id=""><i class="fa fa-search" aria-hidden="true"></i>Search</span>
+                  </div>
+                -->
+            </div>
+
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+
+
+		<div class="row clearfix"><h1>Map of Maine State House of Representatives Districts</h1>
+<div class="col-md-12 column">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7288525357235996" data-ad-slot="4027172053" data-ad-format="auto"></ins>
+<table id="leg-table"><tr><td id="leg-b" ><div class="p"></div></td>
+<td id="leg-b" ><div class="pD">Democrat</div></td>
+<td id="leg-b" ><div class="pI">Independant</div></td>
+<td id="leg-b" ><div class="pR">Republican</div></td>
+</tr></table>
+<div id="map-canvas"></div>
+<ul style="list-style: none; padding: 0; font-size: 12px; font-weight: normal; "><li style="display: inline-block; padding: 0; margin: 3px; font-weight: bold" class="hidden-xs">Share:</li><li style="background-color: #306199; display: inline-block; margin: 3px; text-align: center; padding: 3px; border-radius: 4px; width: 24px;"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.zipdatamaps.com/politics/state-level/districts/map-of-maine-state-house-of-representative-districts&t=Map+of+Maine+Maine+State+House+of+Representatives+Districts+-+July+2026" target="_blank" title="Share on Facebook" style="color: #FFFFFF; text-decoration: none"><i class="fa fa-facebook"></i></a></li><li style="background-color: #26c4f1; display: inline-block; margin: 3px; text-align: center; padding: 3px; border-radius: 4px; width: 24px;"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.zipdatamaps.com/politics/state-level/districts/map-of-maine-state-house-of-representative-districts&text=Map+of+Maine+Maine+State+House+of+Representatives+Districts+-+July+2026" target="_blank" title="Tweet" style="color: #FFFFFF; text-decoration: none"><i class="fa fa-twitter"></i></a></li><li style="background-color: #007bb6; display: inline-block; margin: 3px; text-align: center; padding: 3px; border-radius: 4px; width: 24px;"><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.zipdatamaps.com/politics/state-level/districts/map-of-maine-state-house-of-representative-districts&title=Map+of+Maine+Maine+State+House+of+Representatives+Districts+-+July+2026&source=https%3A%2F%2Fwww.zipdatamaps.com" target="_blank" title="Share on LinkedIn" style="color: #FFFFFF; text-decoration: none"><i class="fa fa-linkedin"></i></a></li></ul>
+<div id="map-share"><p>To Display this Map on Your Website Add the Following Code to your Page.  The size of the map can be adjusted by adjusting the width and height parameters:</p><div class="alert alert-primary disabled" role="alert">&lt;iframe src="https://www.zipdatamaps.com/map-share/politics/state-level/districts/map-of-maine-state-house-of-representative-districts" title="Map of Maine State House of Representatives Districts" width="500px" height="500px" scrolling="No" frameborder="0" marginheight="0" marginwidth="0"&gt;&lt;/iframe&gt;</div></div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7288525357235996" data-ad-slot="4027172053" data-ad-format="auto"></ins>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-md-12 column">
+<table class="table table-striped table-bordered table-hover table-condensed"><tr><th colspan="5"><h3>List of All Maine State House of Representatives Districts</h3></th></tr><tr><th>Map Key</th><th>District Number</th><th>Representative</th><th>Party Affiliation</th><th>Year Elected</th></tr><tr><td><table><tr><td><a href="javascript:ftz(-69.08757019,46.87055588,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 1 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_001"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-001">District 1</a></td><td>Lucien Daigle</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.30954742,47.07719421,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 2 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_002"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-002">District 2</a></td><td>Roger Albert</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.04511261,47.04538345,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 3 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_003"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-003">District 3</a></td><td>Mark Babin</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.07991791,46.83129883,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 4 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_004"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-004">District 4</a></td><td>Timothy Guerrette</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-67.98735046,46.68672180,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 5 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_005"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-005">District 5</a></td><td>Joseph Underwood</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.14004517,46.37816620,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 6 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_006"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-006">District 6</a></td><td>Donald Ardell</td><td>Republican</td><td>2022</td></tr>
+<tr><td colspan="5"><ins class="adsbygoogle"     style="display:block"     data-ad-client="ca-pub-7288525357235996"     data-ad-slot="4027172053"     data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-67.97261047,46.10027313,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 7 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_007"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-007">District 7</a></td><td>Gregory Swallow</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.01258850,45.63129425,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 8 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_008"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-008">District 8</a></td><td>Tracy Quint</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-67.37301636,45.12967300,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 9 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_009"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-009">District 9</a></td><td>Arthur Mingo</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-67.38046265,44.87674332,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 10 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_010"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-010">District 10</a></td><td>William Tuell</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-67.66728210,44.56635284,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 11 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_011"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-011">District 11</a></td><td>Tiffany Strout</td><td>Republican</td><td>2022</td></tr>
+<tr><td colspan="5"><ins class="adsbygoogle"     style="display:block"     data-ad-client="ca-pub-7288525357235996"     data-ad-slot="4027172053"     data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.09970856,44.46118546,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 12 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_012"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-012">District 12</a></td><td>Billy Bob Faulkingham</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.43708038,44.61026764,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 13 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_013"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-013">District 13</a></td><td>Russell White</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.27694702,44.34903717,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 14 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_014"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-014">District 14</a></td><td>Gary Friedmann</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.59441376,44.12808228,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 15 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_015"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-015">District 15</a></td><td>Holly Eaton</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.60280609,44.40533829,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 16 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_016"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-016">District 16</a></td><td>Nina Milliken</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.71639252,44.56620789,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 17 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_017"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-017">District 17</a></td><td>Steven Bishop</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.16034698,44.94375229,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 18 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_018"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-018">District 18</a></td><td>Mathew McIntyre</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.68778992,44.75974274,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 19 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_019"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-019">District 19</a></td><td>Richard Campbell</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.73499298,44.78278732,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 20 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_020"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-020">District 20</a></td><td>Dani O\'\'Halloran</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.81311035,44.80127716,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 21 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_021"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-021">District 21</a></td><td>Ambureen Rana</td><td>Democrat</td><td>2022</td></tr>
+<tr><td colspan="5"><ins class="adsbygoogle"     style="display:block"     data-ad-client="ca-pub-7288525357235996"     data-ad-slot="4027172053"     data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.82155609,44.83759308,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 22 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_022"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-022">District 22</a></td><td>Laura Supica</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.77500916,44.85076523,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 23 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_023"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-023">District 23</a></td><td>Amy Roeder</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.73740387,44.82988358,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 24 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_024"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-024">District 24</a></td><td>Sean Faircloth</td><td>Democrat</td><td>2025</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.69679260,44.85823822,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 25 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_025"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-025">District 25</a></td><td>Laurie Osher</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.69924927,44.95275879,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 26 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_026"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-026">District 26</a></td><td>James Dill</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.80230713,45.02179337,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 27 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_027"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-027">District 27</a></td><td>Gary Drinkwater</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.61026001,45.30471420,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 28 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_028"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-028">District 28</a></td><td>Irene Gifford</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.64270782,45.87031937,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 29 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_029"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-029">District 29</a></td><td>Kathy Javner</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.31086731,45.87123489,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 30 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_030"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-030">District 30</a></td><td>James White</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.00559235,45.25604630,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 31 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_031"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-031">District 31</a></td><td>Chad Perkins</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.13478088,45.00536728,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 32 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_032"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-032">District 32</a></td><td>Steven Foster</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.20099640,44.81821442,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 33 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_033"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-033">District 33</a></td><td>Kenneth Fredette</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.92517853,44.90108109,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 34 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_034"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-034">District 34</a></td><td>Abigail Griffin</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.97026062,44.80550003,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 35 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_035"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-035">District 35</a></td><td>James Thorne</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.94598389,44.72585678,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 36 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_036"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-036">District 36</a></td><td>Kimberly Haggan</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.89387512,44.55148315,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 37 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_037"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-037">District 37</a></td><td>Reagan Paul</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.15427399,44.56483459,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 38 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_038"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-038">District 38</a></td><td>Benjamin Hymes</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.02532959,44.38788605,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 39 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_039"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-039">District 39</a></td><td>Janice Dodge</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.14010620,44.34689331,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 40 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_040"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-040">District 40</a></td><td>D. Michael Ray</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.08895111,44.19347763,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 41 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_041"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-041">District 41</a></td><td>Victoria Doudera</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-68.96665955,43.95683289,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 42 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_042"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-042">District 42</a></td><td>Valli Geiger</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.22521973,43.95456314,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 43 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_043"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-043">District 43</a></td><td>Ann Matlack</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.24655914,44.18595886,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 44 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_044"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-044">District 44</a></td><td>William Pluecker</td><td>Independant</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.38086700,44.08773422,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 45 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_045"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-045">District 45</a></td><td>Abden Simmons</td><td>Republican</td><td>2023</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.45505524,43.91837311,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 46 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_046"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-046">District 46</a></td><td>Lydia Crafts</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.58973694,44.14706039,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 47 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_047"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-047">District 47</a></td><td>Wayne Farrin</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.61425018,43.85063171,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 48 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_048"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-048">District 48</a></td><td>Holly Stover</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.78714752,43.81033707,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 49 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_049"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-049">District 49</a></td><td>Allison Hepler</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.83464813,43.93455887,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 50 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_050"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-050">District 50</a></td><td>David Sinclair</td><td>Democrat</td><td>2023</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.94080353,43.95571518,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 51 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_051"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-051">District 51</a></td><td>Rafael Macias</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.88205719,44.07434464,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 52 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_052"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-052">District 52</a></td><td>Sally Cluchey</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.72346497,44.16247177,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 53 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_053"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-053">District 53</a></td><td>Michael Lemelin</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.80409241,44.21888733,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 54 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_054"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-054">District 54</a></td><td>Karen Montell</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.86284637,44.21704102,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 55 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_055"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-055">District 55</a></td><td>Daniel Shagoury</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.98965454,44.19200897,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 56 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_056"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-056">District 56</a></td><td>Randall Greenwood</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.95594788,44.34336853,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 57 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_057"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-057">District 57</a></td><td>Tavis Hasenfus</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.95086670,44.52557373,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 58 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_058"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-058">District 58</a></td><td>Sharon Frost</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.79139709,44.34907913,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 59 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_059"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-059">District 59</a></td><td>David Rollins</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.69998932,44.32608032,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 60 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_060"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-060">District 60</a></td><td>William Bridgeo</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.69717407,44.43592834,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 61 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_061"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-061">District 61</a></td><td>Alicia Collins</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.50564575,44.36950684,13);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 62 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_062"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-062">District 62</a></td><td>Katrina Smith</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.46684265,44.52620697,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 63 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_063"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-063">District 63</a></td><td>Paul Flynn</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.64013672,44.56611633,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 64 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_064"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-064">District 64</a></td><td>Flavia DeBrito</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.67430115,44.52833557,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 65 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_065"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-065">District 65</a></td><td>Cassie Julia</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.85222626,44.64821625,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 66 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_066"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-066">District 66</a></td><td>Robert Nutting</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.62038422,44.62257385,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 67 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_067"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-067">District 67</a></td><td>Shelley Rudnicki</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.41168213,44.70517731,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 68 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_068"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-068">District 68</a></td><td>Amanda Collamore</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.43998718,44.85105515,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 69 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_069"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-069">District 69</a></td><td>Dean Cray</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.66573334,44.75535202,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 70 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_070"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-070">District 70</a></td><td>Jennifer Poirier</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.77185822,44.80400848,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 71 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_071"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-071">District 71</a></td><td>John Ducharme</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.93438721,45.75503922,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 72 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_072"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-072">District 72</a></td><td>Elizabeth Caruso</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.54077148,45.12670135,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 73 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_073"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-073">District 73</a></td><td>Michael Soboleski</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.25801849,44.73850250,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 74 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_074"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-074">District 74</a></td><td>Randall Hall</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.12123108,44.62509918,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 75 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_075"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-075">District 75</a></td><td>Stephan Bunker</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.19483948,44.47243118,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 76 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_076"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-076">District 76</a></td><td>Sheila Lyman</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.38615417,44.47764206,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 77 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_077"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-077">District 77</a></td><td>Tammy Schmersal-Burgess</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.66619873,44.56058121,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 78 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_078"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-078">District 78</a></td><td>Rachel Ann Henderson</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.51371765,44.33778763,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 79 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_079"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-079">District 79</a></td><td>Michael Lance</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.45734406,44.17176437,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 80 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_080"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-080">District 80</a></td><td>Caldwell Jackson</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.78265381,44.25672531,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 81 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_081"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-081">District 81</a></td><td>Peter Wood</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.90438843,43.99626541,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 82 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_082"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-082">District 82</a></td><td>Nathan Wadsworth</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.73626709,44.03738403,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 83 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_083"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-083">District 83</a></td><td>Marygrace Cimino</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.65717316,43.88906860,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 84 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_084"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-084">District 84</a></td><td>Mark Walker</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.55915070,43.77533722,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 85 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_085"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-085">District 85</a></td><td>Kimberly Pomerleau</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.48595428,43.94822311,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 86 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_086"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-086">District 86</a></td><td>Rolf Olsen Jr.</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.38610077,44.05982208,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 87 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_087"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-087">District 87</a></td><td>David Boyer</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.24600220,44.04125977,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 88 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_088"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-088">District 88</a></td><td>Quentin Chapman</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.22680664,44.10308075,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 89 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_089"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-089">District 89</a></td><td>Adam Lee</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.29886627,44.14649582,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 90 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_090"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-090">District 90</a></td><td>Laurel Libby</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.17125702,44.29153824,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 91 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_091"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-091">District 91</a></td><td>Joshua Morris</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.11066437,44.14909744,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 92 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_092"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-092">District 92</a></td><td>Stephen Wood</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.19492340,44.13427734,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 93 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_093"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-093">District 93</a></td><td>Julia McCabe</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.17589569,44.11955643,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 94 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_094"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-094">District 94</a></td><td>Kristen Cloutier</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.19621277,44.08657074,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 95 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_095"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-095">District 95</a></td><td>Mana Abdi</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.15480804,44.07309341,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 96 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_096"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-096">District 96</a></td><td>Michel Lajoie</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.09284210,44.02774429,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 97 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_097"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-097">District 97</a></td><td>Richard Mason</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.10699463,43.95753479,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 98 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_098"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-098">District 98</a></td><td>Kilton Webb</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.95831299,43.75312042,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 99 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_099"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-099">District 99</a></td><td>Cheryl Golek</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-69.96584320,43.87576294,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 100 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_100"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-100">District 100</a></td><td>Dan Ankeles</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.02270508,43.90697861,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 101 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_101"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-101">District 101</a></td><td>Poppy Arford</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.09397125,43.84670258,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 102 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_102"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-102">District 102</a></td><td>Melanie Sachs</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.15930939,43.78834915,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 103 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_103"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-103">District 103</a></td><td>Arthur Bell</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.32292938,43.94471359,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 104 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_104"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-104">District 104</a></td><td>Amy Arata</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.28121948,43.86476135,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 105 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_105"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-105">District 105</a></td><td>Anne Graham</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.40068817,43.82783890,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 106 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_106"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-106">District 106</a></td><td>Barbara Bagshaw</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.41097260,43.76467896,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 107 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_107"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-107">District 107</a></td><td>Mark Cooper</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.47837067,43.69173813,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 108 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_108"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-108">District 108</a></td><td>Parnell Terry</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.43559265,43.71635437,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 109 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_109"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-109">District 109</a></td><td>Eleanor Sato</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.16643524,43.73842621,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 110 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_110"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-110">District 110</a></td><td>Christina Mitchell</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.27211761,43.74589157,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 111 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_111"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-111">District 111</a></td><td>Amy Kuhn</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.27575684,43.71883392,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 112 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_112"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-112">District 112</a></td><td>W. Edward Crockett</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.31726837,43.68270874,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 113 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_113"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-113">District 113</a></td><td>Grayson Lookner</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.26906586,43.69085312,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 114 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_114"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-114">District 114</a></td><td>Dylan Pugh</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.28061676,43.67423630,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 115 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_115"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-115">District 115</a></td><td>Michael Brennan</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.30017090,43.65979767,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 116 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_116"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-116">District 116</a></td><td>Samuel Zager</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.27536774,43.64848709,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 117 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_117"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-117">District 117</a></td><td>Matthew Moonen</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.26367950,43.66376495,8);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 118 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_118"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-118">District 118</a></td><td>Yusuf Yusuf</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.11134338,43.62777710,8);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 119 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_119"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-119">District 119</a></td><td>Charles Skold</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.31585693,43.63220978,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 120 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_120"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-120">District 120</a></td><td>Deqa Dhalac</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.27132416,43.61859512,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 121 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_121"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-121">District 121</a></td><td>Christopher Kessler</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.23785400,43.64343262,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 122 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_122"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-122">District 122</a></td><td>Matthew Beck</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.20069885,43.56833267,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 123 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_123"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-123">District 123</a></td><td>Michelle Boyer</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.29052734,43.53767014,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 124 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_124"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-124">District 124</a></td><td>Sophia Warren</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.36241150,43.59360504,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 125 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_125"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-125">District 125</a></td><td>Kelly Noonan Murphy</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.43231964,43.59984589,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 126 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_126"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-126">District 126</a></td><td>Andrew Gattine</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.35626221,43.67497635,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 127 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_127"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-127">District 127</a></td><td>Morgan Rielly</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.34949493,43.71458054,12);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 128 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_128"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-128">District 128</a></td><td>Suzanne Salisbury</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.49440002,43.52922058,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 129 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_129"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-129">District 129</a></td><td>Marshall Archer</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.36356354,43.49041367,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 130 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_130"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-130">District 130</a></td><td>Lynn Copeland</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.34040070,43.50613403,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 131 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_131"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-131">District 131</a></td><td>Lori Gramlich</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.45378113,43.48541641,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 132 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_132"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-132">District 132</a></td><td>Ryan Fecteau</td><td>Democrat</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.48830414,43.48197556,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 133 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_133"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-133">District 133</a></td><td>Marc Malon</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.40914917,43.38389587,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 134 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_134"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-134">District 134</a></td><td>Traci Gere</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.58153534,43.40288544,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 135 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_135"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-135">District 135</a></td><td>Daniel Sayre</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.70856476,43.51898956,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 136 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_136"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-136">District 136</a></td><td>John Eder</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.56250000,43.62391281,8);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 137 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_137"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-137">District 137</a></td><td>Nathan Carlow</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.70961761,43.72904587,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 138 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_138"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-138">District 138</a></td><td>Mark Blier</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.84260559,43.69942474,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 139 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_139"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-139">District 139</a></td><td>David Woodsome</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.57690430,43.49845123,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 140 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_140"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-140">District 140</a></td><td>Wayne Parry</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.85943604,43.56889343,8);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 141 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_141"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-141">District 141</a></td><td>Lucas Lanigan</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.75984955,43.44713593,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 142 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_142"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-142">District 142</a></td><td>Anne-Marie Mastraccio</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.72350311,43.40222931,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 143 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_143"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-143">District 143</a></td><td>Ann Marie Fredericks</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.91542816,43.45707321,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 144 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_144"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-144">District 144</a></td><td>Jeffrey Adams</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.63788605,43.33022690,8);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 145 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_145"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-145">District 145</a></td><td>Robert Foley</td><td>Republican</td><td>2024</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.62104034,43.23186874,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 146 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_146"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-146">District 146</a></td><td>Walter Runte Jr.</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.54525757,43.14151382,11);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 147 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_147"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-147">District 147</a></td><td>Holly Sargent</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.82553864,43.32455444,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 148 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_148"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-148">District 148</a></td><td>Thomas Lavigne</td><td>Republican</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.74162292,43.27100754,10);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 149 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_149"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-149">District 149</a></td><td>Tiffany Roberts</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.78742981,43.15716171,9);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 150 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_150"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-150">District 150</a></td><td>Michele Meyer</td><td>Democrat</td><td>2022</td></tr>
+<tr><td><table><tr><td><a href="javascript:ftz(-70.63283539,43.04051971,8);csc();" class="mapzoom" title="Zoom to  Maine State House of Representatives District 151 Boundary"><i class="fa fa-search-plus"></i></a></td><td><div id="me_rep_151"></div></td></tr></table></td><td><a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-151">District 151</a></td><td>Kristi Mathieson</td><td>Democrat</td><td>2022</td></tr>
+</table>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7288525357235996" data-ad-slot="4027172053" data-ad-format="auto"></ins>
+</div><!--col1-->
+</div><!--row-->
+
+    <div class="row clearfix">
+
+      <div class="col-md-12 column" id="related-maps">
+        <h2>Related Maps and Data:</h2>
+        <ol class="list-group">
+        <li class="list-group-item"><a title="Maine Airports" href="en/airport-locator/us/state/map-of-all-airports-in-maine">Maine Airports</a></li><li class="list-group-item"><a title="Maine Area Codes" href="area-codes/map-of-all-maine-area-codes">Maine Area Codes</a></li><li class="list-group-item"><a title="Maine Colleges and Universities" href="en/us/poi/education/state/maine/colleges-and-universities">Maine Colleges and Universities</a></li><li class="list-group-item"><a title="Maine Congressional Districts Map" href="politics/national/districts/map-of-maine-congressional-districts">Maine Congressional Districts Map</a></li><li class="list-group-item"><a title="Maine Metropolitan/Micropolitan Statistical Areas" href="cbsas/state/borders/map-of-all-msa-in-maine">Maine Metropolitan/Micropolitan Statistical Areas</a></li><li class="list-group-item"><a title="Maine Military Bases" href="en/us/poi/military/state/maine/military-bases">Maine Military Bases</a></li><li class="list-group-item"><a title="Maine Power Plants" href="en/us/poi/energy/state/maine/power-plants">Maine Power Plants</a></li><li class="list-group-item"><a title="Maine Regional Market Areas" href="regional-market-areas/maine">Maine Regional Market Areas</a></li><li class="list-group-item"><a title="Maine School Districts" href="school-district-list/state/list-of-all-schools-districts-in-maine">Maine School Districts</a></li><li class="list-group-item"><a title="Maine State House of Representatives Map" href="politics/state-level/districts/map-of-maine-state-house-of-representative-districts">Maine State House of Representatives Map</a></li><li class="list-group-item"><a title="Maine State Senate Map" href="politics/state-level/districts/map-of-maine-state-senate-districts">Maine State Senate Map</a></li><li class="list-group-item"><a title="Maine ZIP Code List" href="en/us/zip-list/state/zip-codes-in-maine">Maine ZIP Code List</a></li><li class="list-group-item"><a title="Maine ZIP Code Map" href="zip-code-maps/us/state/maine-zip-code-map">Maine ZIP Code Map</a></li><li class="list-group-item"><a title="Majority Race/Ethnicity for Counties in Maine" href="counties/state/demographics/map-of-majority-race-ethnicty-for-counties-in-maine">Majority Race/Ethnicity for Counties in Maine</a></li><li class="list-group-item"><a title="Partisan Voting Index for Counties in Maine" href="counties/state/politics/map-of-partisan-voting-index-for-counties-in-maine">Partisan Voting Index for Counties in Maine</a></li><li class="list-group-item"><a title="Poorest ZIP Codes in Maine" href="economics/income/agi/state/poorest-zipcodes-in-maine">Poorest ZIP Codes in Maine</a></li><li class="list-group-item"><a title="Population Change for Counties in Maine" href="counties/state/population/map-of-population-change-for-counties-in-maine">Population Change for Counties in Maine</a></li><li class="list-group-item"><a title="Public School Majority Race/Ethnicity for Counties in Maine" href="counties/state/demographics/map-of-public-school-majority-race-ethnicty-for-counties-in-maine">Public School Majority Race/Ethnicity for Counties in Maine</a></li><li class="list-group-item"><a title="Unemployment Rate Heat Map for Cities and Counties in Maine" href="economics/jobs/state/maine-unemployment-level-heat-map">Unemployment Rate Heat Map for Cities and Counties in Maine</a></li><li class="list-group-item"><a title="Unemployment Rate for Counties in Maine" href="counties/state/economics/map-of-current-unemployment-rate-for-counties-in-maine">Unemployment Rate for Counties in Maine</a></li><li class="list-group-item"><a title="Wealthiest ZIP Codes in Maine" href="economics/income/agi/state/wealthiest-zipcodes-in-maine">Wealthiest ZIP Codes in Maine</a></li>        </ol>
+      </div>
+    </div>
+<div class="bg-primary  p-4">
+  <div class='container text-white'>
+
+
+      <div class='col-xs-5 col-sm-6 col-md-6'>
+        <div class='row'>
+          <div class='col-xs-12 col-sm-6 col-md-6'>
+            <ul>
+              <li><a href='about.php' class="text-dark">About</a></li>
+              <li><a href='contact.php' class="text-dark">Contact</a></li>
+              <li><a href='terms.php' class="text-dark">Terms</a></li>
+              <li><a href='privacy.php' class="text-dark">Privacy</a></li>
+
+            </ul>
+          </div>
+          <div class='col-xs-12 col-sm-6 col-md-6'>
+            <ul>
+              <li><a href='/wp' class="text-dark"><i class='fa fa-rss'></i>ZIP Code Blog</a></li>
+              <li><a href='https://twitter.com/zipdatamaps/' target="_blank" rel="noopener" title="Follow us on Twitter" class="text-dark"><i class='fa fa-twitter'></i>Twitter</a></li>
+              <li><a href="https://www.facebook.com/Zipdatamaps-105948810870467" target="_blank" rel="noopener" title="Follow us on Facebook" class="text-dark"><i class="fa fa-facebook"></i>Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <div class='row'>
+      <div class='col-xs-12 text-center'>
+                <small class='copyright'>2026 zipdatamaps.com</small>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.js'></script>
+<script src="js/handlebars.js"></script>
+<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+<script type="text/javascript" src="js/zdm4_ta.js"></script>
+<script>
+
+var map = L.map('map-canvas', {maxZoom: 13,minZoom: 5,}).setView([45.27,-69.20], 7);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        crossOrigin: true
+      }).addTo(map);
+var me_rep_001 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_001.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_001}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-001">District 1</a><br>Lucien Daigle (R)',me_rep_001opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_002 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_002.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_002}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-002">District 2</a><br>Roger Albert (R)',me_rep_002opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_003 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_003.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_003}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-003">District 3</a><br>Mark Babin (R)',me_rep_003opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_004 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_004.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_004}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-004">District 4</a><br>Timothy Guerrette (R)',me_rep_004opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_005 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_005.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_005}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-005">District 5</a><br>Joseph Underwood (R)',me_rep_005opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_006 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_006.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_006}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-006">District 6</a><br>Donald Ardell (R)',me_rep_006opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_007 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_007.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_007}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-007">District 7</a><br>Gregory Swallow (R)',me_rep_007opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_008 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_008.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_008}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-008">District 8</a><br>Tracy Quint (R)',me_rep_008opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_009 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_009.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_009}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-009">District 9</a><br>Arthur Mingo (R)',me_rep_009opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_010 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_010.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_010}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-010">District 10</a><br>William Tuell (R)',me_rep_010opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_011 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_011.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_011}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-011">District 11</a><br>Tiffany Strout (R)',me_rep_011opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_012 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_012.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_012}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-012">District 12</a><br>Billy Bob Faulkingham (R)',me_rep_012opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_013 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_013.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_013}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-013">District 13</a><br>Russell White (R)',me_rep_013opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_014 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_014.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_014}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-014">District 14</a><br>Gary Friedmann (D)',me_rep_014opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_015 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_015.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_015}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-015">District 15</a><br>Holly Eaton (D)',me_rep_015opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_016 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_016.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_016}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-016">District 16</a><br>Nina Milliken (D)',me_rep_016opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_017 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_017.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_017}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-017">District 17</a><br>Steven Bishop (R)',me_rep_017opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_018 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_018.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_018}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-018">District 18</a><br>Mathew McIntyre (R)',me_rep_018opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_019 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_019.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_019}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-019">District 19</a><br>Richard Campbell (R)',me_rep_019opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_020 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_020.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_020}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-020">District 20</a><br>Dani O\'\'Halloran (D)',me_rep_020opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_021 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_021.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_021}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-021">District 21</a><br>Ambureen Rana (D)',me_rep_021opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_022 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_022.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_022}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-022">District 22</a><br>Laura Supica (D)',me_rep_022opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_023 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_023.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_023}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-023">District 23</a><br>Amy Roeder (D)',me_rep_023opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_024 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_024.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_024}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-024">District 24</a><br>Sean Faircloth (D)',me_rep_024opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_025 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_025.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_025}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-025">District 25</a><br>Laurie Osher (D)',me_rep_025opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_026 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_026.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_026}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-026">District 26</a><br>James Dill (D)',me_rep_026opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_027 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_027.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_027}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-027">District 27</a><br>Gary Drinkwater (R)',me_rep_027opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_028 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_028.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_028}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-028">District 28</a><br>Irene Gifford (R)',me_rep_028opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_029 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_029.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_029}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-029">District 29</a><br>Kathy Javner (R)',me_rep_029opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_030 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_030.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_030}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-030">District 30</a><br>James White (R)',me_rep_030opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_031 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_031.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_031}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-031">District 31</a><br>Chad Perkins (R)',me_rep_031opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_032 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_032.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_032}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-032">District 32</a><br>Steven Foster (R)',me_rep_032opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_033 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_033.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_033}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-033">District 33</a><br>Kenneth Fredette (R)',me_rep_033opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_034 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_034.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_034}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-034">District 34</a><br>Abigail Griffin (R)',me_rep_034opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_035 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_035.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_035}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-035">District 35</a><br>James Thorne (R)',me_rep_035opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_036 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_036.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_036}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-036">District 36</a><br>Kimberly Haggan (R)',me_rep_036opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_037 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_037.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_037}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-037">District 37</a><br>Reagan Paul (R)',me_rep_037opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_038 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_038.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_038}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-038">District 38</a><br>Benjamin Hymes (R)',me_rep_038opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_039 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_039.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_039}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-039">District 39</a><br>Janice Dodge (D)',me_rep_039opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_040 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_040.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_040}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-040">District 40</a><br>D. Michael Ray (D)',me_rep_040opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_041 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_041.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_041}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-041">District 41</a><br>Victoria Doudera (D)',me_rep_041opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_042 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_042.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_042}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-042">District 42</a><br>Valli Geiger (D)',me_rep_042opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_043 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_043.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_043}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-043">District 43</a><br>Ann Matlack (D)',me_rep_043opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_044 = {fillColor: "#00b386",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_044.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_044}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-044">District 44</a><br>William Pluecker (I)',me_rep_044opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_045 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_045.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_045}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-045">District 45</a><br>Abden Simmons (R)',me_rep_045opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_046 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_046.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_046}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-046">District 46</a><br>Lydia Crafts (D)',me_rep_046opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_047 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_047.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_047}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-047">District 47</a><br>Wayne Farrin (D)',me_rep_047opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_048 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_048.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_048}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-048">District 48</a><br>Holly Stover (D)',me_rep_048opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_049 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_049.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_049}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-049">District 49</a><br>Allison Hepler (D)',me_rep_049opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_050 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_050.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_050}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-050">District 50</a><br>David Sinclair (D)',me_rep_050opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_051 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_051.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_051}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-051">District 51</a><br>Rafael Macias (D)',me_rep_051opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_052 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_052.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_052}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-052">District 52</a><br>Sally Cluchey (D)',me_rep_052opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_053 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_053.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_053}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-053">District 53</a><br>Michael Lemelin (R)',me_rep_053opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_054 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_054.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_054}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-054">District 54</a><br>Karen Montell (D)',me_rep_054opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_055 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_055.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_055}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-055">District 55</a><br>Daniel Shagoury (D)',me_rep_055opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_056 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_056.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_056}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-056">District 56</a><br>Randall Greenwood (R)',me_rep_056opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_057 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_057.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_057}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-057">District 57</a><br>Tavis Hasenfus (D)',me_rep_057opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_058 = {fillColor: "",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_058.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_058}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-058">District 58</a><br>Sharon Frost ()',me_rep_058opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_059 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_059.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_059}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-059">District 59</a><br>David Rollins (D)',me_rep_059opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_060 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_060.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_060}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-060">District 60</a><br>William Bridgeo (D)',me_rep_060opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_061 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_061.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_061}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-061">District 61</a><br>Alicia Collins (R)',me_rep_061opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_062 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_062.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_062}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-062">District 62</a><br>Katrina Smith (R)',me_rep_062opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_063 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_063.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_063}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-063">District 63</a><br>Paul Flynn (R)',me_rep_063opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_064 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_064.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_064}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-064">District 64</a><br>Flavia DeBrito (D)',me_rep_064opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_065 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_065.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_065}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-065">District 65</a><br>Cassie Julia (D)',me_rep_065opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_066 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_066.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_066}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-066">District 66</a><br>Robert Nutting (R)',me_rep_066opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_067 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_067.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_067}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-067">District 67</a><br>Shelley Rudnicki (R)',me_rep_067opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_068 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_068.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_068}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-068">District 68</a><br>Amanda Collamore (R)',me_rep_068opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_069 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_069.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_069}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-069">District 69</a><br>Dean Cray (R)',me_rep_069opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_070 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_070.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_070}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-070">District 70</a><br>Jennifer Poirier (R)',me_rep_070opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_071 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_071.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_071}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-071">District 71</a><br>John Ducharme (R)',me_rep_071opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_072 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_072.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_072}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-072">District 72</a><br>Elizabeth Caruso (R)',me_rep_072opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_073 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_073.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_073}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-073">District 73</a><br>Michael Soboleski (R)',me_rep_073opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_074 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_074.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_074}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-074">District 74</a><br>Randall Hall (R)',me_rep_074opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_075 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_075.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_075}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-075">District 75</a><br>Stephan Bunker (D)',me_rep_075opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_076 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_076.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_076}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-076">District 76</a><br>Sheila Lyman (R)',me_rep_076opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_077 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_077.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_077}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-077">District 77</a><br>Tammy Schmersal-Burgess (R)',me_rep_077opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_078 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_078.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_078}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-078">District 78</a><br>Rachel Ann Henderson (R)',me_rep_078opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_079 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_079.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_079}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-079">District 79</a><br>Michael Lance (R)',me_rep_079opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_080 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_080.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_080}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-080">District 80</a><br>Caldwell Jackson (R)',me_rep_080opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_081 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_081.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_081}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-081">District 81</a><br>Peter Wood (R)',me_rep_081opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_082 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_082.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_082}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-082">District 82</a><br>Nathan Wadsworth (R)',me_rep_082opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_083 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_083.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_083}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-083">District 83</a><br>Marygrace Cimino (R)',me_rep_083opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_084 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_084.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_084}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-084">District 84</a><br>Mark Walker (R)',me_rep_084opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_085 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_085.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_085}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-085">District 85</a><br>Kimberly Pomerleau (R)',me_rep_085opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_086 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_086.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_086}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-086">District 86</a><br>Rolf Olsen Jr. (R)',me_rep_086opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_087 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_087.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_087}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-087">District 87</a><br>David Boyer (R)',me_rep_087opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_088 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_088.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_088}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-088">District 88</a><br>Quentin Chapman (R)',me_rep_088opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_089 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_089.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_089}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-089">District 89</a><br>Adam Lee (D)',me_rep_089opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_090 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_090.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_090}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-090">District 90</a><br>Laurel Libby (R)',me_rep_090opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_091 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_091.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_091}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-091">District 91</a><br>Joshua Morris (R)',me_rep_091opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_092 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_092.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_092}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-092">District 92</a><br>Stephen Wood (R)',me_rep_092opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_093 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_093.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_093}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-093">District 93</a><br>Julia McCabe (D)',me_rep_093opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_094 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_094.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_094}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-094">District 94</a><br>Kristen Cloutier (D)',me_rep_094opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_095 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_095.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_095}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-095">District 95</a><br>Mana Abdi (D)',me_rep_095opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_096 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_096.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_096}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-096">District 96</a><br>Michel Lajoie (D)',me_rep_096opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_097 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_097.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_097}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-097">District 97</a><br>Richard Mason (R)',me_rep_097opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_098 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_098.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_098}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-098">District 98</a><br>Kilton Webb (D)',me_rep_098opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_099 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_099.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_099}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-099">District 99</a><br>Cheryl Golek (D)',me_rep_099opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_100 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_100.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_100}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-100">District 100</a><br>Dan Ankeles (D)',me_rep_100opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_101 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_101.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_101}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-101">District 101</a><br>Poppy Arford (D)',me_rep_101opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_102 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_102.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_102}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-102">District 102</a><br>Melanie Sachs (D)',me_rep_102opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_103 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_103.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_103}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-103">District 103</a><br>Arthur Bell (D)',me_rep_103opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_104 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_104.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_104}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-104">District 104</a><br>Amy Arata (R)',me_rep_104opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_105 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_105.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_105}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-105">District 105</a><br>Anne Graham (D)',me_rep_105opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_106 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_106.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_106}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-106">District 106</a><br>Barbara Bagshaw (R)',me_rep_106opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_107 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_107.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_107}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-107">District 107</a><br>Mark Cooper (R)',me_rep_107opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_108 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_108.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_108}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-108">District 108</a><br>Parnell Terry (D)',me_rep_108opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_109 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_109.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_109}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-109">District 109</a><br>Eleanor Sato (D)',me_rep_109opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_110 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_110.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_110}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-110">District 110</a><br>Christina Mitchell (D)',me_rep_110opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_111 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_111.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_111}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-111">District 111</a><br>Amy Kuhn (D)',me_rep_111opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_112 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_112.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_112}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-112">District 112</a><br>W. Edward Crockett (D)',me_rep_112opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_113 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_113.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_113}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-113">District 113</a><br>Grayson Lookner (D)',me_rep_113opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_114 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_114.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_114}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-114">District 114</a><br>Dylan Pugh (D)',me_rep_114opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_115 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_115.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_115}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-115">District 115</a><br>Michael Brennan (D)',me_rep_115opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_116 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_116.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_116}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-116">District 116</a><br>Samuel Zager (D)',me_rep_116opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_117 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_117.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_117}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-117">District 117</a><br>Matthew Moonen (D)',me_rep_117opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_118 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_118.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_118}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-118">District 118</a><br>Yusuf Yusuf (D)',me_rep_118opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_119 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_119.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_119}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-119">District 119</a><br>Charles Skold (D)',me_rep_119opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_120 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_120.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_120}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-120">District 120</a><br>Deqa Dhalac (D)',me_rep_120opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_121 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_121.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_121}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-121">District 121</a><br>Christopher Kessler (D)',me_rep_121opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_122 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_122.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_122}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-122">District 122</a><br>Matthew Beck (D)',me_rep_122opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_123 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_123.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_123}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-123">District 123</a><br>Michelle Boyer (D)',me_rep_123opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_124 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_124.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_124}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-124">District 124</a><br>Sophia Warren (D)',me_rep_124opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_125 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_125.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_125}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-125">District 125</a><br>Kelly Noonan Murphy (D)',me_rep_125opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_126 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_126.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_126}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-126">District 126</a><br>Andrew Gattine (D)',me_rep_126opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_127 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_127.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_127}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-127">District 127</a><br>Morgan Rielly (D)',me_rep_127opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_128 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_128.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_128}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-128">District 128</a><br>Suzanne Salisbury (D)',me_rep_128opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_129 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_129.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_129}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-129">District 129</a><br>Marshall Archer (D)',me_rep_129opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_130 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_130.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_130}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-130">District 130</a><br>Lynn Copeland (D)',me_rep_130opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_131 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_131.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_131}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-131">District 131</a><br>Lori Gramlich (D)',me_rep_131opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_132 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_132.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_132}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-132">District 132</a><br>Ryan Fecteau (D)',me_rep_132opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_133 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_133.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_133}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-133">District 133</a><br>Marc Malon (D)',me_rep_133opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_134 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_134.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_134}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-134">District 134</a><br>Traci Gere (D)',me_rep_134opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_135 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_135.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_135}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-135">District 135</a><br>Daniel Sayre (D)',me_rep_135opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_136 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_136.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_136}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-136">District 136</a><br>John Eder (R)',me_rep_136opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_137 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_137.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_137}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-137">District 137</a><br>Nathan Carlow (R)',me_rep_137opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_138 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_138.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_138}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-138">District 138</a><br>Mark Blier (R)',me_rep_138opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_139 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_139.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_139}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-139">District 139</a><br>David Woodsome (R)',me_rep_139opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_140 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_140.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_140}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-140">District 140</a><br>Wayne Parry (R)',me_rep_140opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_141 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_141.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_141}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-141">District 141</a><br>Lucas Lanigan (R)',me_rep_141opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_142 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_142.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_142}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-142">District 142</a><br>Anne-Marie Mastraccio (D)',me_rep_142opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_143 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_143.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_143}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-143">District 143</a><br>Ann Marie Fredericks (R)',me_rep_143opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_144 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_144.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_144}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-144">District 144</a><br>Jeffrey Adams (R)',me_rep_144opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_145 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_145.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_145}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-145">District 145</a><br>Robert Foley (R)',me_rep_145opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_146 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_146.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_146}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-146">District 146</a><br>Walter Runte Jr. (D)',me_rep_146opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_147 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_147.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_147}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-147">District 147</a><br>Holly Sargent (D)',me_rep_147opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_148 = {fillColor: "#FF0000",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_148.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_148}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-148">District 148</a><br>Thomas Lavigne (R)',me_rep_148opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_149 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_149.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_149}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-149">District 149</a><br>Tiffany Roberts (D)',me_rep_149opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_150 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_150.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_150}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-150">District 150</a><br>Michele Meyer (D)',me_rep_150opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+var me_rep_151 = {fillColor: "#0000FF",weight: 0.5,opacity: 1,color: "white",fillOpacity: 0.5};
+$.getJSON('https://s3.amazonaws.com/gm-zdm/gj/pol/me_rep_151.geojson',function(Data){var f = L.geoJson( Data,{style: me_rep_151}).bindPopup('<a href="politics/state-level/district/map-of-maine-state-house-of-representatives-district-151">District 151</a><br>Kristi Mathieson (D)',me_rep_151opts).addTo(map);f.on('mouseover', function (e) {this.openPopup();});f.on('mouseout', function (e) {this.closePopup();});});
+mf="https://s3.amazonaws.com/gm-zdm/gj/st/st_us_me_pl.geojson";
+  $.getJSON(mf,function(Data){
+    var f = L.geoJson( Data,{} );
+    map.fitBounds(f.getBounds());
+  });
+overlays = {};
+layerControl = L.control.layers(overlays).addTo(map);
+var cnty_style = {fillColor: "green",weight: 1.5,opacity: 1,color: "black",fillOpacity: 0.0};
+var cntyLayer = $.getJSON("https://s3.amazonaws.com/gm-zdm/gj/cnty/st/cnty_ME.geojson",function(data){
+    var map_layer = new L.geoJson(data, {style: cnty_style,
+      onEachFeature: function(feature, layer){
+        pnm = feature.properties.PNM;
+        map_label = pnm;
+        layer.bindPopup(map_label);
+        layer.on("mouseover", function (e) {this.openPopup();});
+        layer.on("mouseout", function (e) {this.closePopup();});
+      }
+    }); 
+  layerControl.addOverlay(map_layer, "Maine Counties");
+});
+
+
+function csc(){
+	var d = $('#map-canvas').offset();
+	$('html, body').animate({scrollTop: d.top}, "slow");
+}
+function ftz(x,y,zl){
+	map.flyTo(L.latLng(y,x),zl);
+}
+
+
+</script>
+<script>
+
+(adsbygoogle = window.adsbygoogle || []).push({});
+(adsbygoogle = window.adsbygoogle || []).push({});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5984412-5', 'auto');
+  ga('send', 'pageview');
+
+
+</script>
+</body>
+
+</html>
