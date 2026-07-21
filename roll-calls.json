@@ -1,0 +1,251 @@
+{
+  "_meta": {
+    "purpose": "Phase 1 of the Voting Record Matrix: maps every row of the Maine Tax Tracker (the 32 increases in `html`) to the legislative roll call that enacted it, with the legislature, session, and date.",
+    "why_bills_not_taxes": "Legislators vote on bills, not on individual taxes. Most of the 32 tracker rows were bundled into a handful of omnibus budget bills, so many rows share ONE roll call. This file is keyed by bill; each bill lists the tracker rows it enacted.",
+    "verification_key": {
+      "confirmed": "LD/chapter/date corroborated by multiple sources.",
+      "reported": "Vote tally reported by press; confirm exact roll-call number against the official Maine Legislature journal before publishing member-level claims.",
+      "date-confirmed": "Bill identity and enactment date confirmed; exact yea/nay tally still needs the official journal.",
+      "needs-lookup": "LD number and/or tally not yet pinned down; requires the official Maine Legislature record.",
+      "attribution-risk": "No clean member-level roll call on the tax provisions exists (voice vote / 'under the hammer' / administrative action). Do NOT assert individual votes without resolving this.",
+      "no-roll-call": "Not a legislative vote at all."
+    },
+    "sources_note": "The authoritative record is the Maine Legislature roll-call system (legislature.maine.gov roll calls + LawMakerWeb) and the enacted-law PDFs at lldc.mainelegislature.org. Those pages block automated fetching, so tallies marked date-confirmed/needs-lookup must be read there by hand before member-level publication.",
+    "generated": "2026-07-21"
+  },
+
+  "legislatures": {
+    "129th": "2019–2020",
+    "130th": "2021–2022",
+    "131st": "2023–2024",
+    "132nd": "2025–2026"
+  },
+
+  "bills": [
+    {
+      "key": "pl2025c388",
+      "ld": "LD 210",
+      "chapter": "PL 2025, c. 388",
+      "title": "FY2026–27 biennial budget — change package",
+      "legislature": "132nd",
+      "session": "First Regular / First Special Session (2025)",
+      "enacted": "2025-06-18",
+      "signed": "2025-06 (Gov. Mills)",
+      "roll_calls": [
+        { "chamber": "House",  "date": "2025-06-18", "tally": "74–73", "action": "enactment", "note": "passed by one vote" },
+        { "chamber": "Senate", "date": "2025-06-18", "tally": "19–15", "action": "enactment", "note": "party-line: all Democrats yea, all Republicans nay" }
+      ],
+      "tracker_rows": [1, 2, 4, 5, 6, 23, 25, 26, 27, 28, 31],
+      "verification": "reported",
+      "note": "Two-step budget. The majority 'Part 1' continuing-services budget (PL 2025, c. 2, March 2025) carried no tax increases; every tax/fee increase lives in THIS change package. Non-emergency, so it passed by simple majority and takes effect 90 days after adjournment.",
+      "sources": [
+        "https://www.foxbangor.com/news/local/maine-legislature-passes-second-half-of-state-budget-as-legislative-session-draws-to-a-close/article_db9106c4-c5dc-46bf-97f5-9caeebb10993.html",
+        "https://www.newscentermaine.com/article/news/politics/maine-politics/maine-state-budget-vote-governor-janet-mills-signs-passes/97-3202c25c-c89d-4958-abf1-d330528e996f"
+      ]
+    },
+    {
+      "key": "pl2025c650",
+      "ld": "LD 2212 (HP 1491)",
+      "chapter": "PL 2025, c. 650",
+      "title": "2026 supplemental budget",
+      "legislature": "132nd",
+      "session": "Second Regular Session (2026)",
+      "enacted": "2026-04-10",
+      "signed": "2026-04-10",
+      "roll_calls": [
+        { "chamber": "House",  "date": "2026-04", "tally": "75–68", "action": "remove emergency preamble", "note": "This recorded vote was to STRIP the emergency preamble, not a clean up/down on the tax provisions." },
+        { "chamber": "House",  "date": "2026-04", "tally": null, "action": "final passage", "note": "Reportedly passed 'under the hammer' — no individual roll call recorded on final passage." },
+        { "chamber": "Senate", "date": "2026-04", "tally": null, "action": "enactment", "note": "Senate roll call needs journal lookup." }
+      ],
+      "tracker_rows": [9, 11, 12, 13, 14, 15, 29, 32],
+      "verification": "attribution-risk",
+      "note": "CRITICAL EDITORIAL FLAG: because the House passed the supplemental under the hammer, there may be no member-level House roll call directly on the income surtax / rainy-day drawdown etc. The nearest recorded House vote is the 75–68 emergency-preamble vote. Resolve exactly which recorded vote (if any) you will attribute to House members before publishing 'voted for' claims for rows 9, 11, 12, 13, 14, 15, 29, 32.",
+      "sources": [
+        "https://www.yahoo.com/news/lawmakers-adjourn-without-passing-emergency-212550535.html",
+        "https://www.maine.gov/governor/mills/news/governor-mills-statement-passage-supplemental-budget-2026-04-09",
+        "https://legiscan.com/ME/bill/LD2212/2025"
+      ]
+    },
+    {
+      "key": "pl2023c412",
+      "ld": "LD 258 (HP 163)",
+      "chapter": "PL 2023, c. 412",
+      "title": "FY2024–25 biennial budget — change package",
+      "legislature": "131st",
+      "session": "First Special Session (2023)",
+      "enacted": "2023-07-06",
+      "signed": "2023-07-11",
+      "roll_calls": [
+        { "chamber": "House",  "date": "2023-07-06", "tally": null, "action": "enactment", "note": "tally needs journal lookup" },
+        { "chamber": "Senate", "date": "2023-07-06", "tally": null, "action": "enactment", "note": "tally needs journal lookup" }
+      ],
+      "tracker_rows": [10, 22, 24],
+      "verification": "date-confirmed",
+      "note": "Row 10 = the Paid Family & Medical Leave program (and its 1% payroll tax), created inside this budget. Rows 22 (PTDZ/ETIF/MCIC sunset → Dirigo) and 24 (senior property-tax freeze repeal) are also here. The March 2023 majority 'Part 1' budget was PL 2023, c. 2.",
+      "sources": [
+        "https://www.maine.gov/governor/mills/news/governor-mills-signs-historic-budget-law-2023-07-12",
+        "https://legislature.maine.gov/legis/bills/display_ps.asp?PID=1456&snum=131&ld=258"
+      ]
+    },
+    {
+      "key": "pl2023c643",
+      "ld": "LD 2214",
+      "chapter": "PL 2023, c. 643",
+      "title": "2024 supplemental budget",
+      "legislature": "131st",
+      "session": "Second Regular Session (2024)",
+      "enacted": "2024-04",
+      "signed": "2024-04-22",
+      "effective": "2024-08-09",
+      "roll_calls": [
+        { "chamber": "House",  "date": "2024-04", "tally": null, "action": "enactment", "note": "tally needs journal lookup" },
+        { "chamber": "Senate", "date": "2024-04", "tally": null, "action": "enactment", "note": "tally needs journal lookup" }
+      ],
+      "tracker_rows": [3, 7, 20],
+      "verification": "date-confirmed",
+      "note": "LD 2214 ↔ c. 643 to be confirmed against the chaptered law. Rows 3 (canned software) & 7 (lease-stream timing) were ALSO enacted via an identical standalone bill, PL 2023, c. 673 (see below) — same policy, separate vote.",
+      "sources": [
+        "https://mainemorningstar.com/2024/04/22/gov-mills-signs-supplemental-budget-into-law/",
+        "http://lldc.mainelegislature.org/Open/Laws/2023/2023_PL_c643.pdf"
+      ]
+    },
+    {
+      "key": "pl2023c673",
+      "ld": "needs-lookup",
+      "chapter": "PL 2023, c. 673",
+      "title": "Canned software / electronically transferred products made taxable (standalone)",
+      "legislature": "131st",
+      "session": "Second Regular Session (2024)",
+      "enacted": "2024",
+      "roll_calls": [
+        { "chamber": "House",  "date": null, "tally": null, "action": "enactment", "note": "LD number and tally need lookup" },
+        { "chamber": "Senate", "date": null, "tally": null, "action": "enactment", "note": "LD number and tally need lookup" }
+      ],
+      "tracker_rows": [3, 7],
+      "verification": "needs-lookup",
+      "note": "Identical companion to the c. 643 provisions for rows 3 & 7. For the matrix, pick ONE vote to attribute (recommend the supplemental-budget vote, c. 643 / LD 2214) and footnote the companion to avoid double-counting."
+    },
+    {
+      "key": "pl2023c613",
+      "ld": "needs-lookup",
+      "chapter": "PL 2023, c. 613, Part B, §5",
+      "title": "\"Tobacco products\" definition expanded to include synthetic/artificial nicotine",
+      "legislature": "131st",
+      "session": "2024",
+      "effective": "2024-08-09",
+      "roll_calls": [
+        { "chamber": "House",  "date": null, "tally": null, "action": "enactment", "note": "LD number and tally need lookup" },
+        { "chamber": "Senate", "date": null, "tally": null, "action": "enactment", "note": "LD number and tally need lookup" }
+      ],
+      "tracker_rows": [8],
+      "verification": "needs-lookup",
+      "sources": [
+        "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/Excise03FINALCigarettesandTobaccoProducts_08012024.pdf"
+      ]
+    },
+    {
+      "key": "pl2019c527",
+      "ld": "LD 1671",
+      "chapter": "PL 2019, c. 527, Part A",
+      "title": "2019 tax conformity act — Maine Capital Investment Credit cut (9% → 1.2%)",
+      "legislature": "129th",
+      "session": "First Regular Session (2019)",
+      "enacted": "2019",
+      "roll_calls": [
+        { "chamber": "House",  "date": null, "tally": null, "action": "enactment", "note": "date and tally need lookup" },
+        { "chamber": "Senate", "date": null, "tally": null, "action": "enactment", "note": "date and tally need lookup" }
+      ],
+      "tracker_rows": [19],
+      "verification": "date-confirmed",
+      "note": "Row 19 has TWO enacting laws. The MCIC cut is here (LD 1671 / c. 527). The FDII add-back is in PL 2021, c. 1 (see below)."
+    },
+    {
+      "key": "pl2021c1",
+      "ld": "LD 220",
+      "chapter": "PL 2021, c. 1",
+      "title": "FY2021 supplemental / COVID tax-conformity act",
+      "legislature": "130th",
+      "session": "First Special Session (2021)",
+      "enacted": "2021",
+      "roll_calls": [
+        { "chamber": "House",  "date": null, "tally": null, "action": "enactment", "note": "date and tally need lookup" },
+        { "chamber": "Senate", "date": null, "tally": null, "action": "enactment", "note": "date and tally need lookup" }
+      ],
+      "tracker_rows": [18, 19],
+      "verification": "date-confirmed",
+      "note": "Row 18 = decoupling from CARES Act business provisions. Row 19 (FDII add-back portion) is also here. Likely an emergency measure (2/3 vote)."
+    },
+    {
+      "key": "pl2021c245",
+      "ld": "HP 891 (LD needs-lookup)",
+      "chapter": "PL 2021, c. 245",
+      "title": "Corporate factor-presence nexus thresholds adopted",
+      "legislature": "130th",
+      "session": "First Regular Session (2021)",
+      "enacted": "2021",
+      "effective": "2022-01-01",
+      "roll_calls": [
+        { "chamber": "House",  "date": null, "tally": null, "action": "enactment", "note": "LD number, date, tally need lookup" },
+        { "chamber": "Senate", "date": null, "tally": null, "action": "enactment", "note": "LD number, date, tally need lookup" }
+      ],
+      "tracker_rows": [17],
+      "verification": "needs-lookup"
+    }
+  ],
+
+  "rows_with_no_single_roll_call": [
+    {
+      "tracker_row": 16,
+      "name": "80% Net Operating Loss Limitation (TY2021 conformity)",
+      "status": "attribution-risk",
+      "note": "A conformity mechanic (Maine adopting the federal TCJA 80% NOL limit for TY2021), not a standalone up/down vote. Most likely rode inside a 2021 conformity/budget act (candidate: PL 2021, c. 1 / LD 220, or the FY2022-23 budget). Confirm the vehicle before attributing; may have no clean member-level vote on this provision."
+    },
+    {
+      "tracker_row": 21,
+      "name": "Hospital tax base year updated (repeated)",
+      "status": "attribution-risk",
+      "note": "Not a single vote — the base year is refreshed in EVERY biennial/supplemental budget under Mills (c. 412, c. 643, c. 650, and earlier). Attribution, if any, is to whichever budget roll call. Treat as a recurring rider, not a discrete tax vote."
+    },
+    {
+      "tracker_row": 30,
+      "name": "PaintCare stewardship fee increase",
+      "status": "no-roll-call",
+      "note": "NOT a legislative vote. Approved administratively by the Maine DEP on a proposal from PaintCare (a nonprofit). No legislator voted on it — this row must show 'no roll call' for every member and should probably be excluded from the voting matrix entirely."
+    }
+  ],
+
+  "row_to_bill_index": {
+    "1": "pl2025c388",
+    "2": "pl2025c388",
+    "3": "pl2023c643 (+ companion pl2023c673)",
+    "4": "pl2025c388",
+    "5": "pl2025c388",
+    "6": "pl2025c388",
+    "7": "pl2023c643 (+ companion pl2023c673)",
+    "8": "pl2023c613",
+    "9": "pl2025c650",
+    "10": "pl2023c412",
+    "11": "pl2025c650",
+    "12": "pl2025c650",
+    "13": "pl2025c650",
+    "14": "pl2025c650",
+    "15": "pl2025c650",
+    "16": "none (conformity — see rows_with_no_single_roll_call)",
+    "17": "pl2021c245",
+    "18": "pl2021c1",
+    "19": "pl2019c527 (MCIC) + pl2021c1 (FDII)",
+    "20": "pl2023c643",
+    "21": "none (recurring rider — see rows_with_no_single_roll_call)",
+    "22": "pl2023c412",
+    "23": "pl2025c388",
+    "24": "pl2023c412",
+    "25": "pl2025c388",
+    "26": "pl2025c388",
+    "27": "pl2025c388",
+    "28": "pl2025c388",
+    "29": "pl2025c650",
+    "30": "none (DEP administrative — not a legislative vote)",
+    "31": "pl2025c388",
+    "32": "pl2025c650"
+  }
+}
