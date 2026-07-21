@@ -23,6 +23,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "sources" / "rollcalls"
+ROSTERS = ROOT / "sources" / "rosters"
+SENATE_ROSTER = ROSTERS / "senate.html"
+# 'List by District' page (House). The alphabetical roster has no district
+# numbers; drop the district-listing page here to fill House districts in.
+HOUSE_DISTRICT_ROSTER = ROSTERS / "house-districts.html"
 
 # --- Which roll call enacted which bill/column ------------------------------
 # Each bill is ONE column (one vote). The taxes it enacted are listed so the
@@ -126,6 +131,45 @@ def titlecase(surname: str) -> str:
 PARTY_NAME = {"D": "Democrat", "R": "Republican", "I": "Independent", "U": "Unenrolled"}
 
 
+def parse_senate_roster() -> list:
+    """Senate district roster -> [{district, name_upper, party, county}].
+    The district number is embedded in each senator's /districtN profile link."""
+    if not SENATE_ROSTER.exists():
+        return []
+    raw = SENATE_ROSTER.read_text()
+    out = []
+    for m in re.finditer(
+        r'href="/[Dd]istrict(\d+)"[^>]*>([^<]+)</a>[^(]*\(([A-Za-z])\s*-\s*([^)]+)\)', raw
+    ):
+        out.append({
+            "district": int(m.group(1)),
+            "name_upper": htmllib.unescape(m.group(2)).replace("\xa0", " ").strip().upper(),
+            "party": m.group(3).upper(),
+            "county": htmllib.unescape(m.group(4)).replace("\xa0", " ").strip(),
+        })
+    return out
+
+
+def attach_districts(roster: list) -> None:
+    """Add a `district` to each legislator. Senate districts come from the
+    roster page (matched by county + surname). House districts stay None until
+    the House 'List by District' page is supplied — the alphabetical roster the
+    site exports has no district numbers, and we never guess them."""
+    sen = parse_senate_roster()
+    n_sen = sum(1 for r in roster if r["chamber"] == "Senate")
+    matched = 0
+    for r in roster:
+        r["district"] = None
+        if r["chamber"] == "Senate":
+            for s in sen:
+                if s["county"].upper() == r["town"].upper() and s["name_upper"].endswith(r["name"].upper()):
+                    r["district"] = s["district"]
+                    matched += 1
+                    break
+    print(f"Districts: Senate {matched}/{n_sen} matched"
+          f" | House 0/{sum(1 for r in roster if r['chamber']=='House')} (pending 'List by District' page)")
+
+
 def load_bill(bill: dict) -> dict:
     out = {"chambers": {}}
     for chamber, fkey in (("House", "house_file"), ("Senate", "senate_file")):
@@ -175,6 +219,7 @@ def main() -> None:
 
     roster = sorted(legislators.values(),
                     key=lambda r: (r["chamber"] != "House", r["name"], r["town"]))
+    attach_districts(roster)
     n_house = sum(1 for r in roster if r["chamber"] == "House")
     n_senate = len(roster) - n_house
     print(f"Union roster: {len(roster)} legislators ({n_house} House, {n_senate} Senate)")
@@ -193,15 +238,25 @@ def main() -> None:
     (ROOT / "voting-record-data.json").write_text(json.dumps(data, indent=2, ensure_ascii=False))
     print("Wrote voting-record-data.json")
 
-    render_html(data)
-    print("Wrote voting-record.html")
+    inject_into_page(data)
 
 
-def render_html(data: dict) -> None:
-    template = (ROOT / "voting-record.template.html").read_text()
+def inject_into_page(data: dict) -> None:
+    """Inject the voting data into the 'By Legislator' block of the main tracker
+    page (`html`), between the /*VOTING_DATA_START*/ .. /*VOTING_DATA_END*/
+    markers. Everything else in `html` stays hand-authored."""
     payload = json.dumps(data, ensure_ascii=False)
-    html = template.replace("/*__DATA__*/null", payload)
-    (ROOT / "voting-record.html").write_text(html)
+    target = ROOT / "html"
+    page = target.read_text()
+    if "/*VOTING_DATA_START*/" not in page:
+        sys.exit("marker /*VOTING_DATA_START*/ not found in html")
+    new = re.sub(
+        r"/\*VOTING_DATA_START\*/.*?/\*VOTING_DATA_END\*/",
+        lambda _: "/*VOTING_DATA_START*/" + payload + "/*VOTING_DATA_END*/",
+        page, flags=re.S,
+    )
+    target.write_text(new)
+    print("Injected voting data into html (By Legislator view)")
 
 
 if __name__ == "__main__":

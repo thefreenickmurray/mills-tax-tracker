@@ -91,7 +91,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "ADAMS",
@@ -102,7 +103,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "ALBERT",
@@ -113,7 +115,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "ANKELES",
@@ -124,7 +127,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "ARATA",
@@ -135,7 +139,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "ARCHER",
@@ -146,7 +151,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "ARDELL",
@@ -157,7 +163,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "ARFORD",
@@ -168,7 +175,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "BABIN",
@@ -179,7 +187,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "BAGSHAW",
@@ -190,7 +199,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "BECK",
@@ -201,7 +211,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "BELL",
@@ -212,7 +223,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "BISHOP",
@@ -223,7 +235,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "BLIER",
@@ -234,7 +247,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "BOYER",
@@ -245,7 +259,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "BOYER",
@@ -256,7 +271,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "BRENNAN",
@@ -267,7 +283,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "BRIDGEO",
@@ -278,7 +295,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "BUNKER",
@@ -289,7 +307,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "CAMPBELL",
@@ -300,7 +319,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "CARLOW",
@@ -311,7 +331,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "CARUSO",
@@ -322,7 +343,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "CHAPMAN",
@@ -333,7 +355,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "CIMINO",
@@ -344,7 +367,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "CLOUTIER",
@@ -354,7 +378,8 @@
       "party": "D",
       "votes": {
         "ld210": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "CLUCHEY",
@@ -365,7 +390,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "COLLAMORE",
@@ -376,7 +402,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "COLLINS",
@@ -387,7 +414,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "COOPER",
@@ -398,7 +426,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "COPELAND",
@@ -409,7 +438,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "CRAFTS",
@@ -420,7 +450,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "CRAY",
@@ -431,7 +462,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "CROCKETT",
@@ -442,7 +474,8 @@
       "votes": {
         "ld210": "X",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "DAIGLE",
@@ -453,7 +486,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "DEBRITO",
@@ -464,7 +498,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "DHALAC",
@@ -475,7 +510,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "DILL",
@@ -486,7 +522,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "DODGE",
@@ -497,7 +534,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "DOUDERA",
@@ -508,7 +546,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "DRINKWATER",
@@ -519,7 +558,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "DUCHARME",
@@ -530,7 +570,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "EATON",
@@ -541,7 +582,8 @@
       "votes": {
         "ld210": "E",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "EDER",
@@ -552,7 +594,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "FAIRCLOTH",
@@ -563,7 +606,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "FARRIN",
@@ -574,7 +618,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "FAULKINGHAM",
@@ -585,7 +630,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "FECTEAU",
@@ -596,7 +642,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "FLYNN",
@@ -607,7 +654,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "FOLEY",
@@ -618,7 +666,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "FOSTER",
@@ -629,7 +678,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "FREDERICKS",
@@ -640,7 +690,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "X"
-      }
+      },
+      "district": null
     },
     {
       "name": "FREDETTE",
@@ -651,7 +702,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "FRIEDMANN",
@@ -662,7 +714,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "FROST",
@@ -673,7 +726,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "GATTINE",
@@ -684,7 +738,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "GEIGER",
@@ -695,7 +750,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "GERE",
@@ -706,7 +762,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "GIFFORD",
@@ -717,7 +774,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "GOLEK",
@@ -728,7 +786,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "GRAHAM",
@@ -739,7 +798,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "GRAMLICH",
@@ -750,7 +810,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "GREENWOOD",
@@ -761,7 +822,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "GRIFFIN",
@@ -772,7 +834,8 @@
       "votes": {
         "ld210": "E",
         "ld2212": "X"
-      }
+      },
+      "district": null
     },
     {
       "name": "GUERRETTE",
@@ -783,7 +846,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "HAGGAN",
@@ -794,7 +858,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "HALL",
@@ -805,7 +870,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "HARRIMAN",
@@ -815,7 +881,8 @@
       "party": "D",
       "votes": {
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "HASENFUS",
@@ -826,7 +893,8 @@
       "votes": {
         "ld210": "X",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "HENDERSON",
@@ -837,7 +905,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "HEPLER",
@@ -848,7 +917,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "HYMES",
@@ -859,7 +929,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "JACKSON",
@@ -870,7 +941,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "JAVNER",
@@ -880,7 +952,8 @@
       "party": "R",
       "votes": {
         "ld210": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "JULIA",
@@ -891,7 +964,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "KESSLER",
@@ -902,7 +976,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "KUHN",
@@ -913,7 +988,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "LAJOIE",
@@ -924,7 +1000,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "LANCE",
@@ -935,7 +1012,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "LANIGAN",
@@ -946,7 +1024,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "X"
-      }
+      },
+      "district": null
     },
     {
       "name": "LAVIGNE",
@@ -957,7 +1036,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "LEE",
@@ -968,7 +1048,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "LEMELIN",
@@ -979,7 +1060,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "LIBBY",
@@ -990,7 +1072,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "LOOKNER",
@@ -1001,7 +1084,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "LYMAN",
@@ -1012,7 +1096,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "MACIAS",
@@ -1023,7 +1108,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MALON",
@@ -1034,7 +1120,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MASON",
@@ -1045,7 +1132,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "MASTRACCIO",
@@ -1056,7 +1144,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MATHIESON",
@@ -1067,7 +1156,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MATLACK",
@@ -1078,7 +1168,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MCCABE",
@@ -1089,7 +1180,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MCINTYRE",
@@ -1100,7 +1192,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "MEYER",
@@ -1111,7 +1204,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MILLIKEN",
@@ -1122,7 +1216,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MINGO",
@@ -1133,7 +1228,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "MITCHELL",
@@ -1144,7 +1240,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MONTELL",
@@ -1155,7 +1252,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MOONEN",
@@ -1166,7 +1264,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "MORRIS",
@@ -1177,7 +1276,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "MURPHY",
@@ -1188,7 +1288,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "NUTTING",
@@ -1199,7 +1300,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "O'HALLORAN",
@@ -1210,7 +1312,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "OLSEN",
@@ -1221,7 +1324,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "OSHER",
@@ -1232,7 +1336,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "PARRY",
@@ -1243,7 +1348,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "PAUL",
@@ -1254,7 +1360,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "PERKINS",
@@ -1265,7 +1372,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "PLUECKER",
@@ -1276,7 +1384,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "POIRIER",
@@ -1287,7 +1396,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "POMERLEAU",
@@ -1298,7 +1408,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "PUGH",
@@ -1309,7 +1420,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "QUINT",
@@ -1320,7 +1432,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "RANA",
@@ -1331,7 +1444,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "RAY",
@@ -1342,7 +1456,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "RIELLY",
@@ -1353,7 +1468,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "ROBERTS",
@@ -1364,7 +1480,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "ROEDER",
@@ -1375,7 +1492,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "ROLLINS",
@@ -1386,7 +1504,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "RUDNICKI",
@@ -1397,7 +1516,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "RUNTE",
@@ -1408,7 +1528,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SACHS",
@@ -1419,7 +1540,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SALISBURY",
@@ -1430,7 +1552,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SARGENT",
@@ -1441,7 +1564,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SATO",
@@ -1452,7 +1576,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SAYRE",
@@ -1463,7 +1588,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SCHMERSAL-BURGESS",
@@ -1474,7 +1600,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "SHAGOURY",
@@ -1485,7 +1612,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SIMMONS",
@@ -1496,7 +1624,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "SINCLAIR",
@@ -1507,7 +1636,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SKOLD",
@@ -1518,7 +1648,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SMITH",
@@ -1529,7 +1660,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "SOBOLESKI",
@@ -1540,7 +1672,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "STOVER",
@@ -1551,7 +1684,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "STROUT",
@@ -1562,7 +1696,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "SUPICA",
@@ -1573,7 +1708,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "SWALLOW",
@@ -1584,7 +1720,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "TERRY",
@@ -1595,7 +1732,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "THORNE",
@@ -1606,7 +1744,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "TUELL",
@@ -1617,7 +1756,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "UNDERWOOD",
@@ -1628,7 +1768,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "WADSWORTH",
@@ -1639,7 +1780,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "WALKER",
@@ -1650,7 +1792,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "WARREN",
@@ -1661,7 +1804,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "WEBB",
@@ -1672,7 +1816,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "WHITE",
@@ -1683,7 +1828,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "WHITE",
@@ -1694,7 +1840,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "WOOD",
@@ -1705,7 +1852,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "WOOD",
@@ -1716,7 +1864,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "WOODSOME",
@@ -1727,7 +1876,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": null
     },
     {
       "name": "YUSUF",
@@ -1738,7 +1888,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "ZAGER",
@@ -1749,7 +1900,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": null
     },
     {
       "name": "BAILEY",
@@ -1760,7 +1912,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 31
     },
     {
       "name": "BALDACCI",
@@ -1771,7 +1924,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 9
     },
     {
       "name": "BEEBE-CENTER",
@@ -1782,7 +1936,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 12
     },
     {
       "name": "BENNETT",
@@ -1793,7 +1948,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 18
     },
     {
       "name": "BERNARD",
@@ -1804,7 +1960,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 1
     },
     {
       "name": "BICKFORD",
@@ -1815,7 +1972,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 20
     },
     {
       "name": "BLACK",
@@ -1826,7 +1984,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 5
     },
     {
       "name": "BRADSTREET",
@@ -1837,7 +1996,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 15
     },
     {
       "name": "BRENNER",
@@ -1848,7 +2008,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 30
     },
     {
       "name": "CARNEY",
@@ -1859,7 +2020,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 29
     },
     {
       "name": "CURRY",
@@ -1870,7 +2032,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 11
     },
     {
       "name": "CYRWAY",
@@ -1881,7 +2044,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 16
     },
     {
       "name": "DAUGHTRY",
@@ -1892,7 +2056,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 23
     },
     {
       "name": "DUSON",
@@ -1903,7 +2068,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 27
     },
     {
       "name": "FARRIN",
@@ -1914,7 +2080,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 3
     },
     {
       "name": "GROHOSKI",
@@ -1925,7 +2092,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "N"
-      }
+      },
+      "district": 7
     },
     {
       "name": "GUERIN",
@@ -1936,7 +2104,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 4
     },
     {
       "name": "HAGGAN",
@@ -1947,7 +2116,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 10
     },
     {
       "name": "HARRINGTON",
@@ -1958,7 +2128,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 33
     },
     {
       "name": "HICKMAN",
@@ -1969,7 +2140,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "E"
-      }
+      },
+      "district": 14
     },
     {
       "name": "INGWERSEN",
@@ -1980,7 +2152,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 32
     },
     {
       "name": "LAWRENCE",
@@ -1991,7 +2164,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 35
     },
     {
       "name": "LIBBY",
@@ -2002,7 +2176,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 22
     },
     {
       "name": "MARTIN",
@@ -2013,7 +2188,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 19
     },
     {
       "name": "MOORE",
@@ -2024,7 +2200,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 6
     },
     {
       "name": "NANGLE",
@@ -2035,7 +2212,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 26
     },
     {
       "name": "PIERCE",
@@ -2046,7 +2224,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 25
     },
     {
       "name": "RAFFERTY",
@@ -2057,7 +2236,8 @@
       "votes": {
         "ld210": "E",
         "ld2212": "Y"
-      }
+      },
+      "district": 34
     },
     {
       "name": "RENY",
@@ -2068,7 +2248,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 13
     },
     {
       "name": "ROTUNDO",
@@ -2079,7 +2260,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 21
     },
     {
       "name": "STEWART",
@@ -2090,7 +2272,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 2
     },
     {
       "name": "TALBOT ROSS",
@@ -2101,7 +2284,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 28
     },
     {
       "name": "TEPLER",
@@ -2112,7 +2296,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 24
     },
     {
       "name": "TIMBERLAKE",
@@ -2123,7 +2308,8 @@
       "votes": {
         "ld210": "N",
         "ld2212": "N"
-      }
+      },
+      "district": 17
     },
     {
       "name": "TIPPING",
@@ -2134,7 +2320,8 @@
       "votes": {
         "ld210": "Y",
         "ld2212": "Y"
-      }
+      },
+      "district": 8
     }
   ]
 }
