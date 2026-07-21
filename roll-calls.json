@@ -53,12 +53,12 @@
       "enacted": "2026-04-09",
       "signed": "2026-04-10",
       "roll_calls": [
-        { "chamber": "House",  "roll_call": 791, "date": "2026-04-09", "tally": "76–71", "action": "enactment" },
+        { "chamber": "House",  "roll_call": 791, "date": "2026-04-08", "tally": "76–71", "action": "enactment" },
         { "chamber": "Senate", "roll_call": 927, "date": "2026-04-09", "tally": "18–16", "action": "enactment" }
       ],
       "tracker_rows": [9, 11, 12, 13, 14, 15, 29, 32],
       "verification": "confirmed",
-      "note": "Earlier 'under the hammer' concern is RESOLVED: there is a recorded member-level enactment roll call in each chamber — House RC #791 (76–71) and Senate RC #927 (18–16), both Apr 9 2026 (signed Apr 10). These are the votes to attribute for rows 9, 11, 12, 13, 14, 15, 29, 32. Roll-call numbers supplied from the official Maine Legislature journal.",
+      "note": "Earlier 'under the hammer' concern is RESOLVED: there is a recorded member-level enactment roll call in each chamber — House RC #791 (76–71, Apr 8 2026) and Senate RC #927 (18–16, Apr 9 2026); signed Apr 10. Verified against the official roll-call records now stored in sources/rollcalls/. These are the votes attributed for rows 9, 11, 12, 13, 14, 15, 29, 32 in the voting matrix.",
       "sources": [
         "https://www.yahoo.com/news/lawmakers-adjourn-without-passing-emergency-212550535.html",
         "https://www.maine.gov/governor/mills/news/governor-mills-statement-passage-supplemental-budget-2026-04-09",

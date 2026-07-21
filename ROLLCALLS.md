@@ -14,8 +14,8 @@ So on the matrix, same-bill taxes share a single ✕ decision — a member can't
 
 ## Flags before any member-level publication
 
-1. **2026 supplemental (LD 2212) — RESOLVED.** There *is* a recorded member-level enactment roll call in each chamber: **House RC #791 (76–71)** and **Senate RC #927 (18–16)**, both **Apr 9 2026** (signed Apr 10). These are the votes to attribute for rows 9, 11, 12, 13, 14, 15, 29, 32.
-2. **Tallies marked "TBD" need the official journal.** The official Maine Legislature roll-call pages are blocked by this session's egress policy (all outbound web fetching is denied), so exact yea/nay lists must be supplied from `legislature.maine.gov` roll calls / LawMakerWeb before any "Rep. X voted yes" claim goes live.
+1. **2026 supplemental (LD 2212) — RESOLVED & BUILT.** Recorded member-level enactment roll call in each chamber: **House RC #791 (76–71, Apr 8 2026)** and **Senate RC #927 (18–16, Apr 9 2026)**, signed Apr 10. These votes are attributed for rows 9, 11, 12, 13, 14, 15, 29, 32 in the live matrix.
+2. **c.388 & c.650 columns are built and verified.** Both marquee bills now have full 186-/187-member columns in [`voting-record.html`](./voting-record.html), parsed from the official roll calls in [`sources/rollcalls/`](./sources/rollcalls/) and reconciled exactly to the printed tallies (74–73 / 19–15 and 76–71 / 18–16). Remaining older-bill tallies stay "TBD" until their roll calls are supplied.
 
 ## The index
 
