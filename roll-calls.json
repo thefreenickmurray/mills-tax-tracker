@@ -50,16 +50,15 @@
       "title": "2026 supplemental budget",
       "legislature": "132nd",
       "session": "Second Regular Session (2026)",
-      "enacted": "2026-04-10",
+      "enacted": "2026-04-09",
       "signed": "2026-04-10",
       "roll_calls": [
-        { "chamber": "House",  "date": "2026-04", "tally": "75–68", "action": "remove emergency preamble", "note": "This recorded vote was to STRIP the emergency preamble, not a clean up/down on the tax provisions." },
-        { "chamber": "House",  "date": "2026-04", "tally": null, "action": "final passage", "note": "Reportedly passed 'under the hammer' — no individual roll call recorded on final passage." },
-        { "chamber": "Senate", "date": "2026-04", "tally": null, "action": "enactment", "note": "Senate roll call needs journal lookup." }
+        { "chamber": "House",  "roll_call": 791, "date": "2026-04-09", "tally": "76–71", "action": "enactment" },
+        { "chamber": "Senate", "roll_call": 927, "date": "2026-04-09", "tally": "18–16", "action": "enactment" }
       ],
       "tracker_rows": [9, 11, 12, 13, 14, 15, 29, 32],
-      "verification": "attribution-risk",
-      "note": "CRITICAL EDITORIAL FLAG: because the House passed the supplemental under the hammer, there may be no member-level House roll call directly on the income surtax / rainy-day drawdown etc. The nearest recorded House vote is the 75–68 emergency-preamble vote. Resolve exactly which recorded vote (if any) you will attribute to House members before publishing 'voted for' claims for rows 9, 11, 12, 13, 14, 15, 29, 32.",
+      "verification": "confirmed",
+      "note": "Earlier 'under the hammer' concern is RESOLVED: there is a recorded member-level enactment roll call in each chamber — House RC #791 (76–71) and Senate RC #927 (18–16), both Apr 9 2026 (signed Apr 10). These are the votes to attribute for rows 9, 11, 12, 13, 14, 15, 29, 32. Roll-call numbers supplied from the official Maine Legislature journal.",
       "sources": [
         "https://www.yahoo.com/news/lawmakers-adjourn-without-passing-emergency-212550535.html",
         "https://www.maine.gov/governor/mills/news/governor-mills-statement-passage-supplemental-budget-2026-04-09",
