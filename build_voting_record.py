@@ -72,7 +72,46 @@ BILLS = [
             "Manufactured housing transfer fee", "Budget stabilization fund drained",
         ],
     },
+    {
+        "key": "ld258",
+        "label": "FY24–25 Budget",
+        "ld": "LD 258",
+        "chapter": "PL 2023, c. 412",
+        "legislature": "131st",
+        "date": "2023-07-06",
+        "date_label": "Jul 6, 2023",
+        "motion": "Passage (majority OTP report)",
+        "house_file": "house-rc350-ld258-2023.html",
+        "senate_file": "senate-rc478-ld258-2023.html",
+        "tracker_rows": [10, 22, 24],
+        "taxes": [
+            "Paid Family & Medical Leave: new 1% payroll tax",
+            "Business incentives sunset (PTDZ/ETIF/MCIC → Dirigo)",
+            "Senior property-tax freeze repealed",
+        ],
+    },
+    {
+        "key": "ld2214",
+        "label": "2024 Supplemental",
+        "ld": "LD 2214",
+        "chapter": "PL 2023, c. 643",
+        "legislature": "131st",
+        "date": "2024-04-17",
+        "date_label": "Apr 17, 2024",
+        "motion": "Enactment",
+        "house_file": "house-rc549-ld2214-2024.html",
+        "senate_file": "senate-rc794-ld2214-2024.html",
+        "tracker_rows": [3, 7, 20],
+        "taxes": [
+            "Canned software / digital products taxable",
+            "Lease-stream tax timing changed",
+            "Hospital service-provider tax +46%",
+        ],
+    },
 ]
+
+# Legislature -> year label, shown in the matrix's legislature grouping/filter.
+LEG_YEARS = {"129th": "2019–20", "130th": "2021–22", "131st": "2023–24", "132nd": "2025–26"}
 
 CELL_RE = re.compile(r'<td class="rccell" valign="top">(.*?)</td>', re.S)
 TR_RE = re.compile(r"<tr>(.*?)</tr>", re.S)
@@ -211,12 +250,21 @@ def attach_districts(roster: list) -> None:
     sen = parse_senate_roster()
     hd = parse_house_district_roster()
     afn = house_alpha_firstnames()
-    n_sen = sum(1 for r in roster if r["chamber"] == "Senate")
-    n_house = sum(1 for r in roster if r["chamber"] == "House")
+    # The rosters are the current legislature's, so only assign districts to
+    # members who actually served in it (voted on one of its bills). This keeps
+    # an earlier-legislature member from inheriting a same-surname current seat.
+    leg_num = lambda s: int("".join(c for c in s if c.isdigit()) or 0)
+    current_leg = max((b["legislature"] for b in BILLS), key=leg_num)
+    current = {(r["chamber"], r["name"], r["town"]) for r in roster
+               if any(r["votes"].get(b["key"]) for b in BILLS if b["legislature"] == current_leg)}
+    n_sen = sum(1 for r in roster if r["chamber"] == "Senate" and (r["chamber"], r["name"], r["town"]) in current)
+    n_house = sum(1 for r in roster if r["chamber"] == "House" and (r["chamber"], r["name"], r["town"]) in current)
     sen_m = house_m = 0
     unmatched = []
     for r in roster:
         r["district"] = None
+        if (r["chamber"], r["name"], r["town"]) not in current:
+            continue  # not a current-legislature member; districts are current-roster only
         if r["chamber"] == "Senate":
             for s in sen:
                 if s["county"].upper() == r["town"].upper() and s["name_upper"].endswith(r["name"].upper()):
@@ -234,7 +282,7 @@ def attach_districts(roster: list) -> None:
                 house_m += 1
             elif hd:
                 unmatched.append(r["name"] + " of " + r["town"])
-    print(f"Districts: Senate {sen_m}/{n_sen} | House {house_m}/{n_house}")
+    print(f"Districts ({current_leg} members): Senate {sen_m}/{n_sen} | House {house_m}/{n_house}")
     if unmatched:
         print("  House unmatched (left blank, not guessed): " + ", ".join(unmatched))
 
@@ -297,6 +345,7 @@ def main() -> None:
         "meta": {
             "generated": date.today().isoformat(),
             "party_names": PARTY_NAME,
+            "legislatures": LEG_YEARS,
             "note": ("Every mark traces to an official Maine Legislature enactment "
                      "roll call. Y=Yea (a vote FOR the bill that enacted the increase). "
                      "Cells are blank where a member was not seated for that vote."),

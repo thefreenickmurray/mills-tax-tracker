@@ -75,11 +75,11 @@
       "enacted": "2023-07-06",
       "signed": "2023-07-11",
       "roll_calls": [
-        { "chamber": "House",  "date": "2023-07-06", "tally": null, "action": "enactment", "note": "tally needs journal lookup" },
-        { "chamber": "Senate", "date": "2023-07-06", "tally": null, "action": "enactment", "note": "tally needs journal lookup" }
+        { "chamber": "House",  "roll_call": 350, "date": "2023-07-06", "tally": "80–58", "action": "passage (accept majority OTP-AM report)" },
+        { "chamber": "Senate", "roll_call": 478, "date": "2023-07-06", "tally": "22–9",  "action": "passage (accept majority OTP-AM report)" }
       ],
       "tracker_rows": [10, 22, 24],
-      "verification": "date-confirmed",
+      "verification": "confirmed",
       "note": "Row 10 = the Paid Family & Medical Leave program (and its 1% payroll tax), created inside this budget. Rows 22 (PTDZ/ETIF/MCIC sunset → Dirigo) and 24 (senior property-tax freeze repeal) are also here. The March 2023 majority 'Part 1' budget was PL 2023, c. 2.",
       "sources": [
         "https://www.maine.gov/governor/mills/news/governor-mills-signs-historic-budget-law-2023-07-12",
@@ -97,11 +97,11 @@
       "signed": "2024-04-22",
       "effective": "2024-08-09",
       "roll_calls": [
-        { "chamber": "House",  "date": "2024-04", "tally": null, "action": "enactment", "note": "tally needs journal lookup" },
-        { "chamber": "Senate", "date": "2024-04", "tally": null, "action": "enactment", "note": "tally needs journal lookup" }
+        { "chamber": "House",  "roll_call": 549, "date": "2024-04-17", "tally": "75–63", "action": "enactment" },
+        { "chamber": "Senate", "roll_call": 794, "date": "2024-04-17", "tally": "19–14", "action": "enactment" }
       ],
       "tracker_rows": [3, 7, 20],
-      "verification": "date-confirmed",
+      "verification": "confirmed",
       "note": "LD 2214 ↔ c. 643 to be confirmed against the chaptered law. Rows 3 (canned software) & 7 (lease-stream timing) were ALSO enacted via an identical standalone bill, PL 2023, c. 673 (see below) — same policy, separate vote.",
       "sources": [
         "https://mainemorningstar.com/2024/04/22/gov-mills-signs-supplemental-budget-into-law/",
