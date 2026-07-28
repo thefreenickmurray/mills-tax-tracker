@@ -400,6 +400,7 @@ footer {
 #view-legislator td.yes { background: var(--yes-bg); }
 #view-legislator .x { color: var(--red); font-family: var(--cond); font-weight: 900; font-size: 1.05rem; line-height: 1; }
 #view-legislator .dot { color: var(--border); font-family: var(--mono); }
+#view-legislator .good { color: var(--muted); font-weight: 700; font-size: 0.95rem; line-height: 1; }
 #view-legislator .novote { color: var(--muted); font-family: var(--mono); font-size: 0.78rem; }
 #view-legislator td.notseated { background: repeating-linear-gradient(45deg, var(--na), var(--na) 4px, transparent 4px, transparent 8px); }
 #view-legislator td.score { border-left: 2px solid var(--border); font-family: var(--cond); font-weight: 800; font-size: 0.95rem; color: var(--red); }
@@ -517,7 +518,7 @@ footer {
         <h3>How to Read a Cell</h3>
         <div class="key">
           <div class="key-item"><span class="key-swatch" style="background:var(--yes-bg)"><span class="x">&#10005;</span></span><div><strong>Voted Yea</strong> &mdash; for the bill that enacted these increases</div></div>
-          <div class="key-item"><span class="key-swatch"><span class="dot">&middot;</span></span><div>Voted <strong>Nay</strong></div></div>
+          <div class="key-item"><span class="key-swatch"><span class="good">&#10003;</span></span><div>Voted <strong>Nay</strong> — against the increase (a good vote)</div></div>
           <div class="key-item"><span class="key-swatch"><span class="novote">&ndash;</span></span><div><strong>Absent or excused</strong> for the vote</div></div>
           <div class="key-item"><span class="key-swatch notseated"></span><div><strong>Not seated</strong> for this vote (roster changed between sessions)</div></div>
         </div>
@@ -684,7 +685,7 @@ window.addEventListener('load', setStickyOffsets);
     var cls = ['vote']; if (groupStart) cls.push('bill');
     var inner = '', title = '';
     if (v==='Y'){ cls.push('yes'); inner='<span class="x">✕</span>'; title='Yea — voted for '+bill.label; }
-    else if (v==='N'){ inner='<span class="dot">·</span>'; title='Nay'; }
+    else if (v==='N'){ inner='<span class="good">✓</span>'; title='Nay — voted against the increase'; }
     else if (v==='X'){ inner='<span class="novote">–</span>'; title='Absent'; }
     else if (v==='E'){ inner='<span class="novote">–</span>'; title='Excused'; }
     else { cls.push('notseated'); title='Not seated for this vote'; }
