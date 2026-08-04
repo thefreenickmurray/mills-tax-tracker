@@ -44,8 +44,10 @@
   --cond: 'Barlow Condensed', sans-serif;
 }
 /* ===== DARK THEME =====
-   OS preference by default; an explicit data-theme on <html> always wins
-   (the artifact/site theme toggle stamps it). Tokens only — components
+   Follows the OS preference: dark only when the reader's system explicitly
+   asks for it — no preference (or light) stays on the light broadsheet look.
+   The in-page toggle overrides either way by stamping data-theme on <html>,
+   and that explicit choice always beats the OS. Tokens only — components
    never reference raw colors, so both themes stay in sync. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -401,9 +403,26 @@ footer {
 }
 .view-toggle:hover { color: var(--text); }
 .view-toggle.active { color: var(--red); border-bottom: 2px solid var(--red); padding-bottom: 2px; }
-.view-tabs { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; gap: 1.5rem; border-top: 1px solid var(--border); }
+.view-tabs { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; gap: 1.5rem; border-top: 1px solid var(--border); }
+.view-tablist { display: flex; gap: 1.5rem; }
 .view-tabs .view-toggle { padding: 0.5rem 0; }
-@media (max-width: 480px) { .view-tabs { padding: 0 0.75rem; } }
+.theme-toggle {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 0.35rem;
+  background: none; border: 1px solid var(--border); border-radius: 20px;
+  padding: 0.2rem 0.6rem; cursor: pointer; color: var(--muted);
+  font-family: var(--cond); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.6;
+  transition: color 0.2s, border-color 0.2s;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--hover-border); }
+.theme-toggle:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.theme-ico { font-size: 0.85rem; line-height: 1; }
+@media (max-width: 480px) {
+  .view-tabs { padding: 0 0.75rem; gap: 1rem; }
+  .view-tablist { gap: 1rem; }
+  .theme-lbl { display: none; }
+  .theme-toggle { padding: 0.2rem 0.5rem; }
+}
 
 /* ===== BY-LEGISLATOR MATRIX ===== */
 #view-legislator .controls { background: var(--bg2); border-bottom: 1px solid var(--border); position: sticky; top: var(--masthead-h,62px); z-index: 50; }
@@ -489,6 +508,18 @@ footer {
   #view-legislator .vr-cards { display: block; }
 }
 </style>
+<script>
+/* Apply a saved theme choice before first paint, so a reader who overrode
+   their OS never sees a flash of the other theme. With nothing saved we set
+   nothing and the CSS follows the OS (dark only if it asks; light otherwise).
+   localStorage can throw in sandboxed frames, hence try/catch. */
+(function(){
+  try {
+    var t = localStorage.getItem('lm-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+})();
+</script>
 </head>
 <body>
 
@@ -496,7 +527,7 @@ footer {
   <div class="masthead-inner">
     <div class="masthead-brand">
       <div class="masthead-count">32</div>
-      <div class="masthead-title">Times Augusta Raised Your Costs<span>or Fees Since 2019</span></div>
+      <div class="masthead-title">Times Augusta Raised Your Costs<span>Since 2019</span></div>
     </div>
     <div class="masthead-stats">
       <div class="mstat"><div class="mstat-val">#5</div><div class="mstat-label">Most Taxed State</div></div>
@@ -504,9 +535,14 @@ footer {
       <div class="mstat"><div class="mstat-val">$292M</div><div class="mstat-label">Rainy Day Fund Drained</div></div>
     </div>
   </div>
-  <div class="view-tabs" role="tablist" aria-label="Views">
-    <button class="view-toggle active" data-view="tax" role="tab" aria-selected="true">By Tax</button>
-    <button class="view-toggle" data-view="legislator" role="tab" aria-selected="false">By Legislator</button>
+  <div class="view-tabs">
+    <div class="view-tablist" role="tablist" aria-label="Views">
+      <button class="view-toggle active" data-view="tax" role="tab" aria-selected="true">By Tax</button>
+      <button class="view-toggle" data-view="legislator" role="tab" aria-selected="false">By Legislator</button>
+    </div>
+    <button class="theme-toggle" id="themeBtn" type="button" aria-pressed="false" aria-label="Switch to dark mode" title="Switch to dark mode">
+      <span class="theme-ico" aria-hidden="true">&#9789;</span><span class="theme-lbl">Dark</span>
+    </button>
   </div>
 </header>
 
@@ -715,6 +751,40 @@ function renderTable(filter) {
     tbody.appendChild(expandTr);
   });
 }
+/* ===== THEME TOGGLE =====
+   The page follows the OS preference until the reader chooses; the choice is
+   stamped on <html>, remembered, and beats the OS in both directions. */
+(function(){
+  var btn = document.getElementById('themeBtn');
+  if (!btn) return;
+  var ico = btn.querySelector('.theme-ico'), lbl = btn.querySelector('.theme-lbl');
+  var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  function isDark(){
+    var set = document.documentElement.getAttribute('data-theme');
+    if (set === 'dark') return true;
+    if (set === 'light') return false;
+    return !!(mq && mq.matches);
+  }
+  function paint(){
+    var dark = isDark();
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    var next = dark ? 'Switch to light mode' : 'Switch to dark mode';
+    btn.setAttribute('aria-label', next);
+    btn.title = next;
+    ico.innerHTML = dark ? '&#9788;' : '&#9789;';
+    lbl.textContent = dark ? 'Light' : 'Dark';
+  }
+  paint();
+  btn.addEventListener('click', function(){
+    var dark = !isDark();
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('lm-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    paint();
+  });
+  // Keep the button honest if the OS flips while no explicit choice is set.
+  if (mq && mq.addEventListener) mq.addEventListener('change', paint);
+})();
+
 function setStickyOffsets() {
   const masthead = document.querySelector('.masthead');
   const filterBar = document.querySelector('.filter-bar');
