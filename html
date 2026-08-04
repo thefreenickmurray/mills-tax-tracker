@@ -25,10 +25,55 @@
   --cat-healthcare:#0F766E;
   --cat-fee:      #4F46E5;
   --cat-fiscal:   #374151;
+  /* surfaces & accents that vary by theme */
+  --surface:   #FFFFFF;
+  --shadow:    rgba(0,0,0,0.06);
+  --highlight: #FEF9F0;
+  --expand-bg: #FFFDF7;
+  --expand-text: #4B5563;
+  --hover-border: #AAAAAA;
+  --on-accent: #FFFFFF;
+  --dem: #1D4ED8;
+  --rep: #B91C1C;
+  --ind: #6B7280;
+  --yes-bg: #FCEBE9;
+  --na: #EDEBE8;
   --radius:    5px;
   --mono: 'IBM Plex Mono', monospace;
   --serif: 'Lora', Georgia, serif;
   --cond: 'Barlow Condensed', sans-serif;
+}
+/* ===== DARK THEME =====
+   OS preference by default; an explicit data-theme on <html> always wins
+   (the artifact/site theme toggle stamps it). Tokens only — components
+   never reference raw colors, so both themes stay in sync. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141414; --bg2: #1D1D1C; --bg3: #262624;
+    --text: #ECEAE6; --muted: #9A968E; --border: #33322F;
+    --red: #F26A5F; --gold: #D2A54A;
+    --cat-consumer:#C2701C; --cat-income:#D14A42; --cat-payroll:#9061F9;
+    --cat-business:#3B72E8; --cat-healthcare:#12907F; --cat-fee:#6A62E8;
+    --cat-fiscal:#5A6273;
+    --surface: #1A1A19; --shadow: rgba(0,0,0,0.45);
+    --highlight: #2A211A; --expand-bg: #201D19; --expand-text: #C9C4BB;
+    --hover-border: #5A554E; --on-accent: #14130F;
+    --dem: #6C9BFF; --rep: #F26A5F; --ind: #9A968E;
+    --yes-bg: #3A211F; --na: #242322;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141414; --bg2: #1D1D1C; --bg3: #262624;
+  --text: #ECEAE6; --muted: #9A968E; --border: #33322F;
+  --red: #F26A5F; --gold: #D2A54A;
+  --cat-consumer:#C2701C; --cat-income:#D14A42; --cat-payroll:#9061F9;
+  --cat-business:#3B72E8; --cat-healthcare:#12907F; --cat-fee:#6A62E8;
+  --cat-fiscal:#5A6273;
+  --surface: #1A1A19; --shadow: rgba(0,0,0,0.45);
+  --highlight: #2A211A; --expand-bg: #201D19; --expand-text: #C9C4BB;
+  --hover-border: #5A554E; --on-accent: #14130F;
+  --dem: #6C9BFF; --rep: #F26A5F; --ind: #9A968E;
+  --yes-bg: #3A211F; --na: #242322;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -45,12 +90,12 @@ a:hover { text-decoration: underline; }
 
 /* ===== MASTHEAD ===== */
 .masthead {
-  background: #FFFFFF;
+  background: var(--surface);
   position: sticky;
   top: 0;
   z-index: 100;
   border-bottom: 2px solid var(--red);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px var(--shadow);
 }
 .masthead-inner {
   max-width: 1200px;
@@ -158,9 +203,9 @@ a:hover { text-decoration: underline; }
   user-select: none;
   line-height: 1.4;
 }
-.cat-chip.active { color: #fff; }
-.cat-chip:not(.active) { background: #fff; color: var(--muted); border-color: var(--border); }
-.cat-chip:not(.active):hover { color: var(--text); border-color: #aaa; }
+.cat-chip.active { color: var(--on-accent); }
+.cat-chip:not(.active) { background: var(--surface); color: var(--muted); border-color: var(--border); }
+.cat-chip:not(.active):hover { color: var(--text); border-color: var(--hover-border); }
 .cat-chip[data-cat="all"].active      { background: var(--red); border-color: var(--red); }
 .cat-chip[data-cat="consumer"].active  { background: var(--cat-consumer); border-color: var(--cat-consumer); }
 .cat-chip[data-cat="income"].active    { background: var(--cat-income); border-color: var(--cat-income); }
@@ -208,7 +253,7 @@ tbody tr {
 }
 tbody tr:hover { background: var(--bg2); }
 tbody tr:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
-tbody tr.is-open { background: #FEF9F0; }
+tbody tr.is-open { background: var(--highlight); }
 td { padding: 0.7rem 0.75rem; vertical-align: top; }
 td:first-child {
   font-family: var(--mono);
@@ -240,7 +285,7 @@ td:first-child {
   text-transform: uppercase;
   padding: 0.18rem 0.5rem;
   border-radius: 3px;
-  color: #fff;
+  color: var(--on-accent);
   white-space: nowrap;
 }
 .change-val { font-family: var(--mono); font-size: 0.75rem; color: var(--text); line-height: 1.45; }
@@ -250,14 +295,14 @@ td:first-child {
 .source-val { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); line-height: 1.5; }
 .expand-row { display: none; }
 .expand-row td {
-  background: #FFFDF7;
+  background: var(--expand-bg);
   padding: 0.9rem 0.9rem 0.9rem 3rem;
   border-bottom: 2px solid var(--border);
 }
 .expand-row p {
   font-family: var(--serif);
   font-size: 0.85rem;
-  color: #4B5563;
+  color: var(--expand-text);
   line-height: 1.75;
   max-width: 720px;
 }
@@ -361,7 +406,6 @@ footer {
 @media (max-width: 480px) { .view-tabs { padding: 0 0.75rem; } }
 
 /* ===== BY-LEGISLATOR MATRIX ===== */
-#view-legislator { --dem:#1D4ED8; --rep:#B91C1C; --ind:#6B7280; --yes-bg:#FCEBE9; --na:#EDEBE8; }
 #view-legislator .controls { background: var(--bg2); border-bottom: 1px solid var(--border); position: sticky; top: var(--masthead-h,62px); z-index: 50; }
 #view-legislator .controls-inner { max-width: 1120px; margin: 0 auto; padding: 0.6rem 1.5rem; display: flex; align-items: center; gap: 0.75rem 1rem; flex-wrap: wrap; }
 #view-legislator .search { flex: 1 1 220px; min-width: 180px; position: relative; }
@@ -371,7 +415,7 @@ footer {
 #view-legislator .seg { display: flex; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; font-family: var(--cond); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
 #view-legislator .seg button { background: var(--bg); color: var(--muted); border: none; padding: 0.4rem 0.8rem; cursor: pointer; border-right: 1px solid var(--border); line-height: 1.5; }
 #view-legislator .seg button:last-child { border-right: none; }
-#view-legislator .seg button.active { background: var(--red); color: #fff; }
+#view-legislator .seg button.active { background: var(--red); color: var(--on-accent); }
 #view-legislator .filter-count { margin-left: auto; }
 #view-legislator .filter-count b { color: var(--text); font-weight: 500; }
 #view-legislator .matrix-wrap { max-width: 1120px; margin: 0 auto; padding: 1rem 1.5rem 2rem; }
@@ -395,7 +439,7 @@ footer {
 #view-legislator td { padding: 0.5rem 0.4rem; text-align: center; vertical-align: middle; font-variant-numeric: tabular-nums; border-bottom: 1px solid var(--border); white-space: normal; }
 #view-legislator .leg-name { font-family: var(--serif); font-weight: 600; color: var(--text); line-height: 1.2; }
 #view-legislator .leg-meta { font-family: var(--mono); font-size: 0.66rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; margin-top: 2px; flex-wrap: wrap; }
-#view-legislator .party { display: inline-block; font-family: var(--cond); font-weight: 700; font-size: 0.6rem; min-width: 16px; height: 16px; line-height: 16px; padding: 0 3px; text-align: center; border-radius: 3px; color: #fff; }
+#view-legislator .party { display: inline-block; font-family: var(--cond); font-weight: 700; font-size: 0.6rem; min-width: 16px; height: 16px; line-height: 16px; padding: 0 3px; text-align: center; border-radius: 3px; color: var(--on-accent); }
 #view-legislator .party.D { background: var(--dem); } #view-legislator .party.R { background: var(--rep); } #view-legislator .party.I, #view-legislator .party.U { background: var(--ind); }
 #view-legislator .chamber-tag { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.04em; }
 #view-legislator td.vote { border-left: 1px solid var(--border); }
@@ -422,7 +466,7 @@ footer {
 /* share link + focus banner */
 #view-legislator .vr-linkbtn { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; margin-left: 5px; cursor: pointer; line-height: 1.5; vertical-align: middle; }
 #view-legislator .vr-linkbtn:hover { color: var(--gold); border-color: var(--gold); }
-#view-legislator .vr-focus { max-width: 1120px; margin: 0 auto 0.75rem; padding: 0.5rem 0.85rem; background: #FEF9F0; border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.85rem; color: var(--text); }
+#view-legislator .vr-focus { max-width: 1120px; margin: 0 auto 0.75rem; padding: 0.5rem 0.85rem; background: var(--highlight); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.85rem; color: var(--text); }
 #view-legislator .vr-focus button { color: var(--gold); background: none; border: none; cursor: pointer; font: inherit; text-decoration: underline; padding: 0; }
 
 /* mobile "find your rep" cards */
@@ -452,7 +496,7 @@ footer {
   <div class="masthead-inner">
     <div class="masthead-brand">
       <div class="masthead-count">32</div>
-      <div class="masthead-title">Times Augusta Raised Taxes<span>or Fees Since 2019</span></div>
+      <div class="masthead-title">Times Augusta Raised Your Costs<span>or Fees Since 2019</span></div>
     </div>
     <div class="masthead-stats">
       <div class="mstat"><div class="mstat-val">#5</div><div class="mstat-label">Most Taxed State</div></div>
@@ -629,7 +673,7 @@ const items = [
 ];
 
 function badge(cat) {
-  return `<span class="cat-badge" style="background:${CAT_COLORS[cat]}">${CAT_LABELS[cat]}</span>`;
+  return `<span class="cat-badge" style="background:var(--cat-${cat}, ${CAT_COLORS[cat]})">${CAT_LABELS[cat]}</span>`;
 }
 function renderTable(filter) {
   const tbody = document.getElementById('trackerBody');
