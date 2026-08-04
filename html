@@ -25,10 +25,55 @@
   --cat-healthcare:#0F766E;
   --cat-fee:      #4F46E5;
   --cat-fiscal:   #374151;
+  /* surfaces & accents that vary by theme */
+  --surface:   #FFFFFF;
+  --shadow:    rgba(0,0,0,0.06);
+  --highlight: #FEF9F0;
+  --expand-bg: #FFFDF7;
+  --expand-text: #4B5563;
+  --hover-border: #AAAAAA;
+  --on-accent: #FFFFFF;
+  --dem: #1D4ED8;
+  --rep: #B91C1C;
+  --ind: #6B7280;
+  --yes-bg: #FCEBE9;
+  --na: #EDEBE8;
   --radius:    5px;
   --mono: 'IBM Plex Mono', monospace;
   --serif: 'Lora', Georgia, serif;
   --cond: 'Barlow Condensed', sans-serif;
+}
+/* ===== DARK THEME =====
+   OS preference by default; an explicit data-theme on <html> always wins
+   (the artifact/site theme toggle stamps it). Tokens only — components
+   never reference raw colors, so both themes stay in sync. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141414; --bg2: #1D1D1C; --bg3: #262624;
+    --text: #ECEAE6; --muted: #9A968E; --border: #33322F;
+    --red: #F26A5F; --gold: #D2A54A;
+    --cat-consumer:#C2701C; --cat-income:#D14A42; --cat-payroll:#9061F9;
+    --cat-business:#3B72E8; --cat-healthcare:#12907F; --cat-fee:#6A62E8;
+    --cat-fiscal:#5A6273;
+    --surface: #1A1A19; --shadow: rgba(0,0,0,0.45);
+    --highlight: #2A211A; --expand-bg: #201D19; --expand-text: #C9C4BB;
+    --hover-border: #5A554E; --on-accent: #14130F;
+    --dem: #6C9BFF; --rep: #F26A5F; --ind: #9A968E;
+    --yes-bg: #3A211F; --na: #242322;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141414; --bg2: #1D1D1C; --bg3: #262624;
+  --text: #ECEAE6; --muted: #9A968E; --border: #33322F;
+  --red: #F26A5F; --gold: #D2A54A;
+  --cat-consumer:#C2701C; --cat-income:#D14A42; --cat-payroll:#9061F9;
+  --cat-business:#3B72E8; --cat-healthcare:#12907F; --cat-fee:#6A62E8;
+  --cat-fiscal:#5A6273;
+  --surface: #1A1A19; --shadow: rgba(0,0,0,0.45);
+  --highlight: #2A211A; --expand-bg: #201D19; --expand-text: #C9C4BB;
+  --hover-border: #5A554E; --on-accent: #14130F;
+  --dem: #6C9BFF; --rep: #F26A5F; --ind: #9A968E;
+  --yes-bg: #3A211F; --na: #242322;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -45,19 +90,19 @@ a:hover { text-decoration: underline; }
 
 /* ===== MASTHEAD ===== */
 .masthead {
-  background: #FFFFFF;
+  background: var(--surface);
   position: sticky;
   top: 0;
   z-index: 100;
   border-bottom: 2px solid var(--red);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px var(--shadow);
 }
 .masthead-inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 2rem;
   height: 56px;
@@ -158,9 +203,9 @@ a:hover { text-decoration: underline; }
   user-select: none;
   line-height: 1.4;
 }
-.cat-chip.active { color: #fff; }
-.cat-chip:not(.active) { background: #fff; color: var(--muted); border-color: var(--border); }
-.cat-chip:not(.active):hover { color: var(--text); border-color: #aaa; }
+.cat-chip.active { color: var(--on-accent); }
+.cat-chip:not(.active) { background: var(--surface); color: var(--muted); border-color: var(--border); }
+.cat-chip:not(.active):hover { color: var(--text); border-color: var(--hover-border); }
 .cat-chip[data-cat="all"].active      { background: var(--red); border-color: var(--red); }
 .cat-chip[data-cat="consumer"].active  { background: var(--cat-consumer); border-color: var(--cat-consumer); }
 .cat-chip[data-cat="income"].active    { background: var(--cat-income); border-color: var(--cat-income); }
@@ -208,7 +253,7 @@ tbody tr {
 }
 tbody tr:hover { background: var(--bg2); }
 tbody tr:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
-tbody tr.is-open { background: #FEF9F0; }
+tbody tr.is-open { background: var(--highlight); }
 td { padding: 0.7rem 0.75rem; vertical-align: top; }
 td:first-child {
   font-family: var(--mono);
@@ -240,7 +285,7 @@ td:first-child {
   text-transform: uppercase;
   padding: 0.18rem 0.5rem;
   border-radius: 3px;
-  color: #fff;
+  color: var(--on-accent);
   white-space: nowrap;
 }
 .change-val { font-family: var(--mono); font-size: 0.75rem; color: var(--text); line-height: 1.45; }
@@ -250,14 +295,14 @@ td:first-child {
 .source-val { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); line-height: 1.5; }
 .expand-row { display: none; }
 .expand-row td {
-  background: #FFFDF7;
+  background: var(--expand-bg);
   padding: 0.9rem 0.9rem 0.9rem 3rem;
   border-bottom: 2px solid var(--border);
 }
 .expand-row p {
   font-family: var(--serif);
   font-size: 0.85rem;
-  color: #4B5563;
+  color: var(--expand-text);
   line-height: 1.75;
   max-width: 720px;
 }
@@ -356,9 +401,11 @@ footer {
 }
 .view-toggle:hover { color: var(--text); }
 .view-toggle.active { color: var(--red); border-bottom: 2px solid var(--red); padding-bottom: 2px; }
+.view-tabs { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; gap: 1.5rem; border-top: 1px solid var(--border); }
+.view-tabs .view-toggle { padding: 0.5rem 0; }
+@media (max-width: 480px) { .view-tabs { padding: 0 0.75rem; } }
 
 /* ===== BY-LEGISLATOR MATRIX ===== */
-#view-legislator { --dem:#1D4ED8; --rep:#B91C1C; --ind:#6B7280; --yes-bg:#FCEBE9; --na:#EDEBE8; }
 #view-legislator .controls { background: var(--bg2); border-bottom: 1px solid var(--border); position: sticky; top: var(--masthead-h,62px); z-index: 50; }
 #view-legislator .controls-inner { max-width: 1120px; margin: 0 auto; padding: 0.6rem 1.5rem; display: flex; align-items: center; gap: 0.75rem 1rem; flex-wrap: wrap; }
 #view-legislator .search { flex: 1 1 220px; min-width: 180px; position: relative; }
@@ -368,7 +415,7 @@ footer {
 #view-legislator .seg { display: flex; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; font-family: var(--cond); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
 #view-legislator .seg button { background: var(--bg); color: var(--muted); border: none; padding: 0.4rem 0.8rem; cursor: pointer; border-right: 1px solid var(--border); line-height: 1.5; }
 #view-legislator .seg button:last-child { border-right: none; }
-#view-legislator .seg button.active { background: var(--red); color: #fff; }
+#view-legislator .seg button.active { background: var(--red); color: var(--on-accent); }
 #view-legislator .filter-count { margin-left: auto; }
 #view-legislator .filter-count b { color: var(--text); font-weight: 500; }
 #view-legislator .matrix-wrap { max-width: 1120px; margin: 0 auto; padding: 1rem 1.5rem 2rem; }
@@ -392,7 +439,7 @@ footer {
 #view-legislator td { padding: 0.5rem 0.4rem; text-align: center; vertical-align: middle; font-variant-numeric: tabular-nums; border-bottom: 1px solid var(--border); white-space: normal; }
 #view-legislator .leg-name { font-family: var(--serif); font-weight: 600; color: var(--text); line-height: 1.2; }
 #view-legislator .leg-meta { font-family: var(--mono); font-size: 0.66rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; margin-top: 2px; flex-wrap: wrap; }
-#view-legislator .party { display: inline-block; font-family: var(--cond); font-weight: 700; font-size: 0.6rem; min-width: 16px; height: 16px; line-height: 16px; padding: 0 3px; text-align: center; border-radius: 3px; color: #fff; }
+#view-legislator .party { display: inline-block; font-family: var(--cond); font-weight: 700; font-size: 0.6rem; min-width: 16px; height: 16px; line-height: 16px; padding: 0 3px; text-align: center; border-radius: 3px; color: var(--on-accent); }
 #view-legislator .party.D { background: var(--dem); } #view-legislator .party.R { background: var(--rep); } #view-legislator .party.I, #view-legislator .party.U { background: var(--ind); }
 #view-legislator .chamber-tag { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.04em; }
 #view-legislator td.vote { border-left: 1px solid var(--border); }
@@ -400,6 +447,7 @@ footer {
 #view-legislator td.yes { background: var(--yes-bg); }
 #view-legislator .x { color: var(--red); font-family: var(--cond); font-weight: 900; font-size: 1.05rem; line-height: 1; }
 #view-legislator .dot { color: var(--border); font-family: var(--mono); }
+#view-legislator .good { color: var(--muted); font-weight: 700; font-size: 0.95rem; line-height: 1; }
 #view-legislator .novote { color: var(--muted); font-family: var(--mono); font-size: 0.78rem; }
 #view-legislator td.notseated { background: repeating-linear-gradient(45deg, var(--na), var(--na) 4px, transparent 4px, transparent 8px); }
 #view-legislator td.score { border-left: 2px solid var(--border); font-family: var(--cond); font-weight: 800; font-size: 0.95rem; color: var(--red); }
@@ -414,6 +462,32 @@ footer {
 #view-legislator .key-swatch { width: 30px; height: 22px; border: 1px solid var(--border); border-radius: 3px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
 #view-legislator .src-list { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); line-height: 1.8; }
 @media (max-width: 760px) { #view-legislator .lower { grid-template-columns: 1fr; } }
+
+/* share link + focus banner */
+#view-legislator .vr-linkbtn { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; margin-left: 5px; cursor: pointer; line-height: 1.5; vertical-align: middle; }
+#view-legislator .vr-linkbtn:hover { color: var(--gold); border-color: var(--gold); }
+#view-legislator .vr-focus { max-width: 1120px; margin: 0 auto 0.75rem; padding: 0.5rem 0.85rem; background: var(--highlight); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.85rem; color: var(--text); }
+#view-legislator .vr-focus button { color: var(--gold); background: none; border: none; cursor: pointer; font: inherit; text-decoration: underline; padding: 0; }
+
+/* mobile "find your rep" cards */
+#view-legislator .vr-cards { display: none; padding: 0.25rem 0 0; }
+#view-legislator .vr-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.8rem 0.9rem; margin-bottom: 0.7rem; background: var(--bg); }
+#view-legislator .vr-card-head { display: flex; align-items: baseline; gap: 0.45rem; flex-wrap: wrap; }
+#view-legislator .vr-card-name { font-family: var(--serif); font-weight: 600; font-size: 1.05rem; color: var(--text); }
+#view-legislator .vr-card-score { margin-left: auto; font-family: var(--cond); font-weight: 800; color: var(--red); font-size: 0.9rem; }
+#view-legislator .vr-card-meta { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); width: 100%; margin-top: 2px; }
+#view-legislator .vr-card ul { list-style: none; margin: 0.65rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+#view-legislator .vr-card li { display: flex; align-items: baseline; gap: 0.55rem; font-size: 0.86rem; border-top: 1px solid var(--bg3); padding: 0.4rem 0; }
+#view-legislator .vr-card li:first-child { border-top: none; }
+#view-legislator .vr-card .vc-mark { flex: 0 0 1.1rem; text-align: center; }
+#view-legislator .vr-card .vc-bill { color: var(--text); line-height: 1.35; }
+#view-legislator .vr-card .vc-leg { display: block; font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
+#view-legislator .vr-card .vr-share { margin-top: 0.6rem; }
+#view-legislator .vr-card .vr-share .vr-linkbtn { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.7rem; color: var(--gold); padding: 0.3rem 0.7rem; border-radius: 20px; margin: 0; }
+@media (max-width: 680px) {
+  #view-legislator .scroll { display: none; }
+  #view-legislator .vr-cards { display: block; }
+}
 </style>
 </head>
 <body>
@@ -422,17 +496,17 @@ footer {
   <div class="masthead-inner">
     <div class="masthead-brand">
       <div class="masthead-count">32</div>
-      <div class="masthead-title">Times Augusta Raised Taxes<span>or Fees Since 2019</span></div>
+      <div class="masthead-title">Times Augusta Raised Your Costs<span>or Fees Since 2019</span></div>
     </div>
     <div class="masthead-stats">
       <div class="mstat"><div class="mstat-val">#5</div><div class="mstat-label">Most Taxed State</div></div>
       <div class="mstat"><div class="mstat-val">65%</div><div class="mstat-label">Spending Growth Since 2018</div></div>
       <div class="mstat"><div class="mstat-val">$292M</div><div class="mstat-label">Rainy Day Fund Drained</div></div>
     </div>
-    <nav class="masthead-nav" aria-label="Views">
-      <button class="view-toggle active" data-view="tax">By Tax</button>
-      <button class="view-toggle" data-view="legislator">By Legislator</button>
-    </nav>
+  </div>
+  <div class="view-tabs" role="tablist" aria-label="Views">
+    <button class="view-toggle active" data-view="tax" role="tab" aria-selected="true">By Tax</button>
+    <button class="view-toggle" data-view="legislator" role="tab" aria-selected="false">By Legislator</button>
   </div>
 </header>
 
@@ -499,17 +573,22 @@ footer {
         <button data-pt="all" class="active">All</button><button data-pt="D">D</button><button data-pt="R">R</button><button data-pt="I">Ind</button>
       </div>
       <div class="seg" role="group" aria-label="Filter by legislature" id="vrLeg" hidden></div>
+      <div class="seg" role="group" aria-label="Sort" id="vrSort">
+        <button data-sort="name" class="active">A&ndash;Z</button><button data-sort="mostYea">Most &#10005;</button><button data-sort="fewestYea">Fewest &#10005;</button>
+      </div>
       <div class="filter-count">Showing <b id="vrVis">0</b> of <b id="vrTot">0</b></div>
     </div>
   </div>
   <main>
     <div class="matrix-wrap">
+      <div class="vr-focus" id="vrFocus" hidden></div>
       <div class="scroll">
         <table id="vrMatrix" aria-label="Maine legislator voting record on enacted tax and fee increases">
           <thead id="vrHead"></thead>
           <tbody id="vrBody"></tbody>
         </table>
       </div>
+      <div class="vr-cards" id="vrCards"></div>
       <p class="no-results" id="vrNoResults">No legislators match this filter.</p>
     </div>
     <div class="lower">
@@ -517,7 +596,7 @@ footer {
         <h3>How to Read a Cell</h3>
         <div class="key">
           <div class="key-item"><span class="key-swatch" style="background:var(--yes-bg)"><span class="x">&#10005;</span></span><div><strong>Voted Yea</strong> &mdash; for the bill that enacted these increases</div></div>
-          <div class="key-item"><span class="key-swatch"><span class="dot">&middot;</span></span><div>Voted <strong>Nay</strong></div></div>
+          <div class="key-item"><span class="key-swatch"><span class="good">&#10003;</span></span><div>Voted <strong>Nay</strong> — against the increase (a good vote)</div></div>
           <div class="key-item"><span class="key-swatch"><span class="novote">&ndash;</span></span><div><strong>Absent or excused</strong> for the vote</div></div>
           <div class="key-item"><span class="key-swatch notseated"></span><div><strong>Not seated</strong> for this vote (roster changed between sessions)</div></div>
         </div>
@@ -525,6 +604,7 @@ footer {
       <div class="box">
         <h3>Methodology &amp; Sources</h3>
         <p>Each column is a single <strong>enactment roll call</strong>. Several taxes rode inside one budget bill, so a Yea is a vote for the whole package &mdash; the column lists every increase it enacted.</p>
+        <p>These bills carry <strong>19 of the 32</strong> tracked increases &mdash; the ones with a recorded roll call. The rest were voice-voted, enacted administratively, or predate the sessions shown here.</p>
         <p>Every mark is transcribed from the official Maine Legislature roll-call record, and the parsed counts were verified to reconcile exactly to the printed tallies. Members not seated for a given vote are left blank, never counted as &ldquo;No.&rdquo;</p>
         <div class="src-list" id="vrSrc"></div>
       </div>
@@ -593,7 +673,7 @@ const items = [
 ];
 
 function badge(cat) {
-  return `<span class="cat-badge" style="background:${CAT_COLORS[cat]}">${CAT_LABELS[cat]}</span>`;
+  return `<span class="cat-badge" style="background:var(--cat-${cat}, ${CAT_COLORS[cat]})">${CAT_LABELS[cat]}</span>`;
 }
 function renderTable(filter) {
   const tbody = document.getElementById('trackerBody');
@@ -667,7 +747,9 @@ window.addEventListener('load', setStickyOffsets);
 (function(){
   var VOTING_DATA = /*VOTING_DATA_START*/{"meta": {"generated": "2026-07-22", "party_names": {"D": "Democrat", "R": "Republican", "I": "Independent", "U": "Unenrolled"}, "legislatures": {"129th": "2019–20", "130th": "2021–22", "131st": "2023–24", "132nd": "2025–26"}, "note": "Every mark traces to an official Maine Legislature enactment roll call. Y=Yea (a vote FOR the bill that enacted the increase). Cells are blank where a member was not seated for that vote."}, "bills": [{"key": "ld210", "label": "FY26–27 Budget", "ld": "LD 210", "chapter": "PL 2025, c. 388", "legislature": "132nd", "date_label": "Jun 18, 2025", "motion": "Enactment", "house_rc": 583, "senate_rc": 635, "n_taxes": 11, "tracker_rows": [1, 2, 4, 5, 6, 23, 25, 26, 27, 28, 31], "taxes": ["Tobacco tax +75%", "Streaming services tax", "Cannabis tax +40%", "Real estate transfer tax +173%", "Service provider tax base expanded", "Pension exemption phase-out", "Paint fee tripled", "Hunting & fishing license fees", "Concealed carry permit fees", "Arborist license fee", "Property tax relief funds swept"]}, {"key": "ld2212", "label": "2026 Supplemental", "ld": "LD 2212", "chapter": "PL 2025, c. 650", "legislature": "132nd", "date_label": "Apr 8–9, 2026", "motion": "Enactment", "house_rc": 791, "senate_rc": 927, "n_taxes": 8, "tracker_rows": [9, 11, 12, 13, 14, 15, 29, 32], "taxes": ["2% income surtax over $1M", "BETR eliminated for retail", "Federal conformity phased", "Decoupled from OBBBA business breaks", "Employer FMLA credit repealed", "Declined OBBBA individual cuts", "Manufactured housing transfer fee", "Budget stabilization fund drained"]}, {"key": "ld258", "label": "FY24–25 Budget", "ld": "LD 258", "chapter": "PL 2023, c. 412", "legislature": "131st", "date_label": "Jul 6, 2023", "motion": "Passage (majority OTP report)", "house_rc": 350, "senate_rc": 478, "n_taxes": 3, "tracker_rows": [10, 22, 24], "taxes": ["Paid Family & Medical Leave: new 1% payroll tax", "Business incentives sunset (PTDZ/ETIF/MCIC → Dirigo)", "Senior property-tax freeze repealed"]}, {"key": "ld2214", "label": "2024 Supplemental", "ld": "LD 2214", "chapter": "PL 2023, c. 643", "legislature": "131st", "date_label": "Apr 17, 2024", "motion": "Enactment", "house_rc": 549, "senate_rc": 794, "n_taxes": 3, "tracker_rows": [3, 7, 20], "taxes": ["Canned software / digital products taxable", "Lease-stream tax timing changed", "Hospital service-provider tax +46%"]}], "legislators": [{"name": "ABDI", "disp": "Abdi", "town": "Lewiston", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 95}, {"name": "ADAMS", "disp": "Adams", "town": "Lebanon", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "X", "ld2214": "X"}, "district": 144}, {"name": "ALBERT", "disp": "Albert", "town": "Madawaska", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 2}, {"name": "ANDREWS", "disp": "Andrews", "town": "Paris", "chamber": "House", "party": "R", "votes": {"ld258": "X", "ld2214": "N"}, "district": null}, {"name": "ANKELES", "disp": "Ankeles", "town": "Brunswick", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 100}, {"name": "ARATA", "disp": "Arata", "town": "New Gloucester", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 104}, {"name": "ARCHER", "disp": "Archer", "town": "Saco", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 129}, {"name": "ARDELL", "disp": "Ardell", "town": "Monticello", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 6}, {"name": "ARFORD", "disp": "Arford", "town": "Brunswick", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 101}, {"name": "BABIN", "disp": "Babin", "town": "Fort Fairfield", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 3}, {"name": "BAGSHAW", "disp": "Bagshaw", "town": "Windham", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 106}, {"name": "BECK", "disp": "Beck", "town": "South Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld2214": "Y"}, "district": 122}, {"name": "BELL", "disp": "Bell", "town": "Yarmouth", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 103}, {"name": "BISHOP", "disp": "Bishop", "town": "Bucksport", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 17}, {"name": "BLIER", "disp": "Blier", "town": "Buxton", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 138}, {"name": "BOYER", "disp": "Boyer", "town": "Cape Elizabeth", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 123}, {"name": "BOYER", "disp": "Boyer", "town": "Poland", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 87}, {"name": "BOYLE", "disp": "Boyle", "town": "Gorham", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "X"}, "district": null}, {"name": "BRADSTREET", "disp": "Bradstreet", "town": "Vassalboro", "chamber": "House", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "BRENNAN", "disp": "Brennan", "town": "Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 115}, {"name": "BRIDGEO", "disp": "Bridgeo", "town": "Augusta", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 60}, {"name": "BUNKER", "disp": "Bunker", "town": "Farmington", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 75}, {"name": "CAMPBELL", "disp": "Campbell", "town": "Orrington", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "X"}, "district": 19}, {"name": "CARLOW", "disp": "Carlow", "town": "Buxton", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 137}, {"name": "CARMICHAEL", "disp": "Carmichael", "town": "Greenbush", "chamber": "House", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "CARUSO", "disp": "Caruso", "town": "Caratunk", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 72}, {"name": "CHAPMAN", "disp": "Chapman", "town": "Auburn", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 88}, {"name": "CIMINO", "disp": "Cimino", "town": "Bridgton", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 83}, {"name": "CLOUTIER", "disp": "Cloutier", "town": "Lewiston", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 94}, {"name": "CLUCHEY", "disp": "Cluchey", "town": "Bowdoinham", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 52}, {"name": "COLLAMORE", "disp": "Collamore", "town": "Pittsfield", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 68}, {"name": "COLLINGS", "disp": "Collings", "town": "Portland", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "COLLINS", "disp": "Collins", "town": "Sidney", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 61}, {"name": "COOPER", "disp": "Cooper", "town": "Windham", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 107}, {"name": "COPELAND", "disp": "Copeland", "town": "Saco", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 130}, {"name": "COSTAIN", "disp": "Costain", "town": "Plymouth", "chamber": "House", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "CRAFTS", "disp": "Crafts", "town": "Newcastle", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 46}, {"name": "CRAVEN", "disp": "Craven", "town": "Lewiston", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "CRAY", "disp": "Cray", "town": "Palmyra", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 69}, {"name": "CROCKETT", "disp": "Crockett", "town": "Portland", "chamber": "House", "party": "U", "votes": {"ld210": "X", "ld2212": "N", "ld258": "Y", "ld2214": "X"}, "district": 112}, {"name": "CYRWAY", "disp": "Cyrway", "town": "Albion", "chamber": "House", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "DAIGLE", "disp": "Daigle", "town": "Fort Kent", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 1}, {"name": "DAVIS", "disp": "Davis", "town": "East Machias", "chamber": "House", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "DEBRITO", "disp": "Debrito", "town": "Waterville", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 64}, {"name": "DHALAC", "disp": "Dhalac", "town": "South Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 120}, {"name": "DILL", "disp": "Dill", "town": "Old Town", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 26}, {"name": "DODGE", "disp": "Dodge", "town": "Belfast", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 39}, {"name": "DOUDERA", "disp": "Doudera", "town": "Camden", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 41}, {"name": "DRINKWATER", "disp": "Drinkwater", "town": "Milford", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 27}, {"name": "DUCHARME", "disp": "Ducharme", "town": "Madison", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 71}, {"name": "DUNPHY", "disp": "Dunphy", "town": "Embden", "chamber": "House", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "EATON", "disp": "Eaton", "town": "Deer Isle", "chamber": "House", "party": "D", "votes": {"ld210": "E", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 15}, {"name": "EDER", "disp": "Eder", "town": "Waterboro", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 136}, {"name": "FAIRCLOTH", "disp": "Faircloth", "town": "Bangor", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 24}, {"name": "FARRIN", "disp": "Farrin", "town": "Jefferson", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 47}, {"name": "FAULKINGHAM", "disp": "Faulkingham", "town": "Winter Harbor", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 12}, {"name": "FAY", "disp": "Fay", "town": "Raymond", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "FECTEAU", "disp": "Fecteau", "town": "Biddeford", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 132}, {"name": "FLYNN", "disp": "Flynn", "town": "Albion", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 63}, {"name": "FOLEY", "disp": "Foley", "town": "Wells", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 145}, {"name": "FOSTER", "disp": "Foster", "town": "Dexter", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 32}, {"name": "FREDERICKS", "disp": "Fredericks", "town": "Sanford", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "X", "ld258": "N", "ld2214": "N"}, "district": 143}, {"name": "FREDETTE", "disp": "Fredette", "town": "Newport", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 33}, {"name": "FRIEDMANN", "disp": "Friedmann", "town": "Bar Harbor", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 14}, {"name": "FROST", "disp": "Frost", "town": "Belgrade", "chamber": "House", "party": "U", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 58}, {"name": "GALLETTA", "disp": "Galletta", "town": "Durham", "chamber": "House", "party": "R", "votes": {"ld258": "X", "ld2214": "N"}, "district": null}, {"name": "GATTINE", "disp": "Gattine", "town": "Westbrook", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 126}, {"name": "GEIGER", "disp": "Geiger", "town": "Rockland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 42}, {"name": "GERE", "disp": "Gere", "town": "Kennebunkport", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 134}, {"name": "GIFFORD", "disp": "Gifford", "town": "Lincoln", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 28}, {"name": "GOLEK", "disp": "Golek", "town": "Harpswell", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 99}, {"name": "GRAHAM", "disp": "Graham", "town": "North Yarmouth", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 105}, {"name": "GRAMLICH", "disp": "Gramlich", "town": "Old Orchard Beach", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "X"}, "district": 131}, {"name": "GREENWOOD", "disp": "Greenwood", "town": "Wales", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 56}, {"name": "GRIFFIN", "disp": "Griffin", "town": "Levant", "chamber": "House", "party": "R", "votes": {"ld210": "E", "ld2212": "X", "ld258": "N", "ld2214": "N"}, "district": 34}, {"name": "GUERRETTE", "disp": "Guerrette", "town": "Caribou", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 4}, {"name": "HAGGAN", "disp": "Haggan", "town": "Hampden", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "X", "ld2214": "N"}, "district": 36}, {"name": "HALL", "disp": "Hall", "town": "Wilton", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "X", "ld2214": "X"}, "district": 74}, {"name": "HARRIMAN", "disp": "Harriman", "town": "Lewiston", "chamber": "House", "party": "D", "votes": {"ld2212": "Y"}, "district": null}, {"name": "HASENFUS", "disp": "Hasenfus", "town": "Readfield", "chamber": "House", "party": "D", "votes": {"ld210": "X", "ld2212": "Y", "ld258": "Y", "ld2214": "X"}, "district": 57}, {"name": "HENDERSON", "disp": "Henderson", "town": "Rumford", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 78}, {"name": "HEPLER", "disp": "Hepler", "town": "Woolwich", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 49}, {"name": "HOBBS", "disp": "Hobbs", "town": "Wells", "chamber": "House", "party": "D", "votes": {"ld258": "X", "ld2214": "Y"}, "district": null}, {"name": "HYMES", "disp": "Hymes", "town": "Waldo", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 38}, {"name": "JACKSON", "disp": "Jackson", "town": "Oxford", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 80}, {"name": "JAUCH", "disp": "Jauch", "town": "Topsham", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "X"}, "district": null}, {"name": "JAVNER", "disp": "Javner", "town": "Chester", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld258": "N", "ld2214": "N"}, "district": 29}, {"name": "JULIA", "disp": "Julia", "town": "Waterville", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 65}, {"name": "KESSLER", "disp": "Kessler", "town": "South Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 121}, {"name": "KUHN", "disp": "Kuhn", "town": "Falmouth", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 111}, {"name": "LAJOIE", "disp": "Lajoie", "town": "Lewiston", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 96}, {"name": "LANCE", "disp": "Lance", "town": "Paris", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 79}, {"name": "LANDRY", "disp": "Landry", "town": "Farmington", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "LANIGAN", "disp": "Lanigan", "town": "Sanford", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "X", "ld258": "N", "ld2214": "N"}, "district": 141}, {"name": "LAVIGNE", "disp": "Lavigne", "town": "Berwick", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "X"}, "district": 148}, {"name": "LEE", "disp": "Lee", "town": "Auburn", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 89}, {"name": "LEMELIN", "disp": "Lemelin", "town": "Chelsea", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 53}, {"name": "LIBBY", "disp": "Libby", "town": "Auburn", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 90}, {"name": "LOOKNER", "disp": "Lookner", "town": "Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 113}, {"name": "LYMAN", "disp": "Lyman", "town": "Livermore Falls", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 76}, {"name": "LaROCHELLE", "disp": "Larochelle", "town": "Augusta", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "MACIAS", "disp": "Macias", "town": "Topsham", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 51}, {"name": "MADIGAN", "disp": "Madigan", "town": "Waterville", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "MALON", "disp": "Malon", "town": "Biddeford", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 133}, {"name": "MASON", "disp": "Mason", "town": "Lisbon", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 97}, {"name": "MASTRACCIO", "disp": "Mastraccio", "town": "Sanford", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 142}, {"name": "MATHIESON", "disp": "Mathieson", "town": "Kittery", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 151}, {"name": "MATLACK", "disp": "Matlack", "town": "St. George", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 43}, {"name": "MCCABE", "disp": "McCabe", "town": "Lewiston", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 93}, {"name": "MCINTYRE", "disp": "McIntyre", "town": "Lowell", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 18}, {"name": "MEYER", "disp": "Meyer", "town": "Eliot", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 150}, {"name": "MILLETT", "disp": "Millett", "town": "Cape Elizabeth", "chamber": "House", "party": "D", "votes": {"ld258": "X", "ld2214": "Y"}, "district": null}, {"name": "MILLETT", "disp": "Millett", "town": "Waterford", "chamber": "House", "party": "R", "votes": {"ld258": "Y", "ld2214": "N"}, "district": null}, {"name": "MILLIKEN", "disp": "Milliken", "town": "Blue Hill", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 16}, {"name": "MINGO", "disp": "Mingo", "town": "Calais", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 9}, {"name": "MITCHELL", "disp": "Mitchell", "town": "Cumberland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 110}, {"name": "MONTELL", "disp": "Montell", "town": "Gardiner", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 54}, {"name": "MOONEN", "disp": "Moonen", "town": "Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 117}, {"name": "MORIARTY", "disp": "Moriarty", "town": "Cumberland", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "MORRIS", "disp": "Morris", "town": "Turner", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 91}, {"name": "MURPHY", "disp": "Murphy", "town": "Scarborough", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 125}, {"name": "NESS", "disp": "Ness", "town": "Fryeburg", "chamber": "House", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "NEWMAN", "disp": "Newman", "town": "Belgrade", "chamber": "House", "party": "R", "votes": {"ld258": "X", "ld2214": "N"}, "district": null}, {"name": "NUTTING", "disp": "Nutting", "town": "Oakland", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 66}, {"name": "O'CONNELL", "disp": "O'Connell", "town": "Brewer", "chamber": "House", "party": "D", "votes": {"ld258": "X", "ld2214": "Y"}, "district": null}, {"name": "O'HALLORAN", "disp": "O'Halloran", "town": "Brewer", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 20}, {"name": "O'NEIL", "disp": "O'Neil", "town": "Saco", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "OLSEN", "disp": "Olsen", "town": "Raymond", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 86}, {"name": "OSHER", "disp": "Osher", "town": "Orono", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 25}, {"name": "PARRY", "disp": "Parry", "town": "Arundel", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 140}, {"name": "PAUL", "disp": "Paul", "town": "Winterport", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 37}, {"name": "PAULHUS", "disp": "Paulhus", "town": "Bath", "chamber": "House", "party": "D", "votes": {"ld258": "Y"}, "district": null}, {"name": "PERKINS", "disp": "Perkins", "town": "Dover-Foxcroft", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 31}, {"name": "PERRY", "disp": "Perry", "town": "Bangor", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "PERRY", "disp": "Perry", "town": "Calais", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "PLUECKER", "disp": "Pluecker", "town": "Warren", "chamber": "House", "party": "I", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 44}, {"name": "POIRIER", "disp": "Poirier", "town": "Skowhegan", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 70}, {"name": "POLEWARCZYK", "disp": "Polewarczyk", "town": "Wiscasset", "chamber": "House", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "POMERLEAU", "disp": "Pomerleau", "town": "Standish", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 85}, {"name": "PRINGLE", "disp": "Pringle", "town": "Windham", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "PUGH", "disp": "Pugh", "town": "Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 114}, {"name": "QUINT", "disp": "Quint", "town": "Hodgdon", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 8}, {"name": "RANA", "disp": "Rana", "town": "Bangor", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 21}, {"name": "RAY", "disp": "Ray", "town": "Lincolnville", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 40}, {"name": "RECKITT", "disp": "Reckitt", "town": "South Portland", "chamber": "House", "party": "D", "votes": {"ld258": "Y"}, "district": null}, {"name": "RIELLY", "disp": "Rielly", "town": "Westbrook", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 127}, {"name": "RISEMAN", "disp": "Riseman", "town": "Harrison", "chamber": "House", "party": "I", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "ROBERTS", "disp": "Roberts", "town": "South Berwick", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "N", "ld258": "Y", "ld2214": "X"}, "district": 149}, {"name": "ROEDER", "disp": "Roeder", "town": "Bangor", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 23}, {"name": "ROLLINS", "disp": "Rollins", "town": "Augusta", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 59}, {"name": "RUDNICKI", "disp": "Rudnicki", "town": "Fairfield", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "X", "ld2214": "N"}, "district": 67}, {"name": "RUNTE", "disp": "Runte", "town": "York", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 146}, {"name": "RUSSELL", "disp": "Russell", "town": "Verona Island", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "SACHS", "disp": "Sachs", "town": "Freeport", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 102}, {"name": "SALISBURY", "disp": "Salisbury", "town": "Westbrook", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 128}, {"name": "SAMPSON", "disp": "Sampson", "town": "Alfred", "chamber": "House", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "SARGENT", "disp": "Sargent", "town": "York", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 147}, {"name": "SATO", "disp": "Sato", "town": "Gorham", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 109}, {"name": "SAYRE", "disp": "Sayre", "town": "Kennebunk", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 135}, {"name": "SCHMERSAL-BURGESS", "disp": "Schmersal-Burgess", "town": "Mexico", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 77}, {"name": "SHAGOURY", "disp": "Shagoury", "town": "Hallowell", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 55}, {"name": "SHAW", "disp": "Shaw", "town": "Auburn", "chamber": "House", "party": "D", "votes": {"ld258": "X", "ld2214": "Y"}, "district": null}, {"name": "SHEEHAN", "disp": "Sheehan", "town": "Biddeford", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "SIMMONS", "disp": "Simmons", "town": "Waldoboro", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 45}, {"name": "SINCLAIR", "disp": "Sinclair", "town": "Bath", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld2214": "Y"}, "district": 50}, {"name": "SKOLD", "disp": "Skold", "town": "Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 119}, {"name": "SMITH", "disp": "Smith", "town": "Palermo", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "X", "ld2214": "N"}, "district": 62}, {"name": "SOBOLESKI", "disp": "Soboleski", "town": "Phillips", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 73}, {"name": "STOVER", "disp": "Stover", "town": "Boothbay", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 48}, {"name": "STROUT", "disp": "Strout", "town": "Harrington", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 11}, {"name": "SUPICA", "disp": "Supica", "town": "Bangor", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 22}, {"name": "SWALLOW", "disp": "Swallow", "town": "Houlton", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 7}, {"name": "TALBOT ROSS", "disp": "Talbot Ross", "town": "Portland", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "TERRY", "disp": "Terry", "town": "Gorham", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 108}, {"name": "THERIAULT", "disp": "Theriault", "town": "Fort Kent", "chamber": "House", "party": "R", "votes": {"ld258": "X", "ld2214": "N"}, "district": null}, {"name": "THORNE", "disp": "Thorne", "town": "Carmel", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 35}, {"name": "TUELL", "disp": "Tuell", "town": "East Machias", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 10}, {"name": "UNDERWOOD", "disp": "Underwood", "town": "Presque Isle", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "X"}, "district": 5}, {"name": "WADSWORTH", "disp": "Wadsworth", "town": "Hiram", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 82}, {"name": "WALKER", "disp": "Walker", "town": "Naples", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 84}, {"name": "WARREN", "disp": "Warren", "town": "Scarborough", "chamber": "House", "party": "D", "votes": {"ld210": "N", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 124}, {"name": "WEBB", "disp": "Webb", "town": "Durham", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 98}, {"name": "WHITE", "disp": "White", "town": "Ellsworth", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 13}, {"name": "WHITE", "disp": "White", "town": "Guilford", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 30}, {"name": "WHITE", "disp": "White", "town": "Waterville", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "X"}, "district": null}, {"name": "WILLIAMS", "disp": "Williams", "town": "Bar Harbor", "chamber": "House", "party": "D", "votes": {"ld258": "Y"}, "district": null}, {"name": "WOOD", "disp": "Wood", "town": "Greene", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 92}, {"name": "WOOD", "disp": "Wood", "town": "Norway", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 81}, {"name": "WOODSOME", "disp": "Woodsome", "town": "Waterboro", "chamber": "House", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 139}, {"name": "WORTH", "disp": "Worth", "town": "Ellsworth", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "YUSUF", "disp": "Yusuf", "town": "Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 118}, {"name": "ZAGER", "disp": "Zager", "town": "Portland", "chamber": "House", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 116}, {"name": "ZEIGLER", "disp": "Zeigler", "town": "Montville", "chamber": "House", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "BAILEY", "disp": "Bailey", "town": "York", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 31}, {"name": "BALDACCI", "disp": "Baldacci", "town": "Penobscot", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 9}, {"name": "BEEBE-CENTER", "disp": "Beebe-Center", "town": "Knox", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 12}, {"name": "BENNETT", "disp": "Bennett", "town": "Oxford", "chamber": "Senate", "party": "I", "votes": {"ld210": "N", "ld2212": "N", "ld258": "Y", "ld2214": "N"}, "district": 18}, {"name": "BERNARD", "disp": "Bernard", "town": "Aroostook", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 1}, {"name": "BICKFORD", "disp": "Bickford", "town": "Androscoggin", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 20}, {"name": "BLACK", "disp": "Black", "town": "Franklin", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "E", "ld2214": "N"}, "district": 5}, {"name": "BRADSTREET", "disp": "Bradstreet", "town": "Kennebec", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 15}, {"name": "BRAKEY", "disp": "Brakey", "town": "Androscoggin", "chamber": "Senate", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "BRENNER", "disp": "Brenner", "town": "Cumberland", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 30}, {"name": "CARNEY", "disp": "Carney", "town": "Cumberland", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 29}, {"name": "CHIPMAN", "disp": "Chipman", "town": "Cumberland", "chamber": "Senate", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "CURRY", "disp": "Curry", "town": "Waldo", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 11}, {"name": "CYRWAY", "disp": "Cyrway", "town": "Kennebec", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 16}, {"name": "DAUGHTRY", "disp": "Daughtry", "town": "Cumberland", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 23}, {"name": "DUSON", "disp": "Duson", "town": "Cumberland", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 27}, {"name": "FARRIN", "disp": "Farrin", "town": "Somerset", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 3}, {"name": "GROHOSKI", "disp": "Grohoski", "town": "Hancock", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "N", "ld258": "Y", "ld2214": "N"}, "district": 7}, {"name": "GUERIN", "disp": "Guerin", "town": "Penobscot", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 4}, {"name": "HAGGAN", "disp": "Haggan", "town": "Penobscot", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 10}, {"name": "HARRINGTON", "disp": "Harrington", "town": "York", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 33}, {"name": "HICKMAN", "disp": "Hickman", "town": "Kennebec", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "E", "ld258": "E", "ld2214": "Y"}, "district": 14}, {"name": "INGWERSEN", "disp": "Ingwersen", "town": "York", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 32}, {"name": "JACKSON", "disp": "Jackson", "town": "Aroostook", "chamber": "Senate", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}, {"name": "KEIM", "disp": "Keim", "town": "Oxford", "chamber": "Senate", "party": "R", "votes": {"ld258": "E", "ld2214": "N"}, "district": null}, {"name": "LAFOUNTAIN", "disp": "Lafountain", "town": "Kennebec", "chamber": "Senate", "party": "D", "votes": {"ld258": "Y", "ld2214": "E"}, "district": null}, {"name": "LAWRENCE", "disp": "Lawrence", "town": "York", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 35}, {"name": "LIBBY", "disp": "Libby", "town": "Cumberland", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 22}, {"name": "LYFORD", "disp": "Lyford", "town": "Penobscot", "chamber": "Senate", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "MARTIN", "disp": "Martin", "town": "Oxford", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N"}, "district": 19}, {"name": "MOORE", "disp": "Moore", "town": "Washington", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 6}, {"name": "NANGLE", "disp": "Nangle", "town": "Cumberland", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 26}, {"name": "PIERCE", "disp": "Pierce", "town": "Cumberland", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "E"}, "district": 25}, {"name": "POULIOT", "disp": "Pouliot", "town": "Kennebec", "chamber": "Senate", "party": "R", "votes": {"ld258": "N", "ld2214": "N"}, "district": null}, {"name": "RAFFERTY", "disp": "Rafferty", "town": "York", "chamber": "Senate", "party": "D", "votes": {"ld210": "E", "ld2212": "Y", "ld258": "E", "ld2214": "Y"}, "district": 34}, {"name": "RENY", "disp": "Reny", "town": "Lincoln", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 13}, {"name": "ROTUNDO", "disp": "Rotundo", "town": "Androscoggin", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 21}, {"name": "STEWART", "disp": "Stewart", "town": "Aroostook", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "Y", "ld2214": "N"}, "district": 2}, {"name": "TALBOT ROSS", "disp": "Talbot Ross", "town": "Cumberland", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 28}, {"name": "TEPLER", "disp": "Tepler", "town": "Sagadahoc", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y"}, "district": 24}, {"name": "TIMBERLAKE", "disp": "Timberlake", "town": "Androscoggin", "chamber": "Senate", "party": "R", "votes": {"ld210": "N", "ld2212": "N", "ld258": "N", "ld2214": "N"}, "district": 17}, {"name": "TIPPING", "disp": "Tipping", "town": "Penobscot", "chamber": "Senate", "party": "D", "votes": {"ld210": "Y", "ld2212": "Y", "ld258": "Y", "ld2214": "Y"}, "district": 8}, {"name": "VITELLI", "disp": "Vitelli", "town": "Sagadahoc", "chamber": "Senate", "party": "D", "votes": {"ld258": "Y", "ld2214": "Y"}, "district": null}]}/*VOTING_DATA_END*/;
   if (!VOTING_DATA) return;
-  var state = { q:'', chamber:'all', party:'all', legislature:'all' };
+  var state = { q:'', chamber:'all', party:'all', legislature:'all', sort:'name', focus:null };
+  function slug(r){ return (r.chamber==='House'?'h':'s')+'-'+(r.disp+'-'+r.town).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+  function meaning(v){ return v==='Y'?'Voted yes — for the increase':v==='N'?'Voted no — against the increase':v==='X'?'Absent':v==='E'?'Excused':'Not seated for this vote'; }
   function legNum(s){ return parseInt(s, 10) || 0; }
   function pc(p){ return (p==='D'||p==='R') ? p : (p==='U' ? 'U' : 'I'); }
   function legList(){
@@ -680,50 +762,84 @@ window.addEventListener('load', setStickyOffsets);
     var vb = state.legislature==='all' ? all.slice() : all.filter(function(b){ return b.legislature===state.legislature; });
     return vb.sort(function(a,b){ return (legNum(b.legislature) - legNum(a.legislature)) || (all.indexOf(a) - all.indexOf(b)); });
   }
-  function cell(v, bill, groupStart){
+  function mark(v){
+    if (v==='Y') return '<span class="x">✕</span>';
+    if (v==='N') return '<span class="good">✓</span>';
+    if (v==='X'||v==='E') return '<span class="novote">–</span>';
+    return '';
+  }
+  function cell(v, bill, groupStart, who){
     var cls = ['vote']; if (groupStart) cls.push('bill');
-    var inner = '', title = '';
-    if (v==='Y'){ cls.push('yes'); inner='<span class="x">✕</span>'; title='Yea — voted for '+bill.label; }
-    else if (v==='N'){ inner='<span class="dot">·</span>'; title='Nay'; }
-    else if (v==='X'){ inner='<span class="novote">–</span>'; title='Absent'; }
-    else if (v==='E'){ inner='<span class="novote">–</span>'; title='Excused'; }
-    else { cls.push('notseated'); title='Not seated for this vote'; }
-    return '<td class="'+cls.join(' ')+'" title="'+title+'">'+inner+'</td>';
+    if (v==='Y') cls.push('yes'); else if (!v) cls.push('notseated');
+    var lab = who+' — '+bill.label+': '+meaning(v);
+    return '<td class="'+cls.join(' ')+'" title="'+lab+'" aria-label="'+lab+'">'+mark(v)+'</td>';
   }
   function render(){
+    renderFocusBanner();
     var ob = orderedBills(), q = state.q.toLowerCase();
     var rows = VOTING_DATA.legislators.filter(function(r){
+      if (state.focus) return slug(r)===state.focus;
       if (state.chamber!=='all' && r.chamber!==state.chamber) return false;
       if (state.party!=='all'){
         if (state.party==='I'){ if (r.party==='D'||r.party==='R') return false; }
         else if (r.party!==state.party) return false;
       }
       if (state.legislature!=='all' && !ob.some(function(b){ return r.votes[b.key]; })) return false;
-      if (q && !(r.disp.toLowerCase().indexOf(q)>=0 || r.town.toLowerCase().indexOf(q)>=0)) return false;
+      if (q && !(r.disp.toLowerCase().indexOf(q)>=0 || r.town.toLowerCase().indexOf(q)>=0
+                 || (r.district!=null && String(r.district).indexOf(q)>=0))) return false;
       return true;
     });
-    var html = '', lastCh = null;
+    var yeaOf = function(r){ var n=0; ob.forEach(function(b){ if (r.votes[b.key]==='Y') n++; }); return n; };
+    if (state.sort!=='name'){
+      var dir = state.sort==='mostYea' ? -1 : 1;
+      rows = rows.slice().sort(function(a,b){
+        if (a.chamber!==b.chamber) return a.chamber==='House' ? -1 : 1;
+        return (yeaOf(a)-yeaOf(b))*dir || (a.name<b.name?-1:a.name>b.name?1:0);
+      });
+    }
+    var dividers = (state.chamber==='all' && !state.focus);
+    var html='', cards='', lastCh=null;
     rows.forEach(function(r){
-      if (state.chamber==='all' && r.chamber!==lastCh){
+      var who = (r.chamber==='House'?'Rep. ':'Sen. ')+r.disp, sg = slug(r);
+      if (dividers && r.chamber!==lastCh){
         lastCh = r.chamber;
         html += '<tr class="divider"><td class="sticky-col" colspan="'+(ob.length+2)+'">'+(r.chamber==='House'?'House of Representatives':'Senate')+'</td></tr>';
       }
-      var yes=0, tot=0, cells='';
+      var yes=0, tot=0, cells='', items='';
       ob.forEach(function(b,i){
         var v=r.votes[b.key]; if (v){ tot++; if (v==='Y') yes++; }
-        cells += cell(v, b, i===0 || ob[i-1].legislature!==b.legislature);
+        cells += cell(v, b, i===0 || ob[i-1].legislature!==b.legislature, who);
+        var m = v ? mark(v) : '<span class="novote" style="opacity:.45">·</span>';
+        items += '<li><span class="vc-mark">'+m+'</span><span class="vc-bill">'+b.label
+          + '<span class="vc-leg">'+b.legislature+' Legislature · '+b.date_label+(v?'':' · not seated')+'</span></span></li>';
       });
       var score = tot ? (yes+'<span class="of">/'+tot+'</span>') : '<span class="of">—</span>';
       var dist = r.district ? ' '+r.district : '';
+      var meta = '<span class="chamber-tag">'+(r.chamber==='House'?'House':'Senate')+dist+'</span> · '+r.town;
       html += '<tr><td class="sticky-col" style="text-align:left">'
-        + '<div class="leg-name">'+r.disp+'</div>'
-        + '<div class="leg-meta"><span class="party '+pc(r.party)+'">'+r.party+'</span>'
-        + '<span class="chamber-tag">'+(r.chamber==='House'?'House':'Senate')+dist+'</span> · '+r.town+'</div>'
+        + '<div class="leg-name">'+r.disp+' <button class="vr-linkbtn" type="button" data-slug="'+sg+'" title="Copy link to this legislator" aria-label="Copy link to '+who+'">#</button></div>'
+        + '<div class="leg-meta"><span class="party '+pc(r.party)+'">'+r.party+'</span>'+meta+'</div>'
         + '</td>'+cells+'<td class="score">'+score+'</td></tr>';
+      cards += '<div class="vr-card"><div class="vr-card-head">'
+        + '<span class="party '+pc(r.party)+'">'+r.party+'</span><span class="vr-card-name">'+r.disp+'</span>'
+        + '<span class="vr-card-score" title="Votes for an increase">'+yes+'/'+tot+' &#10005;</span>'
+        + '<span class="vr-card-meta">'+meta+'</span></div>'
+        + '<ul>'+items+'</ul>'
+        + '<div class="vr-share"><button class="vr-linkbtn" type="button" data-slug="'+sg+'">Copy link to this legislator</button></div></div>';
     });
     document.getElementById('vrBody').innerHTML = html;
+    document.getElementById('vrCards').innerHTML = cards;
     document.getElementById('vrVis').textContent = rows.length;
     document.getElementById('vrNoResults').style.display = rows.length ? 'none' : 'block';
+  }
+  function renderFocusBanner(){
+    var el = document.getElementById('vrFocus');
+    if (!state.focus){ el.hidden = true; el.innerHTML=''; return; }
+    var r = VOTING_DATA.legislators.filter(function(x){ return slug(x)===state.focus; })[0];
+    el.hidden = false;
+    el.innerHTML = (r ? 'Showing <strong>'+(r.chamber==='House'?'Rep. ':'Sen. ')+r.disp+'</strong> of '+r.town
+                      : 'Legislator not found')
+      + ' &mdash; <button type="button" data-clear>Show all legislators</button>';
   }
   function head(){
     var ob = orderedBills(), legmap = (VOTING_DATA.meta && VOTING_DATA.meta.legislatures) || {};
@@ -756,16 +872,24 @@ window.addEventListener('load', setStickyOffsets);
     });
     document.getElementById('vrSrc').innerHTML = lines.join('<br>');
   }
+  function copyLink(slugStr, btn){
+    var url = location.origin + location.pathname + '#rep=' + slugStr;
+    var label = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', label);
+    var done = function(ok){ btn.textContent = ok ? 'Copied!' : 'Copy failed'; setTimeout(function(){ btn.textContent = label; }, 1400); };
+    try { navigator.clipboard.writeText(url).then(function(){ done(true); }, function(){ done(false); }); }
+    catch (e) { done(false); }
+  }
   function initControls(){
     document.getElementById('vrQ').addEventListener('input', function(e){ state.q = e.target.value; render(); });
     function wire(id, key, attr, after){
       document.getElementById(id).addEventListener('click', function(e){
-        var btn = e.target.closest('button'); if (!btn) return;
+        var btn = e.target.closest('button'); if (!btn || !btn.dataset[attr]) return;
         document.querySelectorAll('#'+id+' button').forEach(function(b){ b.classList.remove('active'); });
         btn.classList.add('active'); state[key] = btn.dataset[attr]; if (after) after(); render();
       });
     }
-    wire('vrChamber','chamber','ch'); wire('vrParty','party','pt');
+    wire('vrChamber','chamber','ch'); wire('vrParty','party','pt'); wire('vrSort','sort','sort');
     var L = legList();
     if (L.length >= 2){
       var seg = document.getElementById('vrLeg');
@@ -774,6 +898,15 @@ window.addEventListener('load', setStickyOffsets);
       seg.hidden = false;
       wire('vrLeg','legislature','lg', head);
     }
+    document.getElementById('view-legislator').addEventListener('click', function(e){
+      var link = e.target.closest('.vr-linkbtn');
+      if (link){ copyLink(link.dataset.slug, link); return; }
+      if (e.target.closest('#vrFocus [data-clear]')){
+        state.focus = null;
+        if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+        render();
+      }
+    });
   }
   var built = false;
   function ensure(){
@@ -782,15 +915,22 @@ window.addEventListener('load', setStickyOffsets);
     head(); sources(); initControls(); render(); built = true;
   }
   var vt = document.getElementById('view-tax'), vl = document.getElementById('view-legislator');
-  document.querySelectorAll('.view-toggle').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var v = btn.dataset.view;
-      document.querySelectorAll('.view-toggle').forEach(function(b){ b.classList.toggle('active', b===btn); });
-      vt.hidden = (v!=='tax'); vl.hidden = (v!=='legislator');
-      if (v==='legislator') ensure();
-      window.scrollTo(0,0);
+  function activateView(v){
+    document.querySelectorAll('.view-toggle').forEach(function(b){
+      var on = b.dataset.view===v; b.classList.toggle('active', on); b.setAttribute('aria-selected', on ? 'true' : 'false');
     });
+    vt.hidden = (v!=='tax'); vl.hidden = (v!=='legislator');
+    if (v==='legislator') ensure();
+  }
+  document.querySelectorAll('.view-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){ activateView(btn.dataset.view); window.scrollTo(0,0); });
   });
+  function applyHash(){
+    var m = /#rep=([^&]+)/.exec(location.hash || '');
+    if (m){ state.focus = decodeURIComponent(m[1]); activateView('legislator'); render(); }
+  }
+  applyHash();
+  window.addEventListener('hashchange', applyHash);
   window.addEventListener('resize', function(){ if (built) syncHead(); });
 })();
 </script>
