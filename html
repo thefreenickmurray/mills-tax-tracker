@@ -222,6 +222,26 @@ a:hover { text-decoration: underline; }
   color: var(--muted);
   white-space: nowrap;
 }
+.filter-bar .seg {
+  display: flex; border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+  font-family: var(--cond); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase; margin-left: auto;
+}
+.filter-bar .seg button {
+  background: var(--bg); color: var(--muted); border: none; padding: 0.25rem 0.7rem;
+  cursor: pointer; border-right: 1px solid var(--border); line-height: 1.5;
+}
+.filter-bar .seg button:last-child { border-right: none; }
+.filter-bar .seg button.active { background: var(--red); color: #fff; }
+.rev-note {
+  font-family: var(--serif); font-style: italic; font-size: 0.78rem;
+  color: var(--muted); padding: 0.5rem 0.75rem 0; line-height: 1.5;
+}
+.rev-rank {
+  font-family: var(--cond); font-weight: 700; font-size: 0.6rem;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  display: block; margin-top: 2px;
+}
 .filter-count span { color: var(--text); font-weight: 500; }
 
 /* ===== TABLE ===== */
@@ -439,6 +459,9 @@ footer {
 #view-legislator .filter-count b { color: var(--text); font-weight: 500; }
 #view-legislator .matrix-wrap { max-width: 1120px; margin: 0 auto; padding: 1rem 1.5rem 2rem; }
 #view-legislator .scroll { overflow: auto; max-height: 74vh; border: 1px solid var(--border); border-radius: var(--radius); }
+/* Embedded: the frame is sized to the content, so vh units would chase the
+   frame's own growth. Pin the matrix to a fixed height instead. */
+html.is-framed #view-legislator .scroll { max-height: 640px; }
 #view-legislator table { border-collapse: separate; border-spacing: 0; font-size: 0.85rem; width: 100%; min-width: 640px; }
 #view-legislator thead th { background: var(--bg); position: sticky; top: 0; z-index: 5; vertical-align: bottom; text-align: center; border-bottom: 2px solid var(--border); font-family: var(--cond); font-weight: 700; text-transform: uppercase; color: var(--muted); padding: 0.5rem 0.45rem 0.6rem; line-height: 1.25; width: 106px; white-space: normal; }
 #view-legislator thead th.bill { border-left: 1px solid var(--border); }
@@ -519,6 +542,13 @@ footer {
     var t = localStorage.getItem('lm-theme');
     if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
   } catch (e) {}
+  /* Mark the document when it is embedded in an iframe. The auto-height
+     embed grows the frame to fit the content, so any viewport-relative
+     height inside would feed back into itself and grow forever; the
+     .is-framed rules swap those for fixed pixel caps. */
+  try { if (window.parent !== window) document.documentElement.className += ' is-framed'; } catch (e) {
+    document.documentElement.className += ' is-framed';
+  }
 })();
 </script>
 </head>
@@ -540,7 +570,28 @@ footer {
      a "Custom HTML" block or a raw-HTML widget, not the classic/visual editor,
      which inserts <p> and <br> into scripts and breaks them.
   3. Most reliable: upload this file as a static .html asset and embed it in an
-     <iframe>, so no CMS filter touches the document at all.
+     <iframe>, so no CMS filter touches the document at all. Put this file at
+     e.g. /wp-content/uploads/taxtracker/index.html, then paste the snippet
+     below into a Custom HTML block. The page reports its own height, so the
+     frame grows to fit and there is no second scrollbar:
+
+     <iframe id="lm-taxtracker"
+             src="/wp-content/uploads/taxtracker/index.html"
+             title="Maine Tax Tracker"
+             style="width:100%;border:0;display:block;height:1200px"
+             loading="lazy"></iframe>
+     <script>
+     window.addEventListener('message', function (e) {
+       var d = e.data;
+       if (!d || d.lmTaxTracker !== 'height') return;
+       var f = document.getElementById('lm-taxtracker');
+       if (f && d.height) f.style.height = d.height + 'px';
+     });
+     </script>
+
+     If that small snippet is also stripped, drop the <script> and just set a
+     fixed height (e.g. height:1600px) — the page stays usable, it simply
+     scrolls inside the frame.
 
   Diagnosis: open the live page, press F12, and read the Console tab. A syntax
   error pointing into the big script confirms the script is being rewritten.
@@ -582,12 +633,16 @@ footer {
       <button class="cat-chip" data-cat="fee">Fees &amp; Licenses</button>
       <button class="cat-chip" data-cat="fiscal">Fiscal Policy</button>
     </div>
+    <div class="seg" role="group" aria-label="Sort increases" id="taxSort">
+      <button data-tsort="num" class="active">Order</button><button data-tsort="rev">Biggest $</button>
+    </div>
     <div class="filter-count">Showing <span id="visibleCount">32</span> of <span id="totalCount">32</span></div>
   </div>
 </div>
 
 <main>
 <div class="table-wrap" id="tracker">
+  <p class="rev-note" id="revNote" hidden>Ranked by published dollar figure, biggest first. Annual and one-time figures are marked but ranked together, and a range is ranked on its midpoint. Increases that were never given an official estimate are listed last &mdash; not scored as zero.</p>
   <table id="trackerTable" aria-label="Tax and fee increases under Governor Mills since 2019">
     <thead>
       <tr>
@@ -735,10 +790,43 @@ const items = [
 function badge(cat) {
   return `<span class="cat-badge" style="background:var(--cat-${cat}, ${CAT_COLORS[cat]})">${CAT_LABELS[cat]}</span>`;
 }
+/* Pull a dollar figure out of the free-text revenue line so the table can be
+   ranked by size. Returns null when an entry was never scored, which keeps
+   those at the bottom instead of silently sorting them as zero.
+   A range ("~$3-8M/yr") is ranked on its midpoint. */
+function revenueAmount(s) {
+  if (!s) return null;
+  const m = String(s).match(/\$\s*([\d.]+)\s*(?:-\s*([\d.]+)\s*)?([MB])/i);
+  if (!m) return null;
+  const mult = m[3].toUpperCase() === 'B' ? 1e9 : 1e6;
+  const lo = parseFloat(m[1]);
+  const hi = m[2] ? parseFloat(m[2]) : lo;
+  return ((lo + hi) / 2) * mult;
+}
+function revenueBasis(s) {
+  if (/one-time/i.test(s)) return 'one-time';
+  if (/\/yr/i.test(s)) return 'per year';
+  return null;
+}
+let taxSort = 'num';
+
 function renderTable(filter) {
   const tbody = document.getElementById('trackerBody');
   tbody.innerHTML = '';
-  const visible = filter === 'all' ? items : items.filter(i => i.cat === filter);
+  let visible = filter === 'all' ? items : items.filter(i => i.cat === filter);
+  const note = document.getElementById('revNote');
+  if (taxSort === 'rev') {
+    visible = visible.slice().sort((a, b) => {
+      const av = revenueAmount(a.revenue), bv = revenueAmount(b.revenue);
+      if (av === null && bv === null) return a.id - b.id;   // unscored keep original order
+      if (av === null) return 1;                            // unscored last
+      if (bv === null) return -1;
+      return bv - av;                                       // biggest first
+    });
+    if (note) note.hidden = false;
+  } else if (note) {
+    note.hidden = true;
+  }
   document.getElementById('visibleCount').textContent = visible.length;
   document.getElementById('noResults').style.display = visible.length === 0 ? 'block' : 'none';
   visible.forEach(item => {
@@ -751,7 +839,10 @@ function renderTable(filter) {
       <td>${badge(item.cat)}</td>
       <td class="col-change"><span class="change-val">${item.change}</span></td>
       <td class="col-effective"><span class="effective-val">${item.effective}</span></td>
-      <td class="col-revenue"><span class="revenue-val${isNA?' revenue-na':''}">${item.revenue}</span></td>
+      <td class="col-revenue"><span class="revenue-val${isNA?' revenue-na':''}">${item.revenue}</span>${
+        taxSort === 'rev' && revenueAmount(item.revenue) !== null && revenueBasis(item.revenue)
+          ? `<span class="rev-rank">${revenueBasis(item.revenue)}</span>` : ''
+      }</td>
       <td><span class="source-val">${item.source}</span></td>
     `;
     const expandTr = document.createElement('tr');
@@ -829,6 +920,16 @@ document.querySelectorAll('.cat-chip').forEach(chip => {
     setStickyOffsets();
   });
 });
+document.getElementById('taxSort').addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn || !btn.dataset.tsort) return;
+  document.querySelectorAll('#taxSort button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  taxSort = btn.dataset.tsort;
+  const active = document.querySelector('.cat-chip.active');
+  renderTable(active ? active.dataset.cat : 'all');
+  setStickyOffsets();
+});
 document.querySelector('.cat-chip[data-cat="all"]').textContent = `All (${items.length})`;
 document.getElementById('totalCount').textContent = items.length;
 renderTable('all');
@@ -869,6 +970,38 @@ document.querySelectorAll('.view-toggle').forEach(function (btn) {
     window.scrollTo(0, 0);
   });
 });
+
+/* ===== IFRAME AUTO-HEIGHT =====
+   When embedded, tell the host page how tall we are so it can size the frame
+   and avoid a second scrollbar. The host listens for this message; see the
+   embed snippet in the deployment note at the top of this file. Harmless
+   when the page is not framed (it simply never runs). */
+(function () {
+  if (window.parent === window) return;
+  /* Beyond this the frame stops growing and scrolls internally. Without a cap
+     the mobile card list (one card per legislator) would ask the host for a
+     frame tens of thousands of pixels tall. */
+  var MAX = 2400;
+  var last = 0;
+  function report() {
+    /* Measure the body box, not documentElement: once the host sizes the
+       frame to us, documentElement fills that height, so using it would
+       ratchet upward and the frame could never shrink back down when the
+       reader switches to a shorter view. */
+    var h = Math.min(Math.ceil(document.body.getBoundingClientRect().height), MAX);
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    try { window.parent.postMessage({ lmTaxTracker: 'height', height: h }, '*'); } catch (e) {}
+  }
+  report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  document.addEventListener('click', function () { setTimeout(report, 60); }, true);
+  document.addEventListener('input', function () { setTimeout(report, 60); }, true);
+  if (window.ResizeObserver) {
+    try { new ResizeObserver(report).observe(document.body); } catch (e) {}
+  }
+})();
 </script>
 <script data-no-optimize="1" data-no-minify="1" data-nowprocket data-cfasync="false">
 /* ===== BY-LEGISLATOR MATRIX (data injected by build_voting_record.py) ===== */
