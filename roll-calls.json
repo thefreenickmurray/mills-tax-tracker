@@ -175,20 +175,20 @@
       "note": "Row 18 = decoupling from CARES Act business provisions. Row 19 (FDII add-back portion) is also here. Likely an emergency measure (2/3 vote)."
     },
     {
-      "key": "pl2021c245",
-      "ld": "HP 891 (LD needs-lookup)",
-      "chapter": "PL 2021, c. 245",
+      "key": "pl2021c181",
+      "ld": "HP 891 / LD 1216",
+      "chapter": "PL 2021, c. 181",
       "title": "Corporate factor-presence nexus thresholds adopted",
       "legislature": "130th",
       "session": "First Regular Session (2021)",
-      "enacted": "2021",
+      "enacted": "2021-06-11",
       "effective": "2022-01-01",
       "roll_calls": [
-        { "chamber": "House",  "date": null, "tally": null, "action": "enactment", "note": "LD number, date, tally need lookup" },
-        { "chamber": "Senate", "date": null, "tally": null, "action": "enactment", "note": "LD number, date, tally need lookup" }
+        { "chamber": "House",  "date": null, "tally": null, "action": "enactment", "note": "No recorded roll call found; passed under the hammer per Lead Maine's Jackson-record research (2026-08-13)." },
+        { "chamber": "Senate", "date": null, "tally": null, "action": "enactment", "note": "No recorded roll call found; passed under the hammer per Lead Maine's Jackson-record research (2026-08-13)." }
       ],
       "tracker_rows": [17],
-      "verification": "needs-lookup"
+      "verification": "attribution-risk"
     }
   ],
 
@@ -230,7 +230,7 @@
     "14": "pl2025c650",
     "15": "pl2025c650",
     "16": "none (conformity — see rows_with_no_single_roll_call)",
-    "17": "pl2021c245",
+    "17": "pl2021c181",
     "18": "pl2021c1",
     "19": "pl2019c527 (MCIC) + pl2021c1 (FDII)",
     "20": "pl2023c643",
